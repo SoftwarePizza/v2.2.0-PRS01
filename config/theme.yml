@@ -46,6 +46,12 @@ assets:
       - id: lightbox-style
         path: assets/css/lightbox.css
         priority: 180
+      - id: owl-style
+        path: assets/css/owl.carousel.min.css
+        priority: 190
+      - id: owl.theme.default-style
+        path: assets/css/owl.theme.default.min.css
+        priority: 200
   js:
     all:
       - id: owl-lib
