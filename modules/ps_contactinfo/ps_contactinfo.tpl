@@ -44,11 +44,21 @@
 		<div class="data">
 	  	       <a href="tel:{$contact_infos.phone}"> <div class="icon"><i class="material-icons">&#xE0CD;</i></div>
         {* [1][/1] is for a HTML tag. *}
+<<<<<<< HEAD
+        <span  class="title">{l s='Call us:</span> [1]%callTag%[12]%phone%[/1]'
+          sprintf=[
+          '[1]' => '<a href="tel:',
+          '[12]' => '">',
+          '[/1]' => '</a>',
+          '%phone%' => $contact_infos.phone,
+          '%callTag%' => $contact_infos.phone|replace:" ":""
+=======
         <span class="title">{l s='Call us:</span> [1]%phone%[/1]'
           sprintf=[
           '[1]' => '<span>',
           '[/1]' => '</span>',
           '%phone%' => $contact_infos.phone
+>>>>>>> master
           ]
           d='Shop.Theme.Global'
         }</a>

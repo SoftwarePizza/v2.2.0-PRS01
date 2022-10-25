@@ -24,7 +24,11 @@
  *}
 
 <div class="contact-rich">
+<<<<<<< HEAD
+  <h1 style="font-size: 1.125rem;">{l s='Store information' d='Shop.Theme.Global'}</h1>
+=======
   <h3>{l s='Store information' d='Shop.Theme.Global'}</h3>
+>>>>>>> master
   <div class="block">
     <div class="icon"><i class="material-icons">&#xE55F;</i></div>
     <div class="data">{$contact_infos.address.formatted nofilter}</div>
@@ -35,7 +39,7 @@
       <div class="icon"><i class="material-icons">&#xE0CD;</i></div>
       <div class="data">
         {l s='Call us:' d='Shop.Theme.Global'}<br/>
-        <a href="tel:{$contact_infos.phone}">{$contact_infos.phone}</a>
+        <a class="tset" href="tel:{$contact_infos.phone}">{$contact_infos.phone}</a>
        </div>
     </div>
   {/if}
@@ -59,4 +63,5 @@
        </div>
     </div>
   {/if}
+
 </div>

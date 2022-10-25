@@ -40,7 +40,11 @@
       <div class="ttcontent col-sm-4">
         <p>
           {block name='copyright_link'}
+<<<<<<< HEAD
+            <a class="_blank" href="https://www.prestashop.com" rel="nofollow" target="_blank">
+=======
             <a class="_blank" href="{$urls.base_url}" rel="noopener noreferrer nofollow">
+>>>>>>> master
               {l s='%copyright% %year% - Ecommerce software by %prestashop%' sprintf=['%prestashop%' => 'PrestaShop™', '%year%' => 'Y'|date, '%copyright%' => '©'] d='Shop.Theme.Global'}
             </a>
           {/block}
@@ -51,6 +55,34 @@
       {/block}
     </div>
 	</div>
+<<<<<<< HEAD
+<a class="goToTop ttbox-img show" href="#"> </a>
+
+<span itemscope itemtype="https://schema.org/Store">
+    <meta itemprop="name" content="Amegra Sp. z o.o. Sp. k.">
+    <meta itemprop="image" content="https://amegra.pl/img/amegra-logo-1601359789.jpg">
+    <meta itemprop="logo" content="https://amegra.pl/img/amegra-logo-1601359789.jpg">
+    <link itemprop="url" href="https://amegra.pl/">
+    <span>
+    <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+      <meta itemprop="streetAddress" content="Kaczorowa 26"/>
+      <meta itemprop="addressLocality" content="Warszawa"/>
+      <meta itemprop="postalCode" content="03-046"/>		
+    </span>
+    <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+      <link itemprop="hasMap" href="https://g.page/amegra?share">
+      <span itemprop="geo" itemscope itemtype="https://schema.org/GeoCoordinates">
+        <meta itemprop="latitude" content="52.32241629999998" />
+        <meta itemprop="longitude" content="21.014549500000005" />
+      </span>
+    </span>
+  </span>
+    <meta itemprop="sameAs" content="https://www.facebook.com/galplast"/>
+    <meta itemprop="sameAs" content="https://www.instagram.com/amegra_dodziergania/?hl=pl"/>
+    <meta itemprop="openingHours" content="Pn-Pt 08:00-16:00"/>
+    <meta itemprop="telephone" content="+48885885435"/>
+</span>
+=======
 </div>
 <a href="#" id="goToTop" title="Back to top"><i class="material-icons arrow-up">&#xE316;</i></a>
 <div class="ttcookie">
@@ -58,3 +90,4 @@
 </div>
 {hook h='displaypopupnewsletter'}
 {hook h='displayMessenger'}
+>>>>>>> master

@@ -30,6 +30,13 @@
 
 {block name='head' append}
   <meta property="og:type" content="product">
+<<<<<<< HEAD
+  <meta property="og:url" content="{$urls.current_url}">
+  <meta property="og:title" content="{$page.meta.title}">
+  <meta property="og:site_name" content="{$shop.name}">
+  <meta property="og:description" content="{$page.meta.description}">
+  <meta property="og:image" content="{$product.cover.large.url}">
+=======
   {if $product.cover}
     <meta property="og:image" content="{$product.cover.large.url}">
   {/if}
@@ -39,6 +46,7 @@
     <meta property="product:price:amount" content="{$product.price_amount}">
     <meta property="product:price:currency" content="{$currency.iso_code}">
   {/if}
+>>>>>>> master
   {if isset($product.weight) && ($product.weight != 0)}
   <meta property="product:weight:value" content="{$product.weight}">
   <meta property="product:weight:units" content="{$product.weight_unit}">
@@ -51,10 +59,17 @@
 
 {block name='content'}
 
+<<<<<<< HEAD
+  <section id="main" itemscope itemtype="https://schema.org/Product">
+    <meta itemprop="url" content="{$product.url}">
+	<div class="main-column row">
+      <div class="col-md-6 pb-left-column">
+=======
   <section id="main" class="container">
       <div class="row"> 
 	<div class="product-container js-product-container">
       <div class="col-md-5 pb-left-column">
+>>>>>>> master
         {block name='page_content_container'}
           <section class="page-content" id="content">
             {block name='page_content'}
@@ -162,8 +177,12 @@
            
         </div>
       </div>
+<<<<<<< HEAD
+	</div>
+=======
 	 </div>
 	  </div>
+>>>>>>> master
 	  <div class="ttproductpagetab">
 	 {block name='product_tabs'}
 	 			<div class="tabs">

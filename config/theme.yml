@@ -55,12 +55,18 @@ assets:
       - id: owl-style
         path: assets/css/owl.carousel.min.css
         priority: 190
+<<<<<<< HEAD
+      - id: owl.theme.default-style
+        path: assets/css/owl.theme.default.min.css
+        priority: 200
+=======
       - id: owl-theme-default-style
         path: assets/css/owl.theme.default.min.css
         priority: 200
       - id: custom-style
         path: assets/css/custom.css
         priority: 240 
+>>>>>>> master
   js:
     all:
       - id: owl-lib

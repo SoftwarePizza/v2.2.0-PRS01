@@ -23,14 +23,27 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
 {extends file='page.tpl'}
-
     {block name='page_content_container'}
+<<<<<<< HEAD
+	{hook h='displayHeaderHome'}
+	<div class="homebg">
+		<div class="tthometab-title">{l s='Trending Products' d='Shop.Theme.Global'}</div>
+		<h4 class="tthometab-subtitle">{l s='Trending fashion in this season' d='Shop.Theme.Global'}</h4>
+	</div>
+	{block name='home_tab'}
+		<div id="hometab" class="home-tab container">
+			{hook h='displayHomeTab'}
+		 </div>
+	{/block}
+=======
+>>>>>>> master
       <section id="content" class="page-home">
         {block name='page_content_top'}{/block}
 
         {block name='page_content'}
           {block name='hook_home'}
             {$HOOK_HOME nofilter}
+{hook h='PShowInstagram' mod='pshowinstagram' force_show=true id_hook_insta=1}
           {/block}
         {/block}
       </section>

@@ -36,6 +36,9 @@
     {block name='product_price'}
       <div class="product-price h5 {if $product.has_discount}has-discount{/if}">
         <div class="current-price">
+<<<<<<< HEAD
+          <span>{$product.price}</span>
+=======
           <span class='current-price-value' content="{$product.rounded_display_price}">
             {capture name='custom_price'}{hook h='displayProductPriceBlock' product=$product type='custom_price' hook_origin='product_sheet'}{/capture}
             {if '' !== $smarty.capture.custom_price}
@@ -44,6 +47,7 @@
               {$product.price}
             {/if}
           </span>
+>>>>>>> master
 
           {if $product.has_discount}
             {if $product.discount_type === 'percentage'}

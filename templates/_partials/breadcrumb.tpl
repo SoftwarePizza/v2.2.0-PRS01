@@ -23,7 +23,27 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
 <nav data-depth="{$breadcrumb.count}" class="breadcrumb hidden-sm-down">
+<<<<<<< HEAD
+<div class="container">
+<!--{if $page.page_name == 'product'}
+<div class="breadcrumb-img1">
+  	<img alt="category-lamp-02" src="../../themes/PRS01/assets/img/category-lamp-02.png" />
+  </div>
+ <div class="breadcrumb-img2">
+  	<img alt="category-lamp-01" src="../../themes/PRS01/assets/img/category-lamp-01.png" />
+  </div>
+ 	 {else}
+<div class="breadcrumb-img1">
+  	<img alt="category-lamp-02" src="../themes/PRS01/assets/img/category-lamp-02.png" />
+  </div>
+ <div class="breadcrumb-img2">
+  	<img alt="category-lamp-01" src="../themes/PRS01/assets/img/category-lamp-01.png" />
+  </div>
+ {/if}-->
+  <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+=======
   <ol>
+>>>>>>> master
     {block name='breadcrumb'}
       {foreach from=$breadcrumb.links item=path name=breadcrumb}
         {block name='breadcrumb_item'}

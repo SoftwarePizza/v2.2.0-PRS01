@@ -36,11 +36,20 @@
                 <button type="button" onclick="qtyplus('{$product.id_product}')" class="form-control quantity-nav btnplus">
                 </button>
 			</div>
+<<<<<<< HEAD
+			{if $product.main_variants}
+				<a href="{$product.url}" class="button ajax_add_to_cart_button add-to-cart btn btn-default" title="{l s='Go to product' d='Shop.Theme.Actions'}">
+					<span>{l s='View product' d='Shop.Theme.Actions'}</span>
+				</a>
+			{elseif $product.quantity > 0 && $product.quantity >= $product.minimal_quantity || $product.allow_oosp}
+				<button class="button ajax_add_to_cart_button add-to-cart btn btn-default" data-button-action="add-to-cart" title="{l s='Add to cart'}" {if !$product.add_to_cart_url}
+=======
 			{if $product.quantity > 0 && $product.quantity >= $product.minimal_quantity || $product.allow_oosp}
 			{if $product.attributes}
 				<a href="{$product.link}" class="btn select-btn btn-primary btn-default" data-toggle="tooltip" title="Select Options"><i class="material-icons add_to_cart_icon">trending_flat</i>{l s='Select Option' d='Shop.Theme.Actions'}</a>
 				{else}
 				<button class="add-to-cart btn btn-primary" data-button-action="add-to-cart" title="{l s='Add To Cart' d='Shop.Theme.Actions'}" {if !$product.add_to_cart_url}
+>>>>>>> master
               disabled
             {/if}>
 					<i class='material-icons-outlined add_to_cart_icon'>shopping_cart</i>
@@ -49,9 +58,14 @@
 				</button>
 				{/if}
 			{else}
+<<<<<<< HEAD
+				<button class="button ajax_add_to_cart_button add-to-cart-disable btn btn-default" title="{l s='Out of stock'}">
+				<span>{l s='out of stock' d='Shop.Theme.Actions'}</span>
+=======
 				<button class="button add-to-cart add-to-cart-disable btn btn-default" title="{l s='Out of stock' d='Shop.Theme.Actions'}">
 				<i class='material-icons-outlined add_to_cart_icon'>shopping_cart</i>
 				{l s='Out Of Stock' d='Shop.Theme.Actions'}
+>>>>>>> master
 			</button>
 			{/if}
 		</form>

@@ -33,6 +33,7 @@
 
     {block name='cms_content'}
       {$cms.content nofilter}
+      {if $cms.id==11}{hook h='displayLookBook'}{/if}
     {/block}
 
     {block name='hook_cms_dispute_information'}

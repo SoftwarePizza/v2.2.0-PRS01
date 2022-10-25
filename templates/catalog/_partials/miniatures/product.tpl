@@ -28,6 +28,24 @@
 		<div class="ttproduct-image">
 		{block name='product_thumbnail'}
 				{if $product.cover}
+<<<<<<< HEAD
+				  <a href="{$product.canonical_url}" class="thumbnail product-thumbnail">
+					<img
+				  class="ttproduct-img1 ts"
+					  src = "{$product.cover.bySize.home_default.url}"
+					  alt = "{if !empty($product.cover.legend)}{$product.cover.legend}{else}{$product.name|truncate:30:'...'}{/if}"
+					  data-full-size-image-url = "{$product.cover.large.url}"
+					>
+				   {hook h="displayTtproductImageHover" id_product=$product.id_product home='home_default' large='large_default'}
+				  </a>
+				{else}
+				  <a href="{$product.canonical_url}" class="thumbnail product-thumbnail">
+					<img
+				  class="ttproduct-img1"
+					  src = "{$urls.no_picture_image.bySize.home_default.url}"  alt = "{if !empty($product.cover.legend)}{$product.cover.legend}{else}{$product.name|truncate:30:'...'}{/if}"
+					>
+				  </a>
+=======
 					<a href="{$product.canonical_url}" class="thumbnail product-thumbnail">
 						<img
 							class="ttproduct-img1 img-fluid"
@@ -48,6 +66,7 @@
 						>
 					</a>
 					
+>>>>>>> master
 				{/if}
 			{/block}
           
@@ -119,6 +138,40 @@
 		
 		<div class="ttproduct-desc">
 			<div class="product-description">
+<<<<<<< HEAD
+				<h5 class="cat-name">{$product.category|escape:'html':'UTF-8'}</h5>
+				{block name='product_name'}
+				  {if $page.page_name == 'index'}
+					<span class="h3 product-title text-capitalize" itemprop="name"><a href="{$product.canonical_url}">{$product.name}</a></span>
+				  {else}
+					<span class="h3 product-title text-capitalize" itemprop="name"><a href="{$product.canonical_url}">{$product.name}</a></span>
+				  {/if}
+				{/block}
+				{block name='product_description_short'}
+					<div class="product-desc-short" itemprop="description">{$product.description_short|strip_tags:'UTF-8'|truncate:100:'...' nofilter}</div>
+				{/block}
+		
+				{block name='product_price_and_shipping'}
+					{if $product.show_price}
+						<div class="product-price-and-shipping">
+							<span class="price">{$product.price}</span>
+							{if $product.has_discount}
+								{hook h='displayProductPriceBlock' product=$product type="old_price"}
+								<span class="sr-only">{l s='Regular price' d='Shop.Theme.Catalog'}</span>
+								{if $product.discount_type === 'percentage'}
+								  <span class="discount-percentage discount-product">{$product.discount_percentage}</span>
+								{elseif $product.discount_type === 'amount'}
+								  <span class="discount-amount discount-product">{$product.discount_amount_to_display}</span>
+								{/if}
+								<span class="regular-price">{$product.regular_price}</span>
+							{/if}
+							{hook h='displayProductPriceBlock' product=$product type="before_price"}
+							<span class="sr-only">{l s='Price' d='Shop.Theme.Catalog'}</span>
+							{hook h='displayProductPriceBlock' product=$product type='unit_price'}
+							{hook h='displayProductPriceBlock' product=$product type='weight'}
+						</div>
+					{/if}
+=======
 				   {block name='product_name'}
 						<h3 class="h3 product-title"><a href="{$product.canonical_url}">{$product.name|truncate:99:'...'}</a></h3>
 					{/block}
@@ -131,6 +184,7 @@
 			<div class="no-variant">
 				{block name='product_reviews'}
 					{hook h='displayProductListReviews' product=$product}
+>>>>>>> master
 				{/block}
 				<div class="highlighted-informations{if !$product.main_variants} no-variants{/if} hidden-sm-down">
 				{block name='product_variants'}

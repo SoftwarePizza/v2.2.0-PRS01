@@ -48,7 +48,11 @@
            {include file="_partials/header.tpl"}
         {/block}
       </header>
+<<<<<<< HEAD
+	 <div>
+=======
 
+>>>>>>> master
       {block name='notifications'}
         {include file='_partials/notifications.tpl'}
       {/block}

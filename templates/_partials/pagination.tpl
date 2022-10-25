@@ -1,5 +1,9 @@
 {**
+<<<<<<< HEAD
+ * 2007-2019 PrestaShop and Contributors
+=======
  * 2007-2022 PrestaShop
+>>>>>>> master
  *
  * NOTICE OF LICENSE
  *
@@ -15,26 +19,31 @@
  *
  * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
  * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * needs please refer to https://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
+<<<<<<< HEAD
+ * @copyright 2007-2019 PrestaShop SA and Contributors
+=======
  * @copyright 2007-2022 PrestaShop SA
+>>>>>>> master
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 <nav class="pagination">
-  <div class="col-md-4 pagination-left">
+  <div class="col-md-4">
     {block name='pagination_summary'}
       {l s='Showing %from%-%to% of %total% item(s)' d='Shop.Theme.Catalog' sprintf=['%from%' => $pagination.items_shown_from ,'%to%' => $pagination.items_shown_to, '%total%' => $pagination.total_items]}
     {/block}
   </div>
 
-  <div class="col-md-6 pr-0 pagination-right">
+  <div class="col-md-6 offset-md-2 pr-0">
     {block name='pagination_page_list'}
      {if $pagination.should_be_displayed}
         <ul class="page-list clearfix text-sm-center">
           {foreach from=$pagination.pages item="page"}
-          
+
+
             <li {if $page.current} class="current" {/if}>
               {if $page.type === 'spacer'}
                 <span class="spacer">&hellip;</span>
@@ -47,7 +56,7 @@
                   {if $page.type === 'previous'}
                     <i class="material-icons">&#xE314;</i>{l s='Previous' d='Shop.Theme.Actions'}
                   {elseif $page.type === 'next'}
-                    <i class="material-icons">&#xE315;</i>{l s='Next' d='Shop.Theme.Actions'}
+                    {l s='Next' d='Shop.Theme.Actions'}<i class="material-icons">&#xE315;</i>
                   {else}
                     {$page.page}
                   {/if}

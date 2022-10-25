@@ -5327,7 +5327,48 @@
                 e.exports = jQuery
             }
         },
+<<<<<<< HEAD
+        l = n(0),
+        u = i(l),
+        c = n(2),
+        f = i(c),
+        d = function(t) {
+            function e() {
+                r(this, e), s(Object.getPrototypeOf(e.prototype), "constructor", this).apply(this, arguments)
+            }
+            return o(e, t), a(e, [{
+                key: "init",
+                value: function() {
+                    var t = this,
+                        n = void 0,
+                        i = this;
+                    this.el.find("li").hover(function(e) {
+                        t.el.parent().hasClass("mobile") || (n !== (0, u.default)(e.currentTarget).attr("id") && (0 === (0, u.default)(e.target).data("depth"), n = (0, u.default)(e.currentTarget).attr("id")), n && 0 === (0, u.default)(e.target).data("depth") && (0, u.default)("#" + n + " .js-sub-menu").css({
+                            top: (0, u.default)("#" + n).height() + (0, u.default)("#" + n).position().top
+                        }))
+                    }), (0, u.default)("#menu-icon").on("click", function() {
+                        (0, u.default)("#mobile_top_menu_wrapper").toggle(), i.toggleMobileMenu()
+                    }), (0, u.default)(".js-top-menu .category").mouseleave(function() {
+                        t.el.parent().hasClass("mobile")
+                    }), this.el.on("click", function(e) {
+                        t.el.parent().hasClass("mobile") || e.stopPropagation()
+                    }), prestashop.on("responsive update", function(t) {
+                        (0, u.default)(".js-sub-menu").removeAttr("style"), i.toggleMobileMenu()
+                    }), s(Object.getPrototypeOf(e.prototype), "init", this).call(this)
+                }
+            }, {
+                key: "toggleMobileMenu",
+                value: function() {
+                    (0, u.default)("#header").toggleClass("is-open"), (0, u.default)("#mobile_top_menu_wrapper").is(":visible") ? (0, u.default)("#notifications, #wrapper, #footer").hide() : (0, u.default)("#notifications, #wrapper, #footer").show()
+                }
+            }]), e
+        }(f.default);
+    e.default = d, t.exports = e.default
+}, function(t, e, n) {
+    "use strict";
+=======
         i = {};
+>>>>>>> master
 
     function k(e) {
         var t = i[e];
@@ -5706,7 +5747,103 @@
                     var t;
                     (e = l()(e.currentTarget)[0]) && (t = e.files[0]) && l()(e).prev().text(t.name)
                 })
+<<<<<<< HEAD
+            },
+            e = function(t) {
+                var e = (0, a.default)(".js-qv-product-images"),
+                    n = (0, a.default)(".js-qv-product-images li img").height() + 20,
+                    i = e.position().top;
+                e.velocity({
+                    translateY: "up" === t ? i + n : i - n
+                }, function() {
+                    e.position().top >= 0 ? (0, a.default)(".arrow-up").css("opacity", ".2") : e.position().top + e.height() <= (0, a.default)(".js-qv-mask").height() && (0, a.default)(".arrow-down").css("opacity", ".2")
+                })
+            };
+        (0, a.default)("body").on("click", "#search_filter_toggler", function() {
+            (0, a.default)("#search_filters_wrapper").removeClass("hidden-sm-down"), (0, a.default)("#content-wrapper").addClass("hidden-sm-down"), (0, a.default)("#footer").addClass("hidden-sm-down")
+        }), (0, a.default)("#search_filter_controls .clear").on("click", function() {
+            (0, a.default)("#search_filters_wrapper").addClass("hidden-sm-down"), (0, a.default)("#content-wrapper").removeClass("hidden-sm-down"), (0, a.default)("#footer").removeClass("hidden-sm-down")
+        }), (0, a.default)("#search_filter_controls .ok").on("click", function() {
+            (0, a.default)("#search_filters_wrapper").addClass("hidden-sm-down"), (0, a.default)("#content-wrapper").removeClass("hidden-sm-down"), (0, a.default)("#footer").removeClass("hidden-sm-down")
+        });
+        var n = function(t) {
+            if (void 0 !== t.target.dataset.searchUrl) return t.target.dataset.searchUrl;
+            if (void 0 === (0, a.default)(t.target).parent()[0].dataset.searchUrl) throw new Error("Can not parse search URL");
+            return (0, a.default)(t.target).parent()[0].dataset.searchUrl
+        };
+        (0, a.default)("body").on("change", "#search_filters input[data-search-url]", function(t) {
+            l.default.emit("updateFacets", n(t))
+        }), (0, a.default)("body").on("click", ".js-search-filters-clear-all", function(t) {
+            l.default.emit("updateFacets", n(t))
+        }), (0, a.default)("body").on("click", ".js-search-link", function(t) {
+            t.preventDefault(), l.default.emit("updateFacets", (0, a.default)(t.target).closest("a").get(0).href)
+        }), (0, a.default)("body").on("change", "#search_filters select", function(t) {
+            var e = (0, a.default)(t.target).closest("form");
+            l.default.emit("updateFacets", "?" + e.serialize())
+        }), l.default.on("updateProductList", function(t) {
+            r(t), window.scrollTo(0, 0)
+			var view = localStorage.getItem('display');
+            display(view);
+            if (view == 'grid')
+                $('.grid-list').find('#ttgrid').addClass('active');
+            bindGrid();
+			$('.wishlist').each(function() {
+        current = $(this);
+        var htmlContent = $(this).children('.popover-content').html();
+        $(this).children('.wishlist_button_list').popover({
+            html: true,
+            content: htmlContent
+        });
+});
+        })
+    })
+	 function tokenVariable() {
+        (0, a.default)(".product-add-to-cart .add-to-cart-or-refresh").attr("action", (0, a.default)('#carttoken').val());
+        (0, a.default)(".product-add-to-cart .add-to-cart-or-refresh .tt-token").attr("value", (0, a.default)('#tokenid').val());
+    }
+}, function(t, e, n) {
+    "use strict";
+
+    function i(t) {
+        return t && t.__esModule ? t : {
+            default: t
+        }
+    }
+    var r = n(0),
+        o = i(r),
+        a = n(1),
+        s = i(a);
+    (0, o.default)(document).ready(function() {
+        function t() {
+            (0, o.default)(".js-thumb").on("click", function(t) {
+               (0, o.default)(".js-modal-product-cover").attr("src", (0, o.default)(t.target).data("image-large-src")), (0, o.default)(".selected").removeClass("selected"), (0, o.default)(t.target).addClass("selected"),(0, o.default)(".js-qv-product-cover").attr("zoom", (0, o.default)(t.target).data("zoom-image")), (0, o.default)(".js-qv-product-cover").prop({src: (0, o.default)(t.currentTarget).data("image-large-src"),zoom: (0, o.default)(t.currentTarget).data("zoom-image")}),(0, o.default)(".js-qv-product-cover1").attr("src", (0, o.default)(t.target).data("zoom-image")),(0, o.default)(".js-qv-product-cover1").prop("zoom", (0, o.default)(t.target).data("zoom-image"))
+            })
+        }
+
+        function e() {
+            (0, o.default)("#main .js-qv-product-images li").length > 2 ? ((0, o.default)("#main .js-qv-mask").addClass("scroll"), (0, o.default)(".scroll-box-arrows").addClass("scroll"), (0, o.default)("#main .js-qv-mask").scrollbox({
+                direction: "h",
+                distance: 113,
+                autoPlay: !1
+            }), (0, o.default)(".scroll-box-arrows .left").click(function() {
+                (0, o.default)("#main .js-qv-mask").trigger("backward")
+            }), (0, o.default)(".scroll-box-arrows .right").click(function() {
+                (0, o.default)("#main .js-qv-mask").trigger("forward")
+            })) : ((0, o.default)("#main .js-qv-mask").removeClass("scroll"), (0, o.default)(".scroll-box-arrows").removeClass("scroll"))
+        }
+
+        function n() {
+            (0, o.default)(".js-file-input").on("change", function(t) {
+                var e = void 0,
+                    n = void 0;
+                (e = (0, o.default)(t.currentTarget)[0]) && (n = e.files[0]) && (0, o.default)(e).prev().text(n.name)
+            })
+        }! function() {
+            var t = (0, o.default)("#quantity_wanted");
+            t.TouchSpin({
+=======
             }(t = l()(a().selectors.quantityWanted)).TouchSpin({
+>>>>>>> master
                 verticalbuttons: !0,
                 verticalupclass: "material-icons touchspin-up",
                 verticaldownclass: "material-icons touchspin-down",
@@ -5751,7 +5888,21 @@
                     min: parseInt(l()(t).attr("min"), 10),
                     max: 1e6
                 })
+<<<<<<< HEAD
+            }/**tt update**/
+            productadditional("#main #tt-jqzoom");
+            e(), (0, o.default)((0, o.default)(".tabs .nav-link.active").attr("href")).addClass("active").removeClass("fade"), (0, o.default)(".js-product-images-modal").replaceWith(i.product_images_modal)
+        })
+    })
+}, function(t, e, n) {
+    "use strict";
+
+    function i(t) {
+        return t && t.__esModule ? t : {
+            default: t
+=======
             }), l()(a().themeSelectors.touchspin).off("touchstart.touchspin"), m.switchErrorStat()
+>>>>>>> master
         }
         l()(document).ready(function() {
             var i = ".js-cart-line-product-quantity",
@@ -6073,6 +6224,162 @@
                         reason: e.currentTarget.dataset,
                         event: e
                     })
+<<<<<<< HEAD
+                });
+                var m = [],
+                    v = c({}, r),
+                    y = c({}, this.attachment);
+                return this.options.constraints.forEach(function(t) {
+                    var o = t.to,
+                        s = t.attachment,
+                        u = t.pin;
+                    void 0 === s && (s = "");
+                    var c = void 0,
+                        f = void 0;
+                    if (s.indexOf(" ") >= 0) {
+                        var h = s.split(" "),
+                            g = L(h, 2);
+                        f = g[0], c = g[1]
+                    } else c = f = s;
+                    var b = w(e, o);
+                    "target" !== f && "both" !== f || (n < b[1] && "top" === v.top && (n += d, v.top = "bottom"), n + a > b[3] && "bottom" === v.top && (n -= d, v.top = "top")), "together" === f && ("top" === v.top && ("bottom" === y.top && n < b[1] ? (n += d, v.top = "bottom", n += a, y.top = "top") : "top" === y.top && n + a > b[3] && n - (a - d) >= b[1] && (n -= a - d, v.top = "bottom", y.top = "bottom")), "bottom" === v.top && ("top" === y.top && n + a > b[3] ? (n -= d, v.top = "top", n -= a, y.top = "bottom") : "bottom" === y.top && n < b[1] && n + (2 * a - d) <= b[3] && (n += a - d, v.top = "top", y.top = "top")), "middle" === v.top && (n + a > b[3] && "top" === y.top ? (n -= a, y.top = "bottom") : n < b[1] && "bottom" === y.top && (n += a, y.top = "top"))), "target" !== c && "both" !== c || (i < b[0] && "left" === v.left && (i += p, v.left = "right"), i + l > b[2] && "right" === v.left && (i -= p, v.left = "left")), "together" === c && (i < b[0] && "left" === v.left ? "right" === y.left ? (i += p, v.left = "right", i += l, y.left = "left") : "left" === y.left && (i += p, v.left = "right", i -= l, y.left = "right") : i + l > b[2] && "right" === v.left ? "left" === y.left ? (i -= p, v.left = "left", i -= l, y.left = "right") : "right" === y.left && (i -= p, v.left = "left", i += l, y.left = "left") : "center" === v.left && (i + l > b[2] && "left" === y.left ? (i -= l, y.left = "right") : i < b[0] && "right" === y.left && (i += l, y.left = "left"))), "element" !== f && "both" !== f || (n < b[1] && "bottom" === y.top && (n += a, y.top = "top"), n + a > b[3] && "top" === y.top && (n -= a, y.top = "bottom")), "element" !== c && "both" !== c || (i < b[0] && ("right" === y.left ? (i += l, y.left = "left") : "center" === y.left && (i += l / 2, y.left = "left")), i + l > b[2] && ("left" === y.left ? (i -= l, y.left = "right") : "center" === y.left && (i -= l / 2, y.left = "right"))), "string" == typeof u ? u = u.split(",").map(function(t) {
+                        return t.trim()
+                    }) : !0 === u && (u = ["top", "left", "right", "bottom"]), u = u || [];
+                    var _ = [],
+                        x = [];
+                    n < b[1] && (u.indexOf("top") >= 0 ? (n = b[1], _.push("top")) : x.push("top")), n + a > b[3] && (u.indexOf("bottom") >= 0 ? (n = b[3] - a, _.push("bottom")) : x.push("bottom")), i < b[0] && (u.indexOf("left") >= 0 ? (i = b[0], _.push("left")) : x.push("left")), i + l > b[2] && (u.indexOf("right") >= 0 ? (i = b[2] - l, _.push("right")) : x.push("right")), _.length && function() {
+                        var t = void 0;
+                        t = void 0 !== e.options.pinnedClass ? e.options.pinnedClass : e.getClass("pinned"), m.push(t), _.forEach(function(e) {
+                            m.push(t + "-" + e)
+                        })
+                    }(), x.length && function() {
+                        var t = void 0;
+                        t = void 0 !== e.options.outOfBoundsClass ? e.options.outOfBoundsClass : e.getClass("out-of-bounds"), m.push(t), x.forEach(function(e) {
+                            m.push(t + "-" + e)
+                        })
+                    }(), (_.indexOf("left") >= 0 || _.indexOf("right") >= 0) && (y.left = v.left = !1), (_.indexOf("top") >= 0 || _.indexOf("bottom") >= 0) && (y.top = v.top = !1), v.top === r.top && v.left === r.left && y.top === e.attachment.top && y.left === e.attachment.left || (e.updateAttachClasses(y, v), e.trigger("update", {
+                        attachment: y,
+                        targetAttachment: v
+                    }))
+                }), D(function() {
+                    !1 !== e.options.addTargetClasses && g(e.target, m, h), g(e.element, m, h)
+                }), {
+                    top: n,
+                    left: i
+                }
+            }
+        });
+        var B = E.Utils,
+            s = B.getBounds,
+            g = B.updateClasses,
+            D = B.defer;
+        E.modules.push({
+            position: function(t) {
+                var e = this,
+                    n = t.top,
+                    i = t.left,
+                    r = this.cache("element-bounds", function() {
+                        return s(e.element)
+                    }),
+                    o = r.height,
+                    a = r.width,
+                    l = this.getTargetBounds(),
+                    u = n + o,
+                    c = i + a,
+                    f = [];
+                n <= l.bottom && u >= l.top && ["left", "right"].forEach(function(t) {
+                    var e = l[t];
+                    e !== i && e !== c || f.push(t)
+                }), i <= l.right && c >= l.left && ["top", "bottom"].forEach(function(t) {
+                    var e = l[t];
+                    e !== n && e !== u || f.push(t)
+                });
+                var d = [],
+                    p = [],
+                    h = ["left", "top", "right", "bottom"];
+                return d.push(this.getClass("abutted")), h.forEach(function(t) {
+                    d.push(e.getClass("abutted") + "-" + t)
+                }), f.length && p.push(this.getClass("abutted")), f.forEach(function(t) {
+                    p.push(e.getClass("abutted") + "-" + t)
+                }), D(function() {
+                    !1 !== e.options.addTargetClasses && g(e.target, p, d), g(e.element, p, d)
+                }), !0
+            }
+        });
+        var L = function() {
+            function t(t, e) {
+                var n = [],
+                    i = !0,
+                    r = !1,
+                    o = void 0;
+                try {
+                    for (var a, s = t[Symbol.iterator](); !(i = (a = s.next()).done) && (n.push(a.value), !e || n.length !== e); i = !0);
+                } catch (t) {
+                    r = !0, o = t
+                } finally {
+                    try {
+                        !i && s.return && s.return()
+                    } finally {
+                        if (r) throw o
+                    }
+                }
+                return n
+            }
+            return function(e, n) {
+                if (Array.isArray(e)) return e;
+                if (Symbol.iterator in Object(e)) return t(e, n);
+                throw new TypeError("Invalid attempt to destructure non-iterable instance")
+            }
+        }();
+        return E.modules.push({
+            position: function(t) {
+                var e = t.top,
+                    n = t.left;
+                if (this.options.shift) {
+                    var i = this.options.shift;
+                    "function" == typeof this.options.shift && (i = this.options.shift.call(this, {
+                        top: e,
+                        left: n
+                    }));
+                    var r = void 0,
+                        o = void 0;
+                    if ("string" == typeof i) {
+                        i = i.split(" "), i[1] = i[1] || i[0];
+                        var a = i,
+                            s = L(a, 2);
+                        r = s[0], o = s[1], r = parseFloat(r, 10), o = parseFloat(o, 10)
+                    } else r = i.top, o = i.left;
+                    return e += r, n += o, {
+                        top: e,
+                        left: n
+                    }
+                }
+            }
+        }), G
+    })
+}, function(t, e, n) {
+    "use strict";
+    var i;
+    i = function() {
+        return this
+    }();
+    try {
+        i = i || Function("return this")() || (0, eval)("this")
+    } catch (t) {
+        "object" == typeof window && (i = window)
+    }
+    t.exports = i
+}, function(t, e, n) {
+    (function(e) {
+        t.exports = e.Tether = n(23)
+    }).call(e, n(24))
+}, function(t, e, n) {
+    n(5), t.exports = n(6)
+}]);
+
+
+
+=======
                 })
             }, t().prototype) a()[E] = t().prototype[E];
         l()(document).ready(function() {
@@ -6092,3 +6399,4 @@
         })
     }()
 }();
+>>>>>>> master
