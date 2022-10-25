@@ -1,6 +1,6 @@
 <?php
 /**
-* 2007-2018 PrestaShop
+* 2007-2022 PrestaShop
 *
 * NOTICE OF LICENSE
 *
@@ -19,7 +19,7 @@
 * needs please refer to http://www.prestashop.com for more information.
 *
 *  @author    PrestaShop SA <contact@prestashop.com>
-*  @copyright 2007-2018 PrestaShop SA
+*  @copyright 2007-2022 PrestaShop SA
 *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 */
@@ -36,22 +36,73 @@ class TtProductImageHover extends Module
     {
         $this->name = 'ttproductimagehover';
         $this->tab = 'front_office_features';
-        $this->version = '1.0.0';
+        $this->version = '1.0.1';
         $this->author = 'TemplateTrip';
         $this->need_instance = 0;
         $this->bootstrap = true;
         parent::__construct();
-        $this->displayName = $this->getTranslator()->trans('TT - Product image hover', array(), 'Modules.TTproductimagehover.Admin');
-        $this->description = $this->getTranslator()->trans('Display second product image on product hover', array(), 'Modules.TTproductimagehover.Admin');
+        $this->displayName = $this->l('TT - Product image hover');
+        $this->description = $this->l('Display second product image on product hover');
         $this->ps_versions_compliancy = array('min' => '1.7.0.0', 'max' => _PS_VERSION_);
     }
     public function install()
     {
-         return parent::install() && $this->registerHook('displayTtproductImageHover');
+         return parent::install() && $this->registerHook('displayTtproductImageHover') && $this->registerHook('displayHeader');;
+    }
+	 public function hookDisplayHeader()
+    {
+        $this->context->controller->addCSS(($this->_path).'views/css/'.$this->name.'.css', 'all');
+        $this->context->controller->addJS($this->_path .'views/js/front.js');
+    }
+	public function getContent()
+    {
+        if(Tools::isSubmit('submitUpdate'))
+        {
+            Configuration::updateValue('TT_PI_TRANSITION_EFFECT', Tools::strtolower(trim(Tools::getValue('TT_PI_TRANSITION_EFFECT'))));
+        }
+        if(version_compare(_PS_VERSION_, '1.7.0', '>='))
+            $postUrl = $this->context->link->getAdminLink('AdminModules', true).'&configure='.$this->name.'&tab_module='.$this->tab.'&module_name='.$this->name;
+        else
+            $postUrl = AdminController::$currentIndex.'&configure='.$this->name.'&token='.Tools::getAdminTokenLite('AdminModules');
+        
+        $this->smarty->assign(            
+            array(
+                'postUrl' => $postUrl,
+                'effects' => array(
+                    array(
+                        'id' => 'zoom',
+                        'name' => $this->l('Zoom')
+                    ),
+                    array(
+                        'id' => 'fade',
+                        'name' => $this->l('Fade')
+                    ),
+                    array(
+                        'id' => 'vertical_scrolling_bottom_to_top',
+                        'name' => $this->l('Vertical Scrolling  Bottom To Top')
+                    ),
+                    array(
+                        'id' => 'vertical_scrolling_top_to_bottom',
+                        'name' => $this->l('Vertical Scrolling Top To Bottom')
+                    ),                    
+                    array(
+                        'id' => 'horizontal_scrolling_left_to_right',
+                        'name' => $this->l('Horizontal Scrolling Left To Right')
+                    ),
+                    array(
+                        'id' => 'horizontal_scrolling_right_to_left',
+                        'name' => $this->l('Horizontal Scrolling Right To Left')
+                    )
+                ),
+                'TT_PI_TRANSITION_EFFECT' => Configuration::get('TT_PI_TRANSITION_EFFECT'),
+                'setting_updated' => Tools::isSubmit('submitUpdate') ? true : false,
+            )
+        );        
+        return $this->display(__FILE__, 'admin-config.tpl');
     }
     public function hookDisplayTtproductImageHover($params)
     {
-        if (!$this->isCached('ttproductimagehover.tpl')) {
+		if (!$this->isCached('image.tpl')) {
             $id_lang = $this->context->language->id;
             $id_shop = $this->context->shop->id;
             $obj = new Product((int) ($params['id_product']), false, $id_lang, $id_shop);
@@ -72,8 +123,9 @@ class TtProductImageHover extends Module
                  ));
             }
         }
+        $this->smarty->assign(array('TT_PI_TRANSITION_EFFECT' => Configuration::get('TT_PI_TRANSITION_EFFECT')));
         if ($total_image > 1) {
-            return $this->display(__FILE__, 'ttproductimagehover.tpl');
+            return $this->display(__FILE__, 'image.tpl');
         }
     }
 }

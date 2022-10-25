@@ -1,0 +1,54 @@
+.sizeChart thead{
+	background: #f5f5f5;
+	color: #111;
+	font-weight: 600;
+	font-size:14px;
+}
+.product-actions .product-add-to-cart #ttsizeguide{
+	float: none;
+	width: auto;
+	position: relative;
+	padding-right: 10px;
+	line-height: 14px;
+	display: inline-block;
+	vertical-align: top;
+}
+.sizeChart tr:nth-child(even){
+	background: #f5f5f5; 
+}
+.product-actions .product-add-to-cart #ttsizeguide a {
+	font-size:13px;
+	line-height: 14px;
+	padding:0;
+	border:none;
+    vertical-align: top;
+}
+.product-actions .product-add-to-cart #ttsizeguide a svg {
+	height: 14px;
+	width: 14px;
+	float: right;
+	margin: 0 0 0 8px;
+}
+.product-actions .product-add-to-cart #ttsizeguide::before {
+    background: #666666 none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    right: 0;
+    left: auto;
+    position: absolute;
+    top: 0;
+    width: 1px;
+    bottom: 0;
+    margin: auto 0;
+}
+.quickview .product-actions .product-add-to-cart #ttsizeguide {
+	display:none;
+}
+@media (max-width:543px){
+.product-actions .product-add-to-cart #ttsizeguide::before {
+display:none;
+}
+.product-actions .product-add-to-cart #ttsizeguide {
+padding-right:0;
+}
+}

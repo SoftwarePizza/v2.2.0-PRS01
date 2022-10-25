@@ -1,5 +1,5 @@
 {**
- * 2007-2019 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -44,7 +44,7 @@
                 {foreach from=$categoryinfo item=category}
                     <div id="sdsblogCategory">
                         {if ($cat_image != "no" && $activeimgincat == 0) || $activeimgincat == 1}
-                            <img alt="{$category.meta_title}" src="{$link->getMediaLink($smart_module_dir)}/smartblog/views/img/category/{$cat_image}-single-default.jpg" class="imageFeatured">
+                            <img alt="{$category.meta_title}" src="{$link->getMediaLink($smart_module_dir)}/smartblog/views/img/category/{$cat_image}-single-default.jpg" class="imageFeatured" loading="lazy" >
                         {/if}
                         <div class="catDesc">{$category.description|escape:'htmlall':'UTF-8'}</div>
                     </div>

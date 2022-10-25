@@ -1,7 +1,7 @@
 <?php
 /**
 *  @author    TemplateTrip
-*  @copyright 2015-2017 TemplateTrip. All Rights Reserved.
+*  @copyright 2015-2021 TemplateTrip. All Rights Reserved.
 *  @license   http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 */
 
@@ -22,7 +22,7 @@ class Ttcompare extends Module
     {
         $this->name = 'ttcompare';
         $this->tab = 'front_office_features';
-        $this->version = '1.0.0';
+        $this->version = '1.0.1';
         $this->author = 'TemplateTrip';
         $this->controllers = array('compare');
         $this->bootstrap = true;
@@ -268,9 +268,9 @@ class Ttcompare extends Module
                     'compareAdd' => $this->l('The product has been added to product comparison'),
                     'compareRemove' => $this->l('The product has been removed from the product comparison.'),
                     'compareView' => $this->l('Compare'),
-                    'comparedProductsIds' => (count($compared_products)>0) ? $compared_products : array(),
+                    'comparedProductsIds' => ($compared_products != NULL && count($compared_products)>0) ? $compared_products : array(),
                     'comparator_max_item' => $comparator_max_item,
-                    'compared_products' => (count($compared_products)>0) ? $compared_products : array(),
+                    'compared_products' => ($compared_products != NULL && count($compared_products)>0) ? $compared_products : array(),
                     'max_item' => $productcompare_max_item,
                 )
             );
@@ -288,7 +288,7 @@ class Ttcompare extends Module
                     $compared_products = CompareProduct::getCompareProducts($this->context->cookie->id_compare);
                 }
                 $added = false;
-                if (count($compared_products) > 0 && in_array($id_product, $compared_products)) {
+                if ($compared_products != NULL && count($compared_products) > 0 && in_array($id_product, $compared_products)) {
                     $added = true;
                 }
                 $this->smarty->assign(array(

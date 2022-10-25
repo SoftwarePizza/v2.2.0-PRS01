@@ -1,11 +1,17 @@
 /**
 *  @author    TemplateTrip
-*  @copyright 2015-2017 TemplateTrip. All Rights Reserved.
+*  @copyright 2015-2021 TemplateTrip. All Rights Reserved.
 *  @license   http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 */
 
 var wishlistProductsIds = [];
 $(document).ready(function(){
+						   
+	  if (isLogged == true) {
+	 $('.addToWishlist').click(function() {
+            $(this).addClass('wishlist-loading loading')
+	});
+							}
     wishlistRefreshStatus();
     modelWishlist();
     $(document).on('change', 'select[name=wishlists]', function(){
@@ -45,6 +51,7 @@ function modelWishlist() {
 }
 function WishlistCart(id, action, id_product, id_product_attribute, quantity, id_wishlist)
 {
+
     var content_add_wishlist = '<div class="compare-msg">' + added_to_wishlist + '</div>';
     var content_login_req = '<div class="compare-msg">' + loggin_required + '</div>';
     var content_wishlist_button = '<a class="btn btn-secondary" href="' + mywishlist_url + '">' + wishlistView + '</a>';
@@ -65,10 +72,12 @@ function WishlistCart(id, action, id_product, id_product_attribute, quantity, id
                     $('.wishtlist_top .cart-wishlist-number').html(data);
                     $('#ttcompare-modal .modal-msg').html(content_add_wishlist);
                     $('#ttcompare-modal .modal-footer').html(content_wishlist_button);
+					$('.addToWishlist').removeClass('wishlist-loading loading');
                     $('#ttcompare-modal').modal('show');
                 } else {
                     $('#ttcompare-modal .modal-msg').html(content_login_req);
                     $('#ttcompare-modal .modal-footer').html(content_login_button);
+					$('.addToWishlist').removeClass('wishlist-loading loading');
                     $('#ttcompare-modal').modal('show');
                 }
             }
@@ -115,6 +124,7 @@ function WishlistChangeDefault(id, id_wishlist)
 */
 function WishlistManage(id, id_wishlist)
 {
+
     $.ajax({
         type: 'GET',
         async: true,
@@ -144,7 +154,7 @@ function WishlistManage(id, id_wishlist)
 */
 function WishlistProductManage(id, action, id_wishlist, id_product, id_product_attribute, quantity, priority)
 {
-    $.ajax({
+		$.ajax({
         type: 'GET',
         async: true,
         url: baseDir + 'modules/ttproductwishlist/managewishlist.php?rand=' + new Date().getTime(),
@@ -175,7 +185,7 @@ function WishlistProductManage(id, action, id_wishlist, id_product, id_product_a
 */
 function WishlistDelete(id, id_wishlist, msg)
 {
-    var res = confirm(msg);
+	var res = confirm(msg);
     if (res == false) {
         return (false);
     }
@@ -210,7 +220,7 @@ function WishlistDelete(id, id_wishlist, msg)
             if (data.id_default) {
                 var tt_default = $("#wishlist_"+data.id_default+" > .wishlist_default");
                 $("#wishlist_"+data.id_default+" > .wishlist_default > a").remove();
-                tt_default.append('<p class="is_wish_list_default"><i class="fa fa-check-square"></i></p>');
+                tt_default.append('<p class="is_wish_list_default"><i class="material-icons">&#xE86C;</i></p>');
             }
         }
     });
@@ -218,6 +228,7 @@ function WishlistDelete(id, id_wishlist, msg)
 
 function WishlistDefault(id, id_wishlist)
 {
+
     if (typeof mywishlist_url == 'undefined') {
         return (false);
     }
@@ -240,10 +251,10 @@ function WishlistDefault(id, id_wishlist)
             var old_default_id = $(".is_wish_list_default").parents("tr").attr("id");
             var tt_check = $(".is_wish_list_default").parent();
             $(".is_wish_list_default").remove();
-            tt_check.append('<a href="#" onclick="javascript:event.preventDefault();(WishlistDefault(\''+old_default_id+'\', \''+old_default_id.replace("wishlist_", "")+'\'));"><i class="fa fa-square"></i></a>');
+            tt_check.append('<a href="#" onclick="javascript:event.preventDefault();(WishlistDefault(\''+old_default_id+'\', \''+old_default_id.replace("wishlist_", "")+'\'));"><i class="material-icons">&#xE5CA;</i></a>');
             var tt_default = $("#"+id+" > .wishlist_default");
             $("#"+id+" > .wishlist_default > a").remove();
-            tt_default.append('<p class="is_wish_list_default"><i class="fa fa-check-square"></i></p>');
+            tt_default.append('<p class="is_wish_list_default"><i class="material-icons">&#xE86C;</i></p>');
         }
     });
 }
@@ -303,7 +314,8 @@ function WishlistSend(id, id_wishlist, id_email)
 
 function wishlistProductsIdsAdd(id)
 {
-     if ($.inArray(parseInt(id),wishlistProductsIds) == -1) {
+
+	if ($.inArray(parseInt(id),wishlistProductsIds) == -1) {
         wishlistProductsIds.push(parseInt(id))
     }
 }
@@ -315,7 +327,8 @@ function wishlistProductsIdsRemove(id)
 
 function wishlistRefreshStatus()
 {
-    $('.addToWishlist').each(function(){
+
+	$('.addToWishlist').each(function(){
         if ($.inArray(parseInt($(this).attr('data-rel')),wishlistProductsIds)!= -1) {
             $(this).addClass('checked');
         } else {

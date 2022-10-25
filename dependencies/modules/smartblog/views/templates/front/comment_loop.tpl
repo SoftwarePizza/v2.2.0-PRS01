@@ -1,5 +1,5 @@
 {**
- * 2007-2019 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -27,10 +27,10 @@
     <ul class="commentList">
         <div id="comment-{$comment.id_smart_blog_comment}">
             <li class="even">
-                <img class="avatar" alt="Avatar" src="{$link->getMediaLink($smart_module_dir)}/smartblog/views/img/avatar/avatar-author-default.jpg">
+                <img class="avatar" alt="Avatar" src="{$link->getMediaLink($smart_module_dir)}/smartblog/views/img/avatar/avatar-author-default.jpg" loading="lazy" >
                 <div class="name">{$childcommnets.name}</div>
                 <div class="created">
-                    <span itemprop="commentTime">{$childcommnets.created|date_format}</span>
+                    <span>{$childcommnets.created|date_format}</span>
                 </div>
                 <p>{$childcommnets.content}</p>
                 {if Configuration::get('smartenablecomment') == 1}

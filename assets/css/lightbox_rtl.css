@@ -1,10 +1,5 @@
 @charset "UTF-8";
 /* --------------------------- TempalteTrip Lightbox Styles ----------------------------- */
-body:after {
-  content: url(../img/lightbox/close.png) url(../img/lightbox/loading.gif) url(../img/lightbox/prev.png) url(../img/lightbox/next.png);
-  display: none;
-}
-
 .lightboxOverlay {
   position: absolute;
   top: 0;

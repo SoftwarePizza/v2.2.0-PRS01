@@ -2,8 +2,8 @@
 <module>
     <name>ttcmstestimonial</name>
     <displayName><![CDATA[TT - CMS Testimonial block]]></displayName>
-    <version><![CDATA[1.0.5]]></version>
-    <description><![CDATA[Integrates custom text blocks anywhere in your store front]]></description>
+    <version><![CDATA[1.0.1]]></version>
+    <description><![CDATA[Integrates custom text blocks anywhere in your store front.]]></description>
     <author><![CDATA[TemplateTrip]]></author>
     <tab><![CDATA[front_office_features]]></tab>
     <is_configurable>1</is_configurable>

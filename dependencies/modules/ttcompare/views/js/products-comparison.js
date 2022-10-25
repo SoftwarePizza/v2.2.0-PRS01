@@ -1,20 +1,23 @@
 /**
 *  @author    TemplateTrip
-*  @copyright 2015-2017 TemplateTrip. All Rights Reserved.
+*  @copyright 2015-2021 TemplateTrip. All Rights Reserved.
 *  @license   http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 */
-$(document).ready(function(){
+$(document).ready(function(){		
 	$(document).on('click', '.add_to_compare', function(e){
 		e.preventDefault();
 		if (typeof addToCompare != 'undefined')
 			addToCompare(parseInt($(this).data('id-product')));
 	});
-
 	modelCompare();
 	reloadProductComparison();
 	compareButtonsStatusRefresh();
 	totalCompareButtons();
 });
+
+$('.add_to_compare').click(function() {
+                 $(this).addClass('compare-loading')
+	        });
 
 function modelCompare() {
 	var modelCompare = '';
@@ -63,6 +66,7 @@ function addToCompare(productId)
 				totalValue(totalVal);
 				$('#ttcompare-modal .modal-msg').html(content_add_product);
 				$('#ttcompare-modal .modal-footer').html(content_compare_product);
+				$('.add_to_compare').removeClass('compare-loading');
 				$('#ttcompare-modal').modal('show');
 			} else if (action === 'remove') {
 				comparedProductsIds.splice($.inArray(parseInt(productId), comparedProductsIds), 1),
@@ -72,10 +76,12 @@ function addToCompare(productId)
 				totalValue(totalVal);
 				$('#ttcompare-modal .modal-msg').html(content_remove_product);
 				$('#ttcompare-modal .modal-footer').html(content_compare_product);
+				$('.add_to_compare').removeClass('compare-loading');
 				$('#ttcompare-modal').modal('show');
 			} else {
 				$('#ttcompare-modal .modal-msg').html(content_max_product);
 				$('#ttcompare-modal .modal-footer').html(content_compare_product);
+				$('.add_to_compare').removeClass('compare-loading');
 				$('#ttcompare-modal').modal('show');
 			}
 			totalCompareButtons();

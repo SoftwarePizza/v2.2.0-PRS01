@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -26,9 +26,11 @@
 <div id="_desktop_currency_selector">
   <div class="currency-selector dropdown ttdropdown js-dropdown">
     <span id="currency-selector-label" class="hidden-md-up">{l s='Currency:' d='Shop.Theme.Global'}</span>
-    <button data-target="#" data-toggle="dropdown" class="hidden-sm-down btn-unstyle" aria-haspopup="true" aria-expanded="false" aria-label="{l s='Currency dropdown' d='Shop.Theme.Global'}">
-      <span class="expand-more _gray-darker">{$current_currency.iso_code} {$current_currency.sign}</span>
-		<i class="material-icons expand-more">&#xE313;</i>
+    <button data-toggle="dropdown" class="hidden-sm-down btn-unstyle" aria-haspopup="true" aria-expanded="false" aria-label="{l s='Currency dropdown' d='Shop.Theme.Global'}">
+      <span class="expand-more _gray-darker">{$current_currency.iso_code}
+	  {if $current_currency.iso_code !== $current_currency.sign}{$current_currency.sign}
+	  {/if}</span>
+       <i class="material-icons expand-more">&#xE313;</i>
 		<i class="material-icons expand-less">&#xE316;</i>
     </button>
     <ul class="dropdown-menu hidden-sm-down" aria-labelledby="currency-selector-label">

@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,16 +18,15 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
+ 
 <section class="special-products clearfix mt-3">
-  <h1 class="h1 products-section-title text-uppercase">
-    {l s='Special' d='Shop.Theme.Catalog'}
-  </h1>
-    <div class="title clearfix hidden-md-up" data-target="#special-products" data-toggle="collapse">
-    <span class="h3 text-uppercase">{l s='Special products' d='Modules.Newproducts.Shop'}</span>
+  <h1 class="h1 products-section-title text-uppercase">{l s='Specials' d='Shop.Theme.Catalog'}</h1>
+  <div class="title clearfix hidden-md-up" data-target="#special-products" data-toggle="collapse">
+    <span class="h3 text-uppercase">{l s='Specials' d='Shop.Theme.Catalog'}</span>
     <span class="float-xs-right">
       <span class="navbar-toggler collapse-icons">
         <i class="material-icons add">&#xE145;</i>
@@ -35,10 +34,10 @@
       </span>
     </span>
   </div>
-  <div id="special-products" class="collapse toggle">
+  <div id="special-products" class="collapse toggle rightcolumn-toggle">
   <div class="products">
     {foreach from=$products item="product"}
-      {include file="catalog/_partials/miniatures/product.tpl" product=$product}
+      {include file="catalog/_partials/miniatures/leftproduct.tpl" product=$product}
     {/foreach}
   </div>
   <a class="all-product-link float-xs-left float-md-right h4" href="{$allSpecialProductsLink}">

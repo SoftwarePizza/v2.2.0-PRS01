@@ -49,7 +49,7 @@
 {/function}
 
 <div class="topmenu">
-	<div class="container menu js-top-menu hidden-sm-down" id="_desktop_top_menu">
+	<div class="menu container js-top-menu hidden-sm-down" id="_desktop_top_menu">
 		{menu nodes=$menu.children}
 		<div class="clearfix"></div>
 	</div>

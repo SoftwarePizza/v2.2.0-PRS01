@@ -1,7 +1,7 @@
 <?php
 /**
 *  @author    TemplateTrip
-*  @copyright 2015-2017 TemplateTrip. All Rights Reserved.
+*  @copyright 2015-2021 TemplateTrip. All Rights Reserved.
 *  @license   http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 */
 

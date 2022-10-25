@@ -1,6 +1,6 @@
 {*
 *  @author    TemplateTrip
-*  @copyright 2015-2017 TemplateTrip. All Rights Reserved.
+*  @copyright 2015-2021 TemplateTrip. All Rights Reserved.
 *  @license   http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 *}
 {extends file=$layout}
@@ -39,7 +39,7 @@
                                 <div class="thumbnail-inner">
                                     {block name='product_thumbnail'}
                                         <a href="{$product.url}" class="thumbnail product-thumbnail">
-                                            <img src = "{$product.cover.bySize.home_default.url}" alt = "{$product.name|escape:'html':'UTF-8'}" />
+                                            <img src = "{$product.cover.bySize.home_default.url}" alt = "{$product.name|escape:'html':'UTF-8'}" loading="lazy" />
                                         </a>
                                     {/block}
                                 </div>
@@ -47,7 +47,7 @@
 
                             <div class="product-description">
                                 {block name='product_name'}
-                                    <h1 class="h3 product-title" itemprop="name">
+                                    <h1 class="h3 product-title">
                                         <a href="{$product.url}">
                                             {$product.name}
                                         </a>
@@ -64,7 +64,7 @@
                                                     <span class="discount-percentage">{$product.discount_percentage}</span>
                                                 {/if}
                                             {/if}
-                                            <span itemprop="price" class="price">{$product.price}</span>
+                                            <span class="price">{$product.price}</span>
                                         </div>
                                     {/if}
                                 {/block}

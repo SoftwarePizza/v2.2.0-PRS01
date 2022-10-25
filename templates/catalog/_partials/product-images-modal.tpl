@@ -1,5 +1,5 @@
  {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,20 +18,41 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 <div class="modal fade js-product-images-modal" id="product-modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+	<div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
       <div class="modal-body">
         {assign var=imagesCount value=$product.images|count}
         <figure>
-          <img class="js-modal-product-cover product-cover-modal" width="{$product.cover.large.width}" src="{$product.cover.large.url}" alt="{$product.cover.legend}" title="{$product.cover.legend}" itemprop="image">
+          {if $product.default_image}
+            <img
+              class="js-modal-product-cover product-cover-modal"
+              width="{$product.default_image.bySize.large_default.width}"
+              src="{$product.default_image.bySize.large_default.url}"
+              {if !empty($product.default_image.legend)}
+                alt="{$product.default_image.legend}"
+                title="{$product.default_image.legend}"
+              {else}
+                alt="{$product.name}"
+              {/if}
+              height="{$product.default_image.bySize.large_default.height}"
+			  loading="lazy"
+            >
+          {else}
+            <img src="{$urls.no_picture_image.bySize.large_default.url}" loading="lazy" width="{$urls.no_picture_image.bySize.large_default.width}" height="{$urls.no_picture_image.bySize.large_default.height}" />
+          {/if}
           <figcaption class="image-caption">
           {block name='product_description_short'}
-            <div id="product-description-short" itemprop="description">{$product.description_short nofilter}</div>
+            <div id="product-description-short">{$product.description_short nofilter}</div>
           {/block}
         </figcaption>
         </figure>
@@ -41,7 +62,14 @@
               <ul class="product-images js-modal-product-images">
                 {foreach from=$product.images item=image}
                   <li class="thumb-container">
-                    <img data-image-large-src="{$image.large.url}" class="thumb js-modal-thumb" src="{$image.medium.url}" alt="{$image.legend}" title="{$image.legend}" width="{$image.medium.width}" itemprop="image">
+                    <img data-image-large-src="{$image.large.url}" class="thumb js-modal-thumb {if $image.id_image == $product.cover.id_image} selected {/if}" src="{$image.medium.url}" 
+					{if !empty($image.legend)}
+                        alt="{$image.legend}"
+                        title="{$image.legend}"
+                      {else}
+                        alt="{$product.name}"
+                      {/if} 
+					  title="{$image.legend}" width="{$image.medium.width}" height="148">
                   </li>
                 {/foreach}
               </ul>
@@ -55,6 +83,6 @@
           {/if}
         </aside>
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    </div>
+  </div>
+</div>

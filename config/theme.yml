@@ -1,11 +1,11 @@
-name: PRS01
-display_name: PRS01
-version: 2.2.0
+name: PRS011
+display_name: PRS011
+version: 2.3.0
 theme_key: 263aba6ffcb7a68661a77e13445e84f4
 author:
   name: "TemplateTrip"
-  email: "support@templatetrip.com"
-  url: "http://www.templatetrip.com"
+  email: "pub@prestashop.com"
+  url: "https://addons.prestashop.com/en/130_templatetrip"
 
 meta:
   compatibility:
@@ -43,51 +43,90 @@ assets:
 #        media: all
 #        priority: 200
     all:
+      - id: aos-style
+        path: assets/css/aos.css
+        priority: 170
+      - id: animate-style
+        path: assets/css/animate.css
+        priority: 190
       - id: lightbox-style
         path: assets/css/lightbox.css
         priority: 180
+      - id: owl-style
+        path: assets/css/owl.carousel.min.css
+        priority: 190
+      - id: owl-theme-default-style
+        path: assets/css/owl.theme.default.min.css
+        priority: 200
+      - id: custom-style
+        path: assets/css/custom.css
+        priority: 240 
   js:
     all:
       - id: owl-lib
         path: assets/js/owl.carousel.min.js
         priority: 310
-      - id: progress-lib
-        path: assets/js/ttprogressbar.js
-        priority: 260
-      - id: waypoint-lib
-        path: assets/js/waypoints.min.js
-        priority: 240
-    index:
+      - id: inview-lib
+        path: assets/js/inview.js
+        priority: 320
+      - id: aos-lib
+        path: assets/js/aos.js
+        priority: 330
+      - id: cookie-lib
+        path: assets/js/jquery.cookie.js
+        priority: 340
       - id: lightbox-lib
         path: assets/js/lightbox-2.6.min.js
-        priority: 330
+        priority: 345
+      - id: parallax-lib
+        path: assets/js/parallax.js
+        priority: 350
+      - id: zoom-lib
+        path: assets/js/jquery.zoom.min.js
+        priority: 355
+      - id: ResizeSensor-lib
+        path: assets/js/ResizeSensor.min.js
+        priority: 360
+      - id: theia-sticky-sidebar-lib
+        path: assets/js/theia-sticky-sidebar.min.js
+        priority: 365
 global_settings:
   configuration:
     PS_IMAGE_QUALITY: png
   modules:
    to_enable:
      - ps_linklist
-     - ttbestsellers
-     - ttfeaturedproducts
-     - ttnewproducts
      - ttspecials
-     - ttcmsgallery
-     - ttcmstestimonial
-     - ttcmsbanner
-     - ttcmsfooter
-     - ttbrandlogo
-     - ttproductimagehover
-     - ttcmsservices
      - smartblog
      - smartbloghomelatestnews
+     - ttproductimagehover
+     - ttbrandlogo
+     - tttabproducts
+     - ttadvertising
+     - ttmegamenu
+     - ttcmsbanner
+     - ttimageslider
+     - ttcmstestimonial
+     - ttstickyaddtocart
+     - ttcategoryfeature
+     - ttcookiebanner
+     - ttcustomtab
+     - ttproductcomments
+     - ttsizeguide
+     - ttgooglemap
+     - ttproductpopup
+     - ttcmspaymentlogo
+     - ttcmsservice
+     - ttcmsfooter
      - ttcompare
      - ttproductwishlist
-     - productcomments
-     - tawkto
+     - ttcmsheader
    to_disable:
      - ps_featuredproducts
      - ps_customtext
+     - ps_mainmenu
      - ps_banner
+     - blockwishlist
   hooks:
     custom_hooks:
       - name: displayHomeTab
@@ -96,87 +135,97 @@ global_settings:
       - name: displayTopColumn
         title: TopColumn content
         description: Add a widget area above the content
+      - name: displayTopColumnAfter
+        title: TopColumnAfter content
+        description: Add a widget area after the top column
     modules_to_hook:
       displayNav1:
+        - ttcmsheader
+      displayNav2:
         - ps_currencyselector
         - ps_languageselector
         - ps_contactinfo
-      displayNav2:
-        - ps_searchbar
-        - ps_customersignin
         - ps_shoppingcart
+        - ps_customersignin
+        - ps_searchbar
       displayTop:
-        - ps_mainmenu
-      displayTopColumn:
-        - ps_imageslider
-        - ttcmsservices
-        - ttcmsbanner
-      displayHomeTab:
-        - ttfeaturedproducts
-        - ttnewproducts
-        - ttbestsellers
+        - ttmegamenu
       displayHome:
-        - ttcmsgallery
+        - ttimageslider
+        - ttcmsservice
+        - ttcmsbanner
+        - tttabproducts
+        - ttcategoryfeature
+        - smartbloghomelatestnews
         - ttcmstestimonial
         - ttspecials
-        - smartbloghomelatestnews
         - ttbrandlogo
       displayFooterBefore:
         - ps_emailsubscription
       displayFooter:
         - ttcmsfooter
+        - ps_socialfollow
         - ps_linklist
         - ps_contactinfo
-        - ps_socialfollow
+      displayFooterAfter:
+        - ttcmspaymentlogo
       displayLeftColumn:
         - ps_categorytree
         - ps_facetedsearch
-        - ps_advertising
+        - ttadvertising
         - ps_newproducts
       displaySearch:
         - ps_searchbar
+      displayGoogleMap:
+        - ttgooglemap
+      displayProductTab:
+        - ttcustomtab
+      displayProductTabContent:
+        - ttcustomtab
       displayProductAdditionalInfo:
         - ps_sharebuttons
-        - productcomments
       displayFooterProduct:
-        - productcomments
-      displayProductListReviews:
-        - productcomments
+        - ttstickyaddtocart
+      displayProductListReviews::
       displayReassurance:
         - blockreassurance
       displayOrderConfirmation2:
         - ps_featuredproducts
       displayCrossSellingShoppingCart:
         - ps_featuredproducts
+      displaySizeguide:
+        - ttsizeguide
+      displayAfterBodyOpeningTag:
+        - ttproductpopup
 
   image_types:
     cart_default:
       width: 100
-      height: 125
+      height: 120
       scope: [products]
     small_default:
       width: 70
       height: 91
       scope: [products, categories, manufacturers, suppliers]
     medium_default:
-      width: 280
-      height: 364
+      width: 520
+      height: 676
       scope: [products, manufacturers, suppliers]
     home_default:
       width: 280
       height: 364
       scope: [products]
     large_default:
-      width: 800
-      height: 800
+      width: 870
+      height: 1131
       scope: [products, manufacturers, suppliers]
     category_default:
-      width: 870
-      height: 200
+      width: 1000
+      height: 300
       scope: [categories]
     stores_default:
-      width: 170
-      height: 115	  
+      width: 115
+      height: 170
       scope: [stores]
 
 theme_settings:
@@ -186,26 +235,36 @@ theme_settings:
     best-sales: layout-left-column
     new-products: layout-left-column
     prices-drop: layout-left-column
+    addresses: layout-left-column
     contact: layout-left-column
     search: layout-left-column
     module-smartblog-details: layout-left-column
     module-smartblog-category: layout-left-column
+    pagenotfound: layout-left-column
 dependencies:
   modules:
-    - ttbestsellers
-    - ttfeaturedproducts
-    - ttnewproducts
     - ttspecials
     - smartblog
     - smartbloghomelatestnews
+    - ttproductimagehover
+    - ttmegamenu
+    - ttsizeguide
+    - ttcmsbanner
+    - ttcmstestimonial
+    - tttabproducts
+    - ttcategoryfeature
+    - ttproductcomments
+    - ttcmsfooter
+    - ttadvertising
+    - ttcookiebanner
+    - ttcustomtab
+    - ttstickyaddtocart
+    - ttgooglemap
+    - ttimageslider
+    - ttproductpopup
+    - ttcmspaymentlogo
+    - ttcmsservice
+    - ttcmsheader
     - ttcompare
     - ttproductwishlist
-    - productcomments
-    - ttcmsservices
-    - ttcmsbanner
-    - ttcmsgallery
-    - ttcmstestimonial
-    - ttcmsfooter
     - ttbrandlogo
-    - tawkto
-    - ttproductimagehover

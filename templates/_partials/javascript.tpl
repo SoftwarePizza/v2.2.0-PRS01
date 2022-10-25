@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,22 +18,22 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {foreach $javascript.external as $js}
-  <script type="text/javascript" src="{$js.uri}" {$js.attribute}></script>
+  <script src="{$js.uri}" {$js.attribute}></script>
 {/foreach}
 
 {foreach $javascript.inline as $js}
-  <script type="text/javascript">
+  <script>
     {$js.content nofilter}
   </script>
 {/foreach}
 
 {if isset($vars) && $vars|@count}
-  <script type="text/javascript">
+  <script>
     {foreach from=$vars key=var_name item=var_value}
     var {$var_name} = {$var_value|json_encode nofilter};
     {/foreach}

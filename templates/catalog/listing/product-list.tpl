@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,20 +18,29 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {extends file=$layout}
 
+{block name='head_microdata_special'}
+  {include file='_partials/microdata/product-list-jsonld.tpl' listing=$listing}
+{/block}
+
 {block name='content'}
   <section id="main">
-	<input id="carttoken" name="carttoken" value="{$urls.pages.cart}" type="hidden">
-    <input id="tokenid" name="tokenid" value="{$static_token}" type="hidden">
-
     {block name='product_list_header'}
       <h2 id="js-product-list-header" class="h2 tt-innerpagetitle">{$listing.label}</h2>
     {/block}
+
+    {block name='subcategory_list'}
+      {if isset($subcategories) && $subcategories|@count > 0}
+        {include file='catalog/_partials/subcategories.tpl' subcategories=$subcategories}
+      {/if}
+    {/block}
+    
+    {hook h="displayHeaderCategory"}
 
     <section id="products">
       {if $listing.products|count}
@@ -50,7 +59,8 @@
 
         <div>
           {block name='product_list'}
-            {include file='catalog/_partials/products.tpl' listing=$listing}
+            {include file='catalog/_partials/products.tpl' listing=$listing productClass="col-xs-6 col-xl-4"
+}
           {/block}
         </div>
 
@@ -62,17 +72,15 @@
 
       {else}
 
-         <div id="js-product-list-top"></div>
-
-  
+      <div id="js-product-list-top"></div>
       <div id="js-product-list">
-  
-        {include file='errors/not-found.tpl'}
-   
-     </div>
-
-      
-  <div id="js-product-list-bottom"></div>	
+	       {capture assign="errorContent"}
+            <h4>{l s='No products available yet' d='Shop.Theme.Catalog'}</h4>
+            <p>{l s='Stay tuned! More products will be shown here as they are added.' d='Shop.Theme.Catalog'}</p>
+          {/capture}
+        {include file='errors/not-found.tpl' errorContent=$errorContent}
+      </div>
+      <div id="js-product-list-bottom"></div>
 
       {/if}
     </section>

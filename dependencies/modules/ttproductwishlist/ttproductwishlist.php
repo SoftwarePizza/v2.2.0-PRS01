@@ -1,7 +1,7 @@
 <?php
 /**
 *  @author    TemplateTrip
-*  @copyright 2015-2017 TemplateTrip. All Rights Reserved.
+*  @copyright 2015-2021 TemplateTrip. All Rights Reserved.
 *  @license   http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 */
 
@@ -20,7 +20,7 @@ class TtProductWishList extends Module
     {
         $this->name = 'ttproductwishlist';
         $this->tab = 'front_office_features';
-        $this->version = '1.0.0';
+        $this->version = '1.0.1';
         $this->author = 'TemplateTrip';
         $this->need_instance = 0;
 
@@ -216,13 +216,6 @@ class TtProductWishList extends Module
     {
         if (Configuration::get('TTWISHLIST_ENABLE')) {
             return $this->display(__FILE__, 'views/templates/hook/my-account.tpl');
-        }
-    }
-
-    public function hookDisplayMyAccountBlock()
-    {
-        if (Configuration::get('TTWISHLIST_ENABLE')) {
-            return $this->display(__FILE__, 'views/templates/hook/my-account-footer.tpl');
         }
     }
 

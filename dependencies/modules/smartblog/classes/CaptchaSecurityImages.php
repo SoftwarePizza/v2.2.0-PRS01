@@ -1,6 +1,6 @@
 <?php
 /**
-* 2007-2019 PrestaShop
+* 2007-2022 PrestaShop
 *
 * NOTICE OF LICENSE
 *
@@ -19,7 +19,7 @@
 * needs please refer to http://www.prestashop.com for more information.
 *
 *  @author    PrestaShop SA <contact@prestashop.com>
-*  @copyright 2007-2019 PrestaShop SA
+*  @copyright 2007-2022 PrestaShop SA
 *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 */
@@ -48,7 +48,15 @@ class CaptchaSecurityImages
         }
         /* generate random lines in background */
         for ($i=0; $i<($width*$height)/150; $i++) {
-            imageline($image, mt_rand(0, $width), mt_rand(0, $height), mt_rand(0, $width), mt_rand(0, $height), $noise_color, $background_color);
+            imageline($image, mt_rand(0, $width), mt_rand(0, $height), mt_rand(0, $width), mt_rand(0, $height), $noise_color);
+        }
+        /* generate random dots in background */
+        for ($i=0; $i<($width*$height)/3; $i++) {
+            imagefilledellipse($image, mt_rand(0, $width), mt_rand(0, $height), 1, 1, $background_color);
+        }
+        /* generate random lines in background */
+        for ($i=0; $i<($width*$height)/150; $i++) {
+            imageline($image, mt_rand(0, $width), mt_rand(0, $height), mt_rand(0, $width), mt_rand(0, $height), $background_color);
         }
         /* create textbox and add text */
         $textbox = imagettfbbox($font_size, 0, $this->font, $code) or die('Error in imagettfbbox function');

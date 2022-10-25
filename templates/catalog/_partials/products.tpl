@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022  PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,27 +18,58 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022  PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 <div id="js-product-list">
   <div class="products product-thumbs row">
-    {foreach from=$listing.products item="product"}
-      {block name='product_miniature'}
-        {include file='catalog/_partials/miniatures/product.tpl' product=$product}
-      {/block}
-    {/foreach}
+    <div class="tab-content" id="tab-content">
+		<div class="tab-pane" id="tab-gridview3" role="tabpanel">
+			{foreach from=$listing.products item="product"}
+			  {block name='product_miniature'}
+				{include file='catalog/_partials/miniatures/product-grid2.tpl' product=$product}
+			  {/block}
+			{/foreach}
+		</div>
+		<div class="tab-pane active" id="tab-gridview2" role="tabpanel">
+			{foreach from=$listing.products item="product"}
+			  {block name='product_miniature'}
+				{include file='catalog/_partials/miniatures/product-grid.tpl' product=$product}
+			  {/block}
+			{/foreach}
+		</div>
+		<div class="tab-pane" id="tab-gridview" role="tabpanel">
+			{foreach from=$listing.products item="product"}
+			  {block name='product_miniature'}
+				{include file='catalog/_partials/miniatures/product.tpl' product=$product}
+			  {/block}
+			{/foreach}
+		</div>
+		<div class="tab-pane" id="tab-listview" role="tabpanel">
+			{foreach from=$listing.products item="product"}
+			  {block name='product_miniature'}
+				{include file='catalog/_partials/miniatures/product-listing.tpl' product=$product}
+			  {/block}
+			{/foreach}
+		</div>
+		<div class="tab-pane" id="tab-shortview" role="tabpanel">
+			{foreach from=$listing.products item="product"}
+			  {block name='product_miniature'}
+				{include file='catalog/_partials/miniatures/product-shortlist.tpl' product=$product}
+			  {/block}
+			{/foreach}
+		</div>
+	</div>
   </div>
 
   {block name='pagination'}
     {include file='_partials/pagination.tpl' pagination=$listing.pagination}
   {/block}
 
-  <div class="hidden-md-up text-xsright up">
+  <div class="hidden-md-up text-xs-right up">
     <a href="#header" class="btn btn-secondary">
       {l s='Back to top' d='Shop.Theme.Actions'}
       <i class="material-icons">&#xE316;</i>
     </a>
   </div>
-</div>

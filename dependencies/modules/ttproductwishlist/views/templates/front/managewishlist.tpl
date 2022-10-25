@@ -1,6 +1,6 @@
 {*
 *  @author    TemplateTrip
-*  @copyright 2015-2017 TemplateTrip. All Rights Reserved.
+*  @copyright 2015-2021 TemplateTrip. All Rights Reserved.
 *  @license   http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 *}
 
@@ -20,106 +20,109 @@
     {/if}
     <div id="products" class="wlp_bought">
         <div class="products">
-		<div class="row">
-            {foreach from=$products item=productItem name=i}
-                {assign var='product' value=$productItem.curProduct}
-                {assign var='wishlist' value=$productItem.wishlistInfo}
-                <article id="wlp_{$product.id_product}_{$product.id_product_attribute}" class="product-miniature js-product-miniature col-xs-12 col-sm-6 col-md-4 col-lg-6 col-xl-4" data-id-product="{$product.id_product}" data-id-product-attribute="{$product.id_product_attribute}" itemscope itemtype="http://schema.org/Product">
-                    <div class="product-container">
-                        <div class="thumbnail-container">
-                            <div class="thumbnail-inner">
-                                {block name='product_thumbnail'}
-                                    <a href="{$product.url}" class="thumbnail product-thumbnail">
-                                        <img src = "{$product.cover.bySize.home_default.url}" alt = "{$product.name|escape:'html':'UTF-8'}" />
-                                    </a>
-                                {/block}
-                            </div>
-                            <a class="lnkdel" href="javascript:;" onclick="WishlistProductManage('wlp_bought', 'delete', '{$id_wishlist}', '{$product.id_product}', '{$product.id_product_attribute}', $('#quantity_{$product.id_product}_{$product.id_product_attribute}').val(), $('#priority_{$product.id_product}_{$product.id_product_attribute}').val());" title="{l s='Delete' mod='ttproductwishlist'}">
-                                <i class="fa fa-times-circle"></i>
-                            </a>
-                        </div>
-                        <div class="product-description">
-                            {block name='product_name'}
-                                <h1 class="h3 product-title" itemprop="name">
-                                    <a href="{$product.url}">
-                                        {$product.name}
-                                    </a>
-                                </h1>
-                            {/block}
-
-                            {block name='product_price_and_shipping'}
-                                {if $product.show_price}
-                                    <div class="product-price-and-shipping">
-                                        {if $product.has_discount}
-                                            {hook h='displayProductPriceBlock' product=$product type="old_price"}
-                                            <span class="regular-price">{$product.regular_price}</span>
-                                            {if $product.discount_type === 'percentage'}
-                                                <span class="discount-percentage">{$product.discount_percentage}</span>
-                                            {/if}
-                                        {/if}
-                                        <span itemprop="price" class="price">{$product.price}</span>
-                                    </div>
-                                {/if}
-                            {/block}
-
-                            <p class="form-group">
-                                <label for="quantity_{$product.id_product}_{$product.id_product_attribute}">
-                                    {l s='Quantity' mod='ttproductwishlist'}
-                                </label>
-                                <input class="form-control" type="text" id="quantity_{$product.id_product}_{$product.id_product_attribute}" value="{$wishlist.quantity|intval}" size="3" />
-                            </p>
-
-                            <p class="form-group">
-                                <label for="priority_{$product.id_product}_{$product.id_product_attribute}">
-                                    {l s='Priority' mod='ttproductwishlist'}:
-                                </label>
-                                <select id="priority_{$product.id_product}_{$product.id_product_attribute}" class="form-control grey">
-                                    <option value="0"{if $wishlist.priority eq 0} selected="selected"{/if}>
-                                        {l s='High' mod='ttproductwishlist'}
-                                    </option>
-                                    <option value="1"{if $wishlist.priority eq 1} selected="selected"{/if}>
-                                        {l s='Medium' mod='ttproductwishlist'}
-                                    </option>
-                                    <option value="2"{if $wishlist.priority eq 2} selected="selected"{/if}>
-                                        {l s='Low' mod='ttproductwishlist'}
-                                    </option>
-                                </select>
-                            </p>
-
-                            {if $wishlists|count > 1}
-                                {foreach name=wl from=$wishlists item=wishlist}
-                                    {if $smarty.foreach.wl.first}
-                                        <p class="form-group">
-                                            <label for="move_{$product.id_product}_{$product.id_product_attribute}">
-                                                {l s='Move' mod='ttproductwishlist'}
-                                            </label>
-                                            <select id="move_{$product.id_product}_{$product.id_product_attribute}" class="form-control">
-                                                <option>
-                                                    {l s='---' mod='ttproductwishlist'}
-                                                </option>
-                                    {/if}
-                                    {if $id_wishlist != {$wishlist.id_wishlist}}
-                                                        <option title="{$wishlist.name|escape:'html':'UTF-8'}" value="{$wishlist.id_wishlist}" onclick="wishlistProductChange({$product.id_product}, {$product.id_product_attribute}, '{$id_wishlist}', '{$wishlist.id_wishlist}');">
-                                                                {l s='Move to %s'|sprintf:$wishlist.name mod='ttproductwishlist'}
-                                                        </option>
-                                    {/if}
-                                    {if $smarty.foreach.wl.last}
-                                            </select>
-                                        </p>
-                                    {/if}
-                                {/foreach}
-                            {/if}
-
-                            <div class="btn_action">
-                                <a class="btn btn-primary"  href="javascript:;" onclick="WishlistProductManage('wlp_bought_{$product.id_product_attribute}', 'update', '{$id_wishlist}', '{$product.id_product}', '{$product.id_product_attribute}', $('#quantity_{$product.id_product}_{$product.id_product_attribute}').val(), $('#priority_{$product.id_product}_{$product.id_product_attribute}').val());" title="{l s='Save' mod='ttproductwishlist'}">
-                                    <span>{l s='Save' mod='ttproductwishlist'}</span>
+            <div class="row">
+                {foreach from=$products item=productItem name=i}
+                    {assign var='product' value=$productItem.curProduct}
+                    {assign var='wishlist' value=$productItem.wishlistInfo}
+                    <article id="wlp_{$product.id_product}_{$product.id_product_attribute}" class="product-miniature js-product-miniature col-xs-12 col-sm-6 col-md-4 col-xl-3" data-id-product="{$product.id_product}" data-id-product-attribute="{$product.id_product_attribute}" itemscope itemtype="http://schema.org/Product">
+                        <div class="product-container">
+                            <div class="thumbnail-container">
+                                <div class="thumbnail-inner">
+                                    {block name='product_thumbnail'}
+                                        <a href="{$product.url}" class="thumbnail product-thumbnail">
+                                            <img src = "{$product.cover.bySize.home_default.url}" alt = "{$product.name|escape:'html':'UTF-8'}" loading="lazy" />
+                                        </a>
+                                    {/block}
+                                </div>
+                                <a class="lnkdel" href="javascript:;" onclick="WishlistProductManage('wlp_bought', 'delete', '{$id_wishlist}', '{$product.id_product}', '{$product.id_product_attribute}', $('#quantity_{$product.id_product}_{$product.id_product_attribute}').val(), $('#priority_{$product.id_product}_{$product.id_product_attribute}').val());" title="{l s='Delete' mod='ttproductwishlist'}">
+                                    <i class="fa fa-times-circle"></i>
                                 </a>
                             </div>
+                            <div class="product-description">
+                                {block name='product_name'}
+                                    <h1 class="h3 product-title">
+                                        <a href="{$product.url}">
+                                            {$product.name}
+                                        </a>
+                                    </h1>
+                                {/block}
+
+                                {block name='product_price_and_shipping'}
+                                    {if $product.show_price}
+                                        <div class="product-price-and-shipping">
+                                            <span class="price">{$product.price}</span>
+                                            {if $product.has_discount}
+                                                
+                                                {hook h='displayProductPriceBlock' product=$product type="old_price"}
+                                                {if $product.discount_type === 'percentage'}
+                                                    <span class="discount-percentage">{$product.discount_percentage}</span>
+                                                {/if}
+                                                <span class="regular-price">{$product.regular_price}</span>
+
+                                            {/if}
+                                           
+                                        </div>
+                                    {/if}
+                                {/block}
+
+                                <p class="form-group">
+                                    <label for="quantity_{$product.id_product}_{$product.id_product_attribute}">
+                                        {l s='Quantity' mod='ttproductwishlist'}
+                                    </label>
+                                    <input class="form-control" type="text" id="quantity_{$product.id_product}_{$product.id_product_attribute}" value="{$wishlist.quantity|intval}" size="3" />
+                                </p>
+
+                                <p class="form-group">
+                                    <label for="priority_{$product.id_product}_{$product.id_product_attribute}">
+                                        {l s='Priority' mod='ttproductwishlist'}:
+                                    </label>
+                                    <select id="priority_{$product.id_product}_{$product.id_product_attribute}" class="form-control grey">
+                                        <option value="0"{if $wishlist.priority eq 0} selected="selected"{/if}>
+                                            {l s='High' mod='ttproductwishlist'}
+                                        </option>
+                                        <option value="1"{if $wishlist.priority eq 1} selected="selected"{/if}>
+                                            {l s='Medium' mod='ttproductwishlist'}
+                                        </option>
+                                        <option value="2"{if $wishlist.priority eq 2} selected="selected"{/if}>
+                                            {l s='Low' mod='ttproductwishlist'}
+                                        </option>
+                                    </select>
+                                </p>
+
+                                {if $wishlists|count > 1}
+                                    {foreach name=wl from=$wishlists item=wishlist}
+                                        {if $smarty.foreach.wl.first}
+                                            <p class="form-group">
+                                                <label for="move_{$product.id_product}_{$product.id_product_attribute}">
+                                                    {l s='Move' mod='ttproductwishlist'}
+                                                </label>
+                                                <select id="move_{$product.id_product}_{$product.id_product_attribute}" class="form-control">
+                                                    <option>
+                                                        {l s='---' mod='ttproductwishlist'}
+                                                    </option>
+                                        {/if}
+                                        {if $id_wishlist != {$wishlist.id_wishlist}}
+                                                            <option title="{$wishlist.name|escape:'html':'UTF-8'}" value="{$wishlist.id_wishlist}" onclick="wishlistProductChange({$product.id_product}, {$product.id_product_attribute}, '{$id_wishlist}', '{$wishlist.id_wishlist}');">
+                                                                    {l s='Move to %s'|sprintf:$wishlist.name mod='ttproductwishlist'}
+                                                            </option>
+                                        {/if}
+                                        {if $smarty.foreach.wl.last}
+                                                </select>
+                                            </p>
+                                        {/if}
+                                    {/foreach}
+                                {/if}
+
+                                <div class="btn_action">
+                                    <a class="btn btn-primary"  href="javascript:;" onclick="WishlistProductManage('wlp_bought_{$product.id_product_attribute}', 'update', '{$id_wishlist}', '{$product.id_product}', '{$product.id_product_attribute}', $('#quantity_{$product.id_product}_{$product.id_product_attribute}').val(), $('#priority_{$product.id_product}_{$product.id_product_attribute}').val());" title="{l s='Save' mod='ttproductwishlist'}">
+                                        <span>{l s='Save' mod='ttproductwishlist'}</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </article>
-            {/foreach}
-        </div>
+                    </article>
+                {/foreach}
+            </div>
 		</div>
     </div>
     <div id="ttsendwishlist-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

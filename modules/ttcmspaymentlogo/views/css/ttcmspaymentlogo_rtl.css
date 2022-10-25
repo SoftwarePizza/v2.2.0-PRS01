@@ -1,0 +1,32 @@
+/*------------------------------Start TT-CMS Paymentlogo-----------------------*/
+#ttcmspaymentlogo {
+	float: left;
+	text-align: left;
+	line-height: 0;
+}
+#ttcmspaymentlogo .payment-list {
+	display: inline-block;
+	float: none;
+	margin: 0;
+	padding:2px 0;
+	vertical-align: top;
+}
+#ttcmspaymentlogo .payment-list li {
+	float: right;
+	margin: 0 0 0 8px;
+}
+#ttcmspaymentlogo .payment-list li:last-child {
+	margin: 0;
+}
+@media(max-width:991px){
+	#ttcmspaymentlogo {
+	  float:right;
+	  text-align:center;
+	  padding:0;
+	  width: 100%;
+	}
+	#ttcmspaymentlogo .payment-list{
+		padding:6px 0 0;
+	}
+}
+/*------------------------------End TT-CMS Paymentlogo-----------------------*/

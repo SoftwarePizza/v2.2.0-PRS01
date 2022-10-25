@@ -1,7 +1,7 @@
 <?php
 /**
 *  @author    TemplateTrip
-*  @copyright 2015-2017 TemplateTrip. All Rights Reserved.
+*  @copyright 2015-2021 TemplateTrip. All Rights Reserved.
 *  @license   http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 */
 
@@ -15,13 +15,11 @@ use PrestaShop\PrestaShop\Core\Addon\Module\ModuleManagerBuilder;
 class WishListProductAttribute extends ProductControllerCore
 {
     public $php_self = '';
-    protected $quantity_discounts 
+    protected $quantity_discounts;
 
-  ;
-
-    /**protected $quantity_discounts 
-     * Assign price and tax to the temprotected $quantity_discounts plate.
-     */protected $quantity_discounts 
+    /**
+     * Assign price and tax to the template.
+     */
     protected function assignPriceAndTax()
     {
         $id_customer = (isset($this->context->customer) ? (int) $this->context->customer->id : 0);

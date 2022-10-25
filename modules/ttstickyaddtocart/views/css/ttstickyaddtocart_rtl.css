@@ -1,0 +1,318 @@
+/**
+* 2022 Anvanto
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License (AFL 3.0)
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/afl-3.0.php
+* If you did not receive a copy of the license and are unable to
+* obtain it through the world-wide-web, please send an email
+* to license@prestashop.com so we can send you a copy immediately.
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+* versions in the future. If you wish to customize PrestaShop for your
+* needs please refer to http://www.prestashop.com for more information.
+*
+*  @author Anvanto (anvantoco@gmail.com)
+*  @copyright  2022 anvanto.com
+
+*  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+*  International Registered Trademark & Property of PrestaShop SA
+*/
+.add_to_cart_sticky {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	top:auto;
+	left: 0;
+	z-index: 2;
+	box-shadow: 0px 5px 15px 0px rgba(1, 2, 4, 0.15);
+	background: #fff;
+	transition: all 400ms ease-in-out 0s;
+	-webkit-transition: all 400ms ease-in-out 0s;
+	-moz-transition: all 400ms ease-in-out 0s;
+	-o-transition: all 400ms ease-in-out 0s;
+	-ms-transition: all 400ms ease-in-out 0s;
+	transform: translateY(100%);
+	-webkit-transform: translateY(100%);
+	-moz-transform: translateY(100%);
+	-o-transform: translateY(100%);
+	-ms-transform: translateY(100%);
+}
+.add_to_cart_sticky.fixed {
+	transform: translateY(0);
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-o-transform: translateY(0);
+	-ms-transform: translateY(0);
+}
+.ttstickyAddToCart-content {
+  display: flex;
+  align-items: center;
+}
+.add_to_cart_sticky .ttstickyAddToCart-product-price-and-shipping {
+  text-align: right;
+}
+.ttstickyAddToCart-price .product-title {
+  font-size: 13px;
+  color: #666;
+  font-weight: 400;
+  margin: 0 0 8px;
+}
+.ttstickyAddToCart-price .regular-price {
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: line-through;
+  color: #666;
+  font-family:var(--primary-font);
+  float:right;
+}
+.ttstickyAddToCart-price .price {
+	font-weight: 600;
+	font-size: 15px;
+	color: var(--price-color);
+	font-family: var(--primary-font);
+	float: right;
+	margin: 0 4px;
+}
+.add_to_cart_sticky span.ttstickyAddToCart-select-price {
+  font-weight: bold;
+  margin-left: 5px;
+}
+.add_to_cart_sticky li.ttstickyAddToCart-select-sold-out {
+  cursor: not-allowed !important;
+}
+.add_to_cart_sticky span.ttstickyAddToCart-select-sold-out {
+  color: var(--secondary-text-color);
+  background-color: var(--secondary-bg-color);
+  padding: 2px 5px;
+  margin: 0 0 0 5px;
+}
+.add_to_cart_sticky span.ttstickyAddToCart-select-regular_price {
+  text-decoration: line-through;
+  margin-left: 5px;
+}
+.add_to_cart_sticky span.ttstickyAddToCart-select-sale {
+  color: #fff;
+  background-color: #e53d60;
+  padding: 2px 5px;
+  margin: 0 0 0 5px;
+}
+.add_to_cart_sticky span.js-ttstickyAddToCart-text {
+  margin-left: 5px;
+}
+.add_to_cart_sticky form {
+  padding: 15px 0;
+}
+.add_to_cart_sticky .product-variants .control-label {
+    margin: 0 0 10px;
+    display: block;
+    width: 100%;
+    font: 600 14px/16px var(--secondary-font);
+    float: right;
+    color: #111;
+}
+.add_to_cart_sticky ul.ttstickyAddToCart-group {
+  margin:0;
+}
+.add_to_cart_sticky .color,
+.add_to_cart_sticky .custom-checkbox input[type=checkbox]+span.color {
+  margin: 0;
+}
+.add_to_cart_sticky .ttstickyAddToCart-qty {
+    color: #414141;
+    background-color: white;
+    height: 40px;
+    padding: 0.175rem 0.5rem;
+    width: 3rem;
+    text-align: center;
+	float:right;
+}
+.add_to_cart_sticky .ttstickyAddToCart-qty-container {
+  float:right;
+  width:78px;
+}
+.add_to_cart_sticky .ttstickyAddToCart-product-selectbox {
+  background: #fff;
+  height: 100%;
+  border: 1px solid rgb(207, 207, 207);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  position: relative;
+  min-width: 200px;
+}
+.add_to_cart_sticky .ttstickyAddToCart-product-selectbox li:hover {
+  background-color: #f5f5f5;
+}
+.add_to_cart_sticky .ttstickyAddToCart-product-selectbox li {
+  cursor: pointer;
+  font-size: 12px;
+  padding: 5px 15px;
+}
+.add_to_cart_sticky .ttstickyAddToCart-select {
+  margin-left: 30px;
+  flex: 1 1;
+  max-width: 295px;
+}
+.add_to_cart_sticky .js-ttstickyAddToCart-filter-option {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.add_to_cart_sticky .ttstickyAddToCart-dropdown-menu {
+  display: none;
+  bottom: 100%;
+  position: absolute;
+  background: #fff;
+  outline: 1px solid rgba(0,0,0,.25);
+  right: 0;
+  width: 100%;
+  z-index: 1;
+  font-weight: normal;
+  text-align: right;
+}
+.add_to_cart_sticky .ttstickyAddToCart-dropdown-menu ul {
+  margin: 0;
+  max-height: 300px;
+  overflow: auto;
+}
+.add_to_cart_sticky .ttstickyAddToCart-dropdown.open .ttstickyAddToCart-dropdown-menu {
+  display: block;
+}
+.add_to_cart_sticky .quantity {
+  position: relative;
+}
+.ttstickyAddToCart-qty-container input[type=number]::-webkit-inner-spin-button,
+.ttstickyAddToCart-qty-container input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.ttstickyAddToCart-qty-container input[type=number] {
+  -moz-appearance: textfield;
+}
+.ttstickyAddToCart-qty-container input:focus {
+  outline: 0;
+}
+.add_to_cart_sticky .quantity-nav {
+	position: relative;
+	white-space: nowrap;
+	width: 1%;
+	vertical-align: middle;
+	display: table-cell;
+	float:right;
+}
+.add_to_cart_sticky .quantity-button {
+	display: block;
+	float: none;
+	width: 100%;
+	max-width: 100%;
+	padding: 0.5rem 0.6875rem;
+	margin-right: -1px;
+	position: relative;
+	height: 21px;
+	background-color: white;
+	border: 1px solid #e5e5e5;
+	cursor:pointer;
+}
+.add_to_cart_sticky .quantity-button:hover {
+	background-color:#f5f5f5;
+}
+.add_to_cart_sticky .quantity-button.quantity-down {
+    margin-top: -2px;
+}
+.add_to_cart_sticky .quantity-button i {
+	position: absolute;
+	font-size: 16px;
+	top: 3px;
+	right: 3px;
+	font-weight: 500;
+}
+.sticky-product {
+    float: right;
+	width: 100%;
+}
+.add_to_cart_sticky ul.ttstickyAddToCart-group li label {
+    margin: 0;
+}
+.add_to_cart_sticky .product-variants select {
+    margin: 0;
+}
+.ttstickyAddToCart-btnadd .ttstickyAddToCart-qty-add .ttstickyAddToCart-add .btn i {
+	margin-left: 5px;
+	line-height: 23px;
+	float: right;
+	font-size: 18px;
+	z-index: -1;
+	position: relative;
+}
+@media (min-width: 405px) {
+	.sticky-product {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+@media (max-width:1199px){
+.ttstickyAddToCart-btnadd {
+padding:0;
+}
+}
+@media (max-width: 991px) {
+	.ttstickyAddToCart-content:not(.content-standart) .ttstickyAddToCart-select {
+		margin-left: 10px;
+	}
+	.add_to_cart_sticky .sticky-product .sticky-image {
+		width: auto;
+		padding:0;
+	}
+	.add_to_cart_sticky .sticky-product .ttstickyAddToCart-price {
+		padding:0 15px 0 0;
+	}
+	.ttstickyAddToCart-btnadd .ttstickyAddToCart-qty-add .ttstickyAddToCart-add .btn span {
+		display:none;
+	}
+	.ttstickyAddToCart-btnadd .ttstickyAddToCart-qty-add .ttstickyAddToCart-add .btn i {
+		margin-left:0;
+	}
+	.ttstickyAddToCart-add .btn-primary{
+	padding: 7px 10px 7px 0px;
+	font-size:0;
+	}
+	.ttstickyAddToCart-price .price {
+	margin:0;
+	}
+	.ttstickyAddToCart-btnadd {
+padding:0 15px;
+}
+}
+@media (max-width: 767px) {
+	.ttstickyAddToCart-add {
+		width: auto;
+		float: none;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.ttstickyAddToCart-price .product-title {
+	    font-size: 13px;
+	}
+	.ttstickyAddToCart-price .price {
+	    font-size: 14px;
+	}
+	.ttstickyAddToCart-standart {
+		display:none;
+	}
+	.add_to_cart_sticky .sticky-product .product-variants .product-variants-item {
+		padding: 0;
+	}
+}
+@media (max-width: 404px) {
+	.ttstickyAddToCart-btnadd {
+		margin-top: 8px;
+		width:auto;
+	}
+
+}

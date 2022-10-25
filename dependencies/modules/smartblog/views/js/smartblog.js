@@ -1,5 +1,5 @@
 /*
-* 2007-2019 PrestaShop
+* 2007-2022 PrestaShop
 *
 * NOTICE OF LICENSE
 *
@@ -18,7 +18,7 @@
 * needs please refer to http://www.prestashop.com for more information.
 *
 *  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2019 PrestaShop SA
+*  @copyright  2007-2022 PrestaShop SA
 *  @version  Release: $Revision$
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
@@ -44,8 +44,7 @@ $('#submitComment').bind('click',function(event) {
         beforeSend: function() {
             $('.success, .warning, .error').remove();
             $('#submitComment').attr('disabled', true);
-            $('#commentInput').before('<div class="attention"><img src="http://321cart.com/sellya/catalog/view/theme/default/image/loading.gif" alt="" />Please wait!</div>');
-
+			$('#commentInput').before('<div class="attention"><span>Please wait!</span></div>');
         },
         complete: function() {
             $('#submitComment').attr('disabled', false);

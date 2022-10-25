@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,10 +18,11 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
+ {include file='_partials/helpers.tpl'}
 <!doctype html>
 <html lang="{$language.iso_code}">
 
@@ -36,7 +37,8 @@
     {block name='hook_after_body_opening_tag'}
       {hook h='displayAfterBodyOpeningTag'}
     {/block}
-	<div id="page" class="">
+	<main>
+	<div id="page">
     <header id="header">
       {block name='header'}
         {include file='_partials/header.tpl'}
@@ -49,19 +51,20 @@
 
     <section id="wrapper">
       {hook h="displayWrapperTop"}
-	  {block name='breadcrumb'}
+	  	{block name='breadcrumb'}
             {include file='_partials/breadcrumb.tpl'}
-          {/block}
-      <div class="container">
+        {/block}
+	 <div class="container">
+
       {block name='content'}
         <section id="content">
           <div class="row">
-            <div class="col-md-8">
+            <div class="col-xs-12 col-lg-8">
               {block name='cart_summary'}
                 {render file='checkout/checkout-process.tpl' ui=$checkout_process}
               {/block}
             </div>
-            <div class="col-md-4">
+            <div class="col-xs-12 col-lg-4">
 
               {block name='cart_summary'}
                 {include file='checkout/_partials/cart-summary.tpl' cart = $cart}
@@ -81,11 +84,8 @@
         {include file='_partials/footer.tpl'}
       {/block}
     </footer>
-	<div class="nanobar">
-		<div class="bar">
-		</div>
 	</div>
-	</div>
+	 </main>
     {block name='javascript_bottom'}
       {include file="_partials/javascript.tpl" javascript=$javascript.bottom}
     {/block}

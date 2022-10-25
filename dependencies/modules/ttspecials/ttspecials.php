@@ -1,6 +1,6 @@
 <?php
 /**
-* 2007-2019 PrestaShop
+* 2007-2022 PrestaShop
 *
 * NOTICE OF LICENSE
 *
@@ -19,7 +19,7 @@
 * needs please refer to http://www.prestashop.com for more information.
 *
 *  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2019 PrestaShop SA
+*  @copyright  2007-2022 PrestaShop SA
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 */
@@ -43,7 +43,7 @@ class TtSpecials extends Module implements WidgetInterface
         $this->name = 'ttspecials';
         $this->tab = 'front_office_features';
         $this->author = 'TemplateTrip';
-        $this->version = '1.0.0';
+        $this->version = '1.0.1';
         $this->need_instance = 0;
 
         $this->ps_versions_compliancy = array(
@@ -54,8 +54,8 @@ class TtSpecials extends Module implements WidgetInterface
         $this->bootstrap = true;
         parent::__construct();
 
-        $this->displayName = $this->getTranslator()->trans('TT - Specials block', array(), 'Modules.TTspecials.Admin');
-        $this->description = $this->getTranslator()->trans('Displays your products that are currently on sale in a dedicated block.', array(), 'Modules.TTspecials.Admin');
+        $this->displayName = $this->l('TT - Specials block');
+        $this->description = $this->l('Displays your products that are currently on sale in a dedicated block.');
 
         $this->templateFile = 'module:ttspecials/views/templates/hook/ttspecials.tpl';
     }
@@ -110,7 +110,7 @@ class TtSpecials extends Module implements WidgetInterface
 
     public function hookActionObjectSpecificPriceCoreUpdateAfter($params)
     {
-        $this->_clearCache('*');
+        $this->clearCachespecial('*');
     }
 
     public function clearCachespecial()
@@ -127,7 +127,7 @@ class TtSpecials extends Module implements WidgetInterface
 
             $this->_clearCache('*');
 
-            $output .= $this->displayConfirmation($this->trans('The settings have been updated.', array(), 'Admin.Notifications.Success'));
+            $output .= $this->displayConfirmation($this->l('The settings have been updated.'));
         }
         return $output.$this->renderForm();
     }
@@ -137,20 +137,20 @@ class TtSpecials extends Module implements WidgetInterface
         $fields_form = array(
             'form' => array(
                 'legend' => array(
-                    'title' => $this->trans('Settings', array(), 'Admin.Global'),
+                    'title' => $this->l('Settings'),
                     'icon' => 'icon-cogs'
                 ),
                 'input' => array(
                     array(
                         'type' => 'text',
-                        'label' => $this->trans('Products to display', array(), 'Modules.TTspecials.Admin'),
+                        'label' => $this->l('Products to display'),
                         'name' => 'TT_BLOCKSPECIALS_SPECIALS_NBR',
                         'class' => 'fixed-width-xs',
-                        'desc' => $this->trans('Define the number of products to be displayed in this block on home page.', array(), 'Modules.TTspecials.Admin'),
+                        'desc' => $this->l('Define the number of products to be displayed in this block on home page.'),
                     ),
                 ),
                 'submit' => array(
-                    'title' => $this->trans('Save', array(), 'Admin.Actions'),
+                    'title' => $this->l('Save'),
                 ),
             ),
         );

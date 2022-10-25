@@ -1,5 +1,5 @@
 {**
- * 2007-2019 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -34,21 +34,21 @@
             {$catlink.id_category = $post.id_category}
             {$catlink.slug = $post.cat_link_rewrite}
             <figure class="post_thumbnail m_bottom_20">
-                <a itemprop="url" title="{$post.meta_title}" href="{smartblog::GetSmartBlogLink('smartblog_post',$options)}" class="imageFeaturedLink">
-                    <img itemprop="image" alt="{$post.meta_title}" src="{$link->getMediaLink($smart_module_dir)}/smartblog/views/img/{$post.post_img}-{$image_type}.jpg" class="img-responsive">
+                <a title="{$post.meta_title}" href="{smartblog::GetSmartBlogLink('smartblog_post',$options)}" class="imageFeaturedLink">
+                    <img  alt="{$post.meta_title}" src="{$link->getMediaLink($smart_module_dir)}/smartblog/views/img/{$post.post_img}-{$image_type}.jpg" class="img-responsive" loading="lazy">
                 </a>
                 <div class="blog_mask">
                     <div class="mask_content">
-                        <a itemprop="url" title="{$post.meta_title}" href="{$link->getMediaLink($smart_module_dir)}/smartblog/views/img/{$post.post_img}.jpg" class="post_lightbox"><i class="icon-resize-full"></i></a>
-                        <a itemprop="url" title="{$post.meta_title}" href="{smartblog::GetSmartBlogLink('smartblog_post',$options)}" class="imageFeaturedLink"><i class="icon-link"></i></a>
+                        <a title="{$post.meta_title}" href="{$link->getMediaLink($smart_module_dir)}/smartblog/views/img/{$post.post_img}.jpg" class="post_lightbox"><i class="icon-resize-full"></i></a>
+                        <a title="{$post.meta_title}" href="{smartblog::GetSmartBlogLink('smartblog_post',$options)}" class="imageFeaturedLink"><i class="icon-link"></i></a>
                     </div>
                 </div>
             </figure>
             <h3 class="post_title m_bottom_0"><a title="{$post.meta_title}" href='{smartblog::GetSmartBlogLink('smartblog_post',$options)}'>{$post.meta_title}</a></h3>
             <div class="post_meta m_bottom_30">
-                <span class="post_meta_date"><label>{l s='Posted on' mod='smartblog'}</label> <a itemprop="url" title="{$post.meta_title}" href="{smartblog::GetSmartBlogLink('smartblog_post',$options)}">{$post.created|date_format:"%B %e, %Y"} <label>{l s='at' mod='smartblog'}</label> {$post.created|date_format:"%r"}</a></span>
-                <span itemprop="author"><label>{l s='by ' mod='smartblog'}</label> {$post.firstname}  {$post.lastname}</span>
-                <span itemprop="articleSection"><label>{l s='/' mod='smartblog'}</label> <a href="{smartblog::GetSmartBlogLink('smartblog_category',$catlink)}">{$post.cat_name}</a></span>
+                <span class="post_meta_date"><label>{l s='Posted on' mod='smartblog'}</label> <a title="{$post.meta_title}" href="{smartblog::GetSmartBlogLink('smartblog_post',$options)}">{$post.created|date_format:"%B %e, %Y"} <label>{l s='at' mod='smartblog'}</label> {$post.created|date_format:"%r"}</a></span>
+                <span><label>{l s='by ' mod='smartblog'}</label> {$post.firstname}  {$post.lastname}</span>
+                <span><label>{l s='/' mod='smartblog'}</label> <a href="{smartblog::GetSmartBlogLink('smartblog_category',$catlink)}">{$post.cat_name}</a></span>
                 <span><label>{l s='/' mod='smartblog'}</label>{l s=' views' mod='smartblog'} ({$post.viewed})</span>
             </div>       
             <div class="blog_post_details m_bottom_20">

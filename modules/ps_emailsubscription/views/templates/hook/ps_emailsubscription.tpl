@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,27 +18,25 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="newslatter" class="col-sm-12">
-<div class="block_newsletter">
-  <div class="row">
+<div id="newslatter">
+<div class="container">
 	<div class="tt-content col-sm-6">
-	<i class="material-icons">&#xE0E1;</i>
-    <h4 class="tt-title">{l s='Sign Up For Newsletter' d='Shop.Theme.Global'}</h4>
+		<i class="material-icons-outlined mail">mail</i>
+		<div class="tt-description">
+    <h2 class="h2 tt-title">{l s='SUBSCRIBE TO NEWSLETTER' d='Shop.Theme.Global'}</h2>
 	</div>
-
-    <div class="block_content col-sm-5">
+	</div>
+    <div class="block_content col-sm-6">
       <form action="{$urls.pages.index}#footer" method="post">
-        <div class="row">
-		       <div class="ttinput_newsletter">
             <input
               class="btn btn-primary float-xs-right hidden-xs-down"
               name="submitNewsletter"
               type="submit"
-              value="{l s='OK' d='Shop.Theme.Actions'}"
+              value="{l s='Subscribe' d='Shop.Theme.Actions'}"
             >
             <input
               class="btn btn-primary float-xs-right hidden-sm-up"
@@ -46,34 +44,32 @@
               type="submit"
               value="{l s='OK' d='Shop.Theme.Actions'}"
             >
-			  <div class="input-wrapper">
-              <input
-				  name="email"
-				  type="email"
-				  value="{$value}"
-				  placeholder="{l s='Your email address' d='Shop.Forms.Labels'}"
-				  aria-labelledby="block-newsletter-label"
-				>
-			</div>
+			 <div class="input-wrapper">
+			<input
+				 name="email"
+				 type="email"
+				 value="{$value}"
+				 placeholder="{l s='Your email address' d='Shop.Forms.Labels'}"
+				 >
+	 			</div>
             <input type="hidden" name="action" value="0">
             <div class="clearfix"></div>
-          </div>
-          <div class="col-xs-12">
+          <div class="col-xs-12 msg">
               {if $conditions}
-                <p class="newsletter-desc">{$conditions}</p>
+                <p class="news_desc">{$conditions}</p>
               {/if}
               {if $msg}
                 <p class="alert {if $nw_error}alert-danger{else}alert-success{/if}">
                   {$msg}
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">�</span> </button>
                 </p>
               {/if}
+			  {hook h='displayNewsletterRegistration'}
 			  {if isset($id_module)}
-				 {hook h='displayGDPRConsent' id_module=$id_module}
-			   {/if}
+				  {hook h='displayGDPRConsent' id_module=$id_module}
+			  {/if}
           </div>
-        </div>
       </form>
-    </div>
-  </div>
-</div>
+	</div>
+	</div>
 </div>

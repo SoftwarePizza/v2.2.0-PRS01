@@ -1,5 +1,5 @@
 {**
- * 2007-2019 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -29,22 +29,17 @@
 {/block}
 
 {block name='content'}
-<section id="main">
-    <div id="content" class="block">
         <div itemtype="#" itemscope="" id="sdsblogArticle" class="blog-post">
-            <div itemprop="articleBody">
-                    <div id="lipsum" class="articleContent">
+                    <div class="articleContent">
                         {assign var="activeimgincat" value='0'}
                         {$activeimgincat = $smartshownoimg} 
                         {if ($post_img != "no" && $activeimgincat == 0) || $activeimgincat == 1}
                             <a id="post_images" href="{$link->getMediaLink($smart_module_dir)}/smartblog/views/img/{$post_img}-single-default.jpg">
-                                <img src="{$link->getMediaLink($smart_module_dir)}/smartblog/views/img/{$post_img}-single-default.jpg" alt="{$meta_title}">
+                                <img src="{$link->getMediaLink($smart_module_dir)}/smartblog/views/img/{$post_img}-single-default.jpg" alt="{$meta_title}" loading="lazy" >
                             </a>
                         {/if}
                     </div>
-                    <div class="page-item-title">
-                        <h1>{$meta_title}</h1>
-                    </div>
+                    <h1>{$meta_title}</h1>
                     <div class="post-info">
                         {assign var="catOptions" value=null}
                         {$catOptions.id_category = $id_category}
@@ -52,13 +47,13 @@
                         <span>
                             {l s='Posted by ' mod='smartblog'} 
                             {if $smartshowauthor ==1}&nbsp;
-                                <span class="author" itemprop="author"><i class="material-icons user">&#xE7FF;</i>&nbsp;&nbsp;{if $smartshowauthorstyle != 0}{$firstname} {$lastname}{else}{$lastname} {$firstname}{/if}</span>&nbsp;&nbsp;
+                                <span class="author" ><i class="material-icons user">&#xE7FF;</i>&nbsp;&nbsp;{if $smartshowauthorstyle != 0}{$firstname} {$lastname}{else}{$lastname} {$firstname}{/if}</span>&nbsp;&nbsp;
                             {/if}
-                            <span class="dateCreated" itemprop="dateCreated"><i class="material-icons calendar">&#xE916;</i>&nbsp;&nbsp;{$created|date_format}</span>&nbsp;&nbsp;
-                        <span class="articleSection" itemprop="articleSection"><a href="{smartblog::GetSmartBlogLink('smartblog_category',$catOptions)}"><i class="material-icons tags">&#xE54E;</i>&nbsp;&nbsp;{$title_category}</a></span>&nbsp;&nbsp;
+                            <span class="dateCreated"><i class="material-icons calendar">&#xE916;</i>&nbsp;&nbsp;{$created|date_format}</span>&nbsp;&nbsp;
+                        <span class="articleSection"><a href="{smartblog::GetSmartBlogLink('smartblog_category',$catOptions)}"><i class="material-icons tags">&#xE54E;</i>&nbsp;&nbsp;{$title_category}</a></span>&nbsp;&nbsp;
                         <span class="blogcomment"><i class="material-icons comments">&#xE0B9;</i>&nbsp;&nbsp;{if $countcomment != ''}{$countcomment}{else}{l s='0' mod='smartblog'}{/if}{l s=' Comments' mod='smartblog'}</span>
                         </span>
-                        <a title="" style="display:none" itemprop="url" href="#"></a>
+                        <a title="" style="display:none" href="#"></a>
                     </div>
                 <div class="sdsarticle-des">
                     {$content nofilter}
@@ -74,7 +69,6 @@
                         </span>
                     </div>
                 {/if}
-            </div>
 
             <div class="sdsarticleBottom">
                 {$HOOK_SMART_BLOG_POST_FOOTER}
@@ -94,7 +88,6 @@
                 </div>
             </div>
         {/if}
-    </div>
     {if Configuration::get('smartenablecomment') == 1}
         {if $comment_status == 1}
             <div class="smartblogcomments" id="respond">
@@ -145,7 +138,7 @@
                                 <label class="col-md-5">
                                 </label>
                                 <div class="col-md-7">
-                                    <img src="{$link->getMediaLink($smart_module_dir)}/smartblog/classes/CaptchaSecurityImages.php?width=100&height=40&characters=5">
+                                    <img src="{$link->getMediaLink($smart_module_dir)}/smartblog/classes/CaptchaSecurityImages.php?width=100&height=40&characters=5" loading="lazy" >
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -175,5 +168,4 @@
             {$smartcustomcss}
         </style>
     {/if}
-</section>
 {/block}

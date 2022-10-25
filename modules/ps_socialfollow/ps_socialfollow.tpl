@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,26 +18,16 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 
 {block name='block_social'}
-  <div class="block-social links col-sm-3">
-    <h4 class="hidden-sm-down">{l s='Follow US' d='Shop.Theme.Catalog'}</h4>
-	<div  class="title clearfix hidden-md-up" data-toggle="collapse" data-target="#social-footer">
-  	<span class="h3">{l s='social' d='Shop.Theme.Catalog'}</span>
-	<span class="float-xs-right">
-          <span class="navbar-toggler collapse-icons">
-            <i class="material-icons add">&#xE313;</i>
-            <i class="material-icons remove">&#xE316;</i>
-          </span>
-	</span>
-  </div>
-    <ul id="social-footer" class="collapse">
+  <div class="block-social">
+    <ul>
       {foreach from=$social_links item='social_link'}
-        <li class="{$social_link.class}"><a href="{$social_link.url}" target="_blank"><P>{$social_link.label}</P></a></li>
+        <li class="{$social_link.class}"><a href="{$social_link.url}" rel="noopener noreferrer"><p>{$social_link.label}</p></a></li>
       {/foreach}
     </ul>
   </div>

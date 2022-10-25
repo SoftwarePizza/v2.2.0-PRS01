@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,12 +18,12 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<section class="product-discounts">
   {if $product.quantity_discounts}
+<section class="product-discounts js-product-discounts">
     <h3 class="h6 product-discounts-title">{l s='Volume discounts' d='Shop.Theme.Catalog'}</h3>
     {block name='product_discount_table'}
       <table class="table-product-discounts">
@@ -39,11 +39,11 @@
           <tr data-discount-type="{$quantity_discount.reduction_type}" data-discount="{$quantity_discount.real_value}" data-discount-quantity="{$quantity_discount.quantity}">
             <td>{$quantity_discount.quantity}</td>
             <td>{$quantity_discount.discount}</td>
-            <td>{l s='Up to %discount%' d='Shop.Theme.Catalog' sprintf=['%discount%' => $quantity_discount.save]}</td>
+            <td>{$quantity_discount.save}</td>
           </tr>
         {/foreach}
         </tbody>
       </table>
     {/block}
-  {/if}
 </section>
+  {/if}

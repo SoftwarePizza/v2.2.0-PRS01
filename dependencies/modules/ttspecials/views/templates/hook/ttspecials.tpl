@@ -1,5 +1,5 @@
 {*
-* 2007-2019 PrestaShop
+* 2007-2022 PrestaShop
 *
 * NOTICE OF LICENSE
 *
@@ -18,7 +18,7 @@
 * needs please refer to http://www.prestashop.com for more information.
 *
 *  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2019 PrestaShop SA
+*  @copyright  2007-2022 PrestaShop SA
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
@@ -28,55 +28,24 @@
 	{$tt_total = $tt_total+1}
 {/foreach}
 
-<section class="ttspecial-products clearfix bottom-to-top hb-animate-element">
+<div class="ttspecial-products col-sm-4 clearfix aos-init aos-animate" data-aos="fade-up">
 <div class="container">
-  <h3 class="tt-title">{l s='Special Products' mod='tt_specials'}</h3>
-  <span class="ttspecial-subtitle">{l s='special items in this season' mod='ttspecials'}</span>
-  <div class="ttspecial-list container">
-  <div class="row">
+<div class="row">
+<h2 class="h2 tt-title">{l s='SPECIAL PRODUCTS' mod='ttspecials'}</h2>
+<h4 class="h4 tt-subtitle">{l s='Trending Furniture In This Season' mod='ttspecials'}</h4>
   <div class="products">
     {foreach from=$products item="product"}
-	{if $tt_total > 6}
-				<!-- Start TemplateTrip 2 product slide code -->
-				{if $tt_cnt % 2 != 0}
-				<ul>
-					<li class="specialli">
-						<ul>
-						<li>
-				{/if}
-			{/if}
-				<!-- End TemplateTrip 2 product slide code -->
-      {include file="catalog/_partials/miniatures/product.tpl" product=$product}
-	  <!-- Start TemplateTrip 2 product slide code -->
-			{if $tt_total > 6}
-				{if $tt_cnt % 2 == 0}
-						</li>
-						</ul>
-					</li>
-					</ul>
-				{/if}
-				{/if}
-
-				{$tt_cnt = $tt_cnt+1}
-		<!-- End TemplateTrip 2 product slide code -->
+      {include file="catalog/_partials/miniatures/ttproduct.tpl" product=$product}
     {/foreach}
-	{if $tt_total > 6}
-			{if $tt_cnt % 2 == 0}
-					</li>
-					</ul>
-				</li>
-				</ul>
-			{/if}
-		{/if}
   </div>
   </div>
-  </div>
-  {if $tt_total > 3}
+</div>
+        {if $tt_total > 3 and $tt_total < 8 or $tt_total > 8}
 	<div class="customNavigation">
-		<a class="btn prev ttspecial_prev">{l s='Prev' mod='ttspecials'}</a>
-		<a class="btn next ttspecial_next">{l s='Next' mod='ttspecials'}</a>
+		<a class="btn prev ttspecial_prev">{l s='PREV' mod='ttspecials'}</a>
+		<a class="btn next ttspecial_next">{l s='NEXT' mod='ttspecials'}</a>
 	</div>
- {/if}
+	{/if}
+
    <div class="allproduct"><a href="{$allSpecialProductsLink}">{l s='All sale products'  mod='ttspecials'}</a></div>
-   </div>
-</section>
+</div>

@@ -1,40 +1,42 @@
 <?php
 /**
-* 2007-2019 PrestaShop
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Academic Free License (AFL 3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/afl-3.0.php
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@prestashop.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
-* versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
-*
-*  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2019 PrestaShop SA
-
-*  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
-*  International Registered Trademark & Property of PrestaShop SA
-*/
-
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
+ * that is bundled with this package in the file LICENSE.md.
+ * It is also available through the world-wide-web at this URL:
+ * https://opensource.org/licenses/AFL-3.0
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@prestashop.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+ * versions in the future. If you wish to customize PrestaShop for your
+ * needs please refer to https://devdocs.prestashop.com/ for more information.
+ *
+ * @author    PrestaShop SA and Contributors <contact@prestashop.com>
+ * @copyright Since 2007 PrestaShop SA and Contributors
+ * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
+ */
+ 
 if (!defined('_PS_VERSION_')) {
     exit;
 }
 
 use PrestaShop\PrestaShop\Core\Module\WidgetInterface;
 
-require_once _PS_MODULE_DIR_.'ttcmstestimonial/classes/ttcmstestimonialinfo.php';
+require_once _PS_MODULE_DIR_ . 'ttcmstestimonial/classes/ttcmstestimonialinfo.php';
 
-class Ttcmstestimonial extends Module implements WidgetInterface
+class TtCmstestimonial extends Module implements WidgetInterface
 {
+    // Equivalent module on PrestaShop 1.6, sharing the same data
+    const MODULE_17 = 'blockcmsinfo';
+
     private $templateFile;
 
     public function __construct()
@@ -42,25 +44,56 @@ class Ttcmstestimonial extends Module implements WidgetInterface
         $this->name = 'ttcmstestimonial';
         $this->tab = 'front_office_features';
         $this->author = 'TemplateTrip';
-        $this->version = '1.0.5';
+        $this->version = '1.0.1';
         $this->need_instance = 0;
 
         $this->bootstrap = true;
         parent::__construct();
 
-        $this->displayName = $this->trans('TT - CMS Testimonial block', array(), 'Modules.CustomText');
-        $this->description = $this->trans('Integrates custom text blocks anywhere in your store front', array(), 'Modules.CustomText');
+        Shop::addTableAssociation('ttcmstestimonialinfo', ['type' => 'shop']);
 
-        $this->ps_versions_compliancy = array('min' => '1.7.0.0', 'max' => _PS_VERSION_);
+        $this->displayName = $this->l('TT - CMS Testimonial block');
+        $this->description = $this->l('Integrates custom text blocks anywhere in your store front.');
+
+        $this->ps_versions_compliancy = ['min' => '1.7', 'max' => _PS_VERSION_];
 
         $this->templateFile = 'module:ttcmstestimonial/views/templates/hook/ttcmstestimonial.tpl';
     }
 
+
     public function install()
     {
-        return  parent::install() &&
-            $this->installDB() &&
-            $this->registerHook('displayHome');
+         // Remove 1.6 equivalent module to avoid DB issues
+        if (Module::isInstalled(self::MODULE_17)) {
+            return $this->installFrom17Version();
+        }
+
+        return $this->runInstallSteps()
+            && $this->installFixtures();
+    }
+
+    public function runInstallSteps()
+    {
+        return parent::install()
+            && $this->installDB()
+            && $this->registerHook('displayHome')
+            && $this->registerHook('displayHeader')
+            && $this->registerHook('actionShopDataDuplication');
+    }
+
+    public function installFrom17Version()
+    {
+        require_once _PS_MODULE_DIR_.$this->name.'/classes/MigrateData.php';
+        $migration = new MigrateData();
+        $migration->retrieveOldData();
+
+        $oldModule = Module::getInstanceByName(self::MODULE_17);
+        if ($oldModule) {
+            $oldModule->uninstall();
+        }
+        return $this->uninstallDB()
+            && $this->runInstallSteps()
+            && $migration->insertData();
     }
 
     public function uninstall()
@@ -72,19 +105,26 @@ class Ttcmstestimonial extends Module implements WidgetInterface
     {
         $return = true;
         $return &= Db::getInstance()->execute('
-                CREATE TABLE IF NOT EXISTS `'._DB_PREFIX_.'tttestimonialinfo` (
-                `id_tttestimonialinfo` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-                `id_shop` int(10) unsigned DEFAULT NULL,
-                PRIMARY KEY (`id_tttestimonialinfo`)
-            ) ENGINE='._MYSQL_ENGINE_.' DEFAULT CHARSET=utf8 ;');
+                CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'ttcmstestimonialinfo` (
+                `id_ttcmstestimonialinfo` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+                PRIMARY KEY (`id_ttcmstestimonialinfo`)
+            ) ENGINE=' . _MYSQL_ENGINE_ . ' DEFAULT CHARSET=utf8 ;');
 
         $return &= Db::getInstance()->execute('
-                CREATE TABLE IF NOT EXISTS `'._DB_PREFIX_.'tttestimonialinfo_lang` (
-                `id_tttestimonialinfo` INT UNSIGNED NOT NULL,
-                `id_lang` int(10) unsigned NOT NULL ,
+                CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'ttcmstestimonialinfo_shop` (
+                `id_ttcmstestimonialinfo` INT(10) UNSIGNED NOT NULL,
+                `id_shop` INT(10) UNSIGNED NOT NULL,
+                PRIMARY KEY (`id_ttcmstestimonialinfo`, `id_shop`)
+            ) ENGINE=' . _MYSQL_ENGINE_ . ' DEFAULT CHARSET=utf8 ;');
+
+        $return &= Db::getInstance()->execute('
+                CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'ttcmstestimonialinfo_lang` (
+                `id_ttcmstestimonialinfo` INT UNSIGNED NOT NULL,
+                `id_shop` INT(10) UNSIGNED NOT NULL,
+                `id_lang` INT(10) UNSIGNED NOT NULL ,
                 `text` text NOT NULL,
-                PRIMARY KEY (`id_tttestimonialinfo`, `id_lang`)
-            ) ENGINE='._MYSQL_ENGINE_.' DEFAULT CHARSET=utf8 ;');
+                PRIMARY KEY (`id_ttcmstestimonialinfo`, `id_lang`, `id_shop`)
+            ) ENGINE=' . _MYSQL_ENGINE_ . ' DEFAULT CHARSET=utf8 ;');
 
         return $return;
     }
@@ -93,7 +133,9 @@ class Ttcmstestimonial extends Module implements WidgetInterface
     {
         $ret = true;
         if ($drop_table) {
-            $ret &=  Db::getInstance()->execute('DROP TABLE IF EXISTS `'._DB_PREFIX_.'tttestimonialinfo`') && Db::getInstance()->execute('DROP TABLE IF EXISTS `'._DB_PREFIX_.'tttestimonialinfo_lang`');
+            $ret &= Db::getInstance()->execute('DROP TABLE IF EXISTS `' . _DB_PREFIX_ . 'ttcmstestimonialinfo`')
+                && Db::getInstance()->execute('DROP TABLE IF EXISTS `' . _DB_PREFIX_ . 'ttcmstestimonialinfo_shop`')
+                && Db::getInstance()->execute('DROP TABLE IF EXISTS `' . _DB_PREFIX_ . 'ttcmstestimonialinfo_lang`');
         }
 
         return $ret;
@@ -104,46 +146,38 @@ class Ttcmstestimonial extends Module implements WidgetInterface
         $output = '';
 
         if (Tools::isSubmit('savettcmstestimonial')) {
-            if (!Tools::getValue('text_'.(int)Configuration::get('PS_LANG_DEFAULT'), false)) {
-                $output = $this->displayError($this->trans('Please fill out all fields.', array(), 'Admin.Notifications.Error')) . $this->renderForm();
+            if (!Tools::getValue('text_' . (int) Configuration::get('PS_LANG_DEFAULT'), false)) {
+                $output = $this->displayError($this->l('Please fill out all fields.'));
             } else {
                 $update = $this->processSaveCustomText();
 
                 if (!$update) {
                     $output = '<div class="alert alert-danger conf error">'
-                        .$this->trans('An error occurred on saving.', array(), 'Admin.Notifications.Error')
-                        .'</div>';
+                        . $this->l('An error occurred on saving.')
+                        . '</div>';
                 }
-
                 $this->_clearCache($this->templateFile);
             }
         }
-
-        return $output.$this->renderForm();
+        return $output . $this->renderForm();
     }
 
     public function processSaveCustomText()
     {
-        $info = new ttcmstestimonialinfo(Tools::getValue('id_tttestimonialinfo', 1));
-
-        $text = array();
+        $info = new ttcmstestimonialinfo(Tools::getValue('id_ttcmstestimonialinfo', 1));
+        $shops = Tools::getValue('checkBoxShopAsso_configuration', [$this->context->shop->id]);
+        $text = [];
         $languages = Language::getLanguages(false);
+
         foreach ($languages as $lang) {
-            $text[$lang['id_lang']] = Tools::getValue('text_'.$lang['id_lang']);
+            $text[$lang['id_lang']] = (string) Tools::getValue('text_' . $lang['id_lang']);
         }
 
-        $info->text = $text;
-
-        if (Shop::isFeatureActive() && !$info->id_shop) {
-            $saved = true;
-            $shop_ids = Shop::getShops();
-            foreach ($shop_ids as $id_shop) {
-                $info->id_shop = $id_shop;
-                $saved &= $info->add();
-            }
-        } else {
-            $info->id_shop = Shop::getContextShopID();
-            $saved = $info->save();
+        $saved = true;
+        foreach ($shops as $shop) {
+            Shop::setContext(Shop::CONTEXT_SHOP, $shop);
+            $info->text = $text;
+            $saved &= $info->save();
         }
 
         return $saved;
@@ -151,49 +185,48 @@ class Ttcmstestimonial extends Module implements WidgetInterface
 
     protected function renderForm()
     {
-        $default_lang = (int)Configuration::get('PS_LANG_DEFAULT');
+        $default_lang = (int) Configuration::get('PS_LANG_DEFAULT');
 
-        $fields_form = array(
+        $fields_form = [
             'tinymce' => true,
-            'legend' => array(
-                'title' => $this->trans('CMS block', array(), 'Modules.CustomText'),
-            ),
-            'input' => array(
-                'id_info' => array(
+            'legend' => [
+                'title' => $this->l('CMS block'),
+            ],
+            'input' => [
+                'id_ttcmstestimonialinfo' => [
                     'type' => 'hidden',
-                    'name' => 'id_info'
-                ),
-                'content' => array(
+                    'name' => 'id_ttcmstestimonialinfo',
+                ],
+                'content' => [
                     'type' => 'textarea',
-                    'label' => $this->trans('Text block', array(), 'Modules.CustomText'),
+                    'label' => $this->l('Text block'),
                     'lang' => true,
                     'name' => 'text',
                     'cols' => 40,
                     'rows' => 10,
                     'class' => 'rte',
                     'autoload_rte' => true,
-                ),
-            ),
-            'submit' => array(
-                'title' => $this->trans('Save', array(), 'Admin.Actions'),
-            ),
-            'buttons' => array(
-                array(
-                    'href' => AdminController::$currentIndex.'&configure='.$this->name.'&token='.Tools::getAdminTokenLite('AdminModules'),
-                    'title' => $this->trans('Back to list', array(), 'Admin.Actions'),
-                    'icon' => 'process-icon-back'
-                )
-            )
-        );
+                ],
+            ],
+            'submit' => [
+                'title' => $this->l('Save'),
+            ],
+            'buttons' => [
+                [
+                    'href' => AdminController::$currentIndex . '&configure=' . $this->name . '&token=' . Tools::getAdminTokenLite('AdminModules'),
+                    'title' => $this->l('Back to list'),
+                    'icon' => 'process-icon-back',
+                ],
+            ],
+        ];
 
-        if (Shop::isFeatureActive() && Tools::getValue('id_tttestimonialinfo') == false) {
-            $fields_form['input'][] = array(
+        if (Shop::isFeatureActive() && Tools::getValue('id_ttcmstestimonialinfo') == false) {
+            $fields_form['input'][] = [
                 'type' => 'shop',
-                'label' => $this->trans('Shop association', array(), 'Admin.Global'),
-                'name' => 'checkBoxShopAsso_theme'
-            );
+                'label' => $this->l('Shop association'),
+                'name' => 'checkBoxShopAsso_theme',
+            ];
         }
-
 
         $helper = new HelperForm();
         $helper->module = $this;
@@ -201,15 +234,15 @@ class Ttcmstestimonial extends Module implements WidgetInterface
         $helper->identifier = $this->identifier;
         $helper->token = Tools::getAdminTokenLite('AdminModules');
         foreach (Language::getLanguages(false) as $lang) {
-            $helper->languages[] = array(
+            $helper->languages[] = [
                 'id_lang' => $lang['id_lang'],
                 'iso_code' => $lang['iso_code'],
                 'name' => $lang['name'],
-                'is_default' => ($default_lang == $lang['id_lang'] ? 1 : 0)
-            );
+                'is_default' => ($default_lang == $lang['id_lang'] ? 1 : 0),
+            ];
         }
 
-        $helper->currentIndex = AdminController::$currentIndex.'&configure='.$this->name;
+        $helper->currentIndex = AdminController::$currentIndex . '&configure=' . $this->name;
         $helper->default_form_language = $default_lang;
         $helper->allow_employee_form_lang = $default_lang;
         $helper->toolbar_scroll = true;
@@ -218,25 +251,31 @@ class Ttcmstestimonial extends Module implements WidgetInterface
 
         $helper->fields_value = $this->getFormValues();
 
-        return $helper->generateForm(array(array('form' => $fields_form)));
+        return $helper->generateForm([['form' => $fields_form]]);
     }
 
     public function getFormValues()
     {
-        $fields_value = array();
-        $id_info = 1;
+        $fields_value = [];
+        $idShop = $this->context->shop->id;
+        $idInfo = ttcmstestimonialinfo::getCustomTextIdByShop($idShop);
+
+        Shop::setContext(Shop::CONTEXT_SHOP, $idShop);
 
         foreach (Language::getLanguages(false) as $lang) {
-            $info = new ttcmstestimonialinfo((int)$id_info);
+            $info = new ttcmstestimonialinfo((int)$idInfo);
             $fields_value['text'][(int)$lang['id_lang']] = $info->text[(int)$lang['id_lang']];
         }
-
-        $fields_value['id_info'] = $id_info;
+        $fields_value['id_ttcmstestimonialinfo'] = $idInfo;
 
         return $fields_value;
     }
-
-    public function renderWidget($hookName, array $configuration)
+    public function hookDisplayHeader()
+    {
+	$this->context->controller->registerJavascript('modules-ttcmstestimonial', 'modules/'.$this->name.'/views/js/parallax.js', array('position' => 'bootom', 'priority' => 370));
+        $this->context->controller->addCSS($this->_path .'views/css/'.$this->name.'.css', 'all');
+    }
+    public function renderWidget($hookName = null, array $configuration = [])
     {
         if (!$this->isCached($this->templateFile, $this->getCacheId('ttcmstestimonial'))) {
             $this->smarty->assign($this->getWidgetVariables($hookName, $configuration));
@@ -244,17 +283,67 @@ class Ttcmstestimonial extends Module implements WidgetInterface
 
         return $this->fetch($this->templateFile, $this->getCacheId('ttcmstestimonial'));
     }
-    public function getWidgetVariables($hookName, array $configuration)
-    {
-        $sql = 'SELECT r.`id_tttestimonialinfo`, r.`id_shop`, rl.`text`
-            FROM `'._DB_PREFIX_.'tttestimonialinfo` r
-            LEFT JOIN `'._DB_PREFIX_.'tttestimonialinfo_lang` rl ON (r.`id_tttestimonialinfo` = rl.`id_tttestimonialinfo`)
-            WHERE `id_lang` = '.(int)$this->context->language->id.' AND  `id_shop` = '.(int)$this->context->shop->id;
 
-        return array(
+    public function getWidgetVariables($hookName = null, array $configuration = [])
+    {
+        $sql = 'SELECT * FROM `' . _DB_PREFIX_ . 'ttcmstestimonialinfo_lang`
+            WHERE `id_lang` = ' . (int) $this->context->language->id . ' AND  `id_shop` = ' . (int) $this->context->shop->id;
+
+        return [
             'cms_infos' => Db::getInstance()->getRow($sql),
-            'hookName' => $hookName,
-            'configuration' => $configuration,
+            'image_url' => $this->context->link->getMediaLink(_MODULE_DIR_.'ttcmstestimonial/views/img'),
+        ];
+    }
+
+
+    public function installFixtures()
+    {
+        $return = true;
+        $tabTexts = array(
+            array(
+                'text' => '<div class="ttcmstestimonial"><div class="ttcmstestimonial-flex"><h2 class="tt-title">TESTIMONIAL</h2><h3 class="tt-subtitle">Trending Furniture In This Season</h3><ul class="tt-carousel"><li><img class="card-image" alt="user1" src="../img/cms/user1.jpg" /><div class="card-title"><h5>MREY VEFA</h5></div><p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.</p></li><li><img class="card-image" alt="user2" src="../img/cms/user2.jpg" /><div class="card-title"><h5>NAZLI DOE</h5></div><p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.</p></li><li><img class="card-image" alt="user3" src="../img/cms/user3.jpg" /><div class="card-title"><h5>JOHN DOFF</h5></div><p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.</p></li></ul></div></div>'
+            ),
         );
+
+        $shopsIds = Shop::getShops(true, null, true);
+        $languages = Language::getLanguages(false);
+        $text = array();
+
+        foreach ($tabTexts as $tab) {
+            $ttcmstestimonialinfo = new ttcmstestimonialinfo();
+            foreach ($languages as $lang) {
+                $text[$lang['id_lang']] = $tab['text'];
+            }
+            $ttcmstestimonialinfo->text = $text;
+            $return &= $ttcmstestimonialinfo->add();
+        }
+
+        if ($return && sizeof($shopsIds) > 1) {
+            foreach ($shopsIds as $idShop) {
+                Shop::setContext(Shop::CONTEXT_SHOP, $idShop);
+                $ttcmstestimonialinfo->text = $text;
+                $return &= $ttcmstestimonialinfo->save();
+            }
+        }
+
+        return $return;
+    }
+    /**
+     * Add CustomText when adding a new Shop
+     *
+     * @param array $params
+     */
+    public function hookActionShopDataDuplication($params)
+    {
+        if ($infoId = ttcmstestimonialinfo::getCustomTextIdByShop($params['old_id_shop'])) {
+            Shop::setContext(Shop::CONTEXT_SHOP, $params['old_id_shop']);
+            $oldInfo = new ttcmstestimonialinfo($infoId);
+
+            Shop::setContext(Shop::CONTEXT_SHOP, $params['new_id_shop']);
+            $newInfo = new ttcmstestimonialinfo($infoId, null, $params['new_id_shop']);
+            $newInfo->text = $oldInfo->text;
+
+            $newInfo->save();
+        }
     }
 }

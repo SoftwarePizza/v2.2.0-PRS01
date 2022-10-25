@@ -1,0 +1,229 @@
+/*--------------- Start TT - CMS ttcmsbanner --------------*/
+#ttcmsbanner {
+	padding: 0;
+	margin:0 0 80px;
+}
+#ttcmsbanner .rightbanner .ttbanner3.ttbanner {
+  padding-top: 30px;
+}
+.ttbanner a::before {
+	background: rgba(255, 255, 255, 0.7) none repeat scroll 0 0;
+	bottom: 20px;
+	content: "";
+	left: 20px;
+	opacity: 1;
+	-moz-opacity: 1; 
+	-khtml-opacity: 1; 
+	-webkit-opacity: 1;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	transform: scale(0);
+	-webkit-transform: scale(0);
+	-moz-transform: scale(0);
+	-o-transform: scale(0);
+	-ms-transform: scale(0);
+}
+.ttbanner:hover a::before {
+	opacity: 0;
+	-moz-opacity: 0; 
+	-khtml-opacity: 0; 
+	-webkit-opacity: 0;
+	transform: scale(1);
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-o-transform: scale(1);
+	-ms-transform: scale(1);
+	transition-duration: 1s;
+}
+.ttbanner a {
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+	vertical-align: top;
+}
+.ttbanner {
+	position: relative;
+}
+.ttbanner1 .ttbanner-text {
+	position: absolute;
+	top: 9%;
+	right: 0;
+	z-index: 1;
+	left: 0;
+	margin: auto;
+	text-align:center;
+}
+.ttbanner2 .ttbanner-text {
+position: absolute;
+top: 0;
+right: auto;
+z-index: 1;
+left: 0;
+margin: auto;
+text-align: center;
+bottom: 0;
+height: 120px;
+padding: 0 15px;}
+
+.ttbanner-text h2 {
+	color: #222;
+	margin: 0 0 10px 0;
+	font: 500 34px/36px var(--primary-font);
+}
+.ttbanner2 .ttbanner-text h4 {
+	background:var(--secondary-bg-color);
+	float: none;
+	display: inline-block;
+	vertical-align:top;
+	color: #fff;
+	font: italic 400 14px/16px "Roboto", Helvetica, sans-serif;
+	padding: 10px 30px;
+}
+
+.ttbanner1 .ttbanner-text p{
+float:none;
+display:inline-block;
+vertical-align:top;
+font: italic 400 14px/16px "Roboto", Helvetica, sans-serif;
+color:#fff;
+padding: 10px 30px;
+background:var(--primary-bg-color);
+}
+.ttbanner-text .btn-primary {
+	border: none;
+	font: 400 14px/22px "Roboto", Helvetica, sans-serif;
+	transition:all 400ms ease-in-out 0s;
+	color:#222;
+	border-bottom:2px solid #222;
+	background:none;
+	padding:0;
+	text-transform: uppercase;
+}
+.ttbanner-text:hover .btn-primary{
+letter-spacing:2px;
+color:var(--secondary-bg-color);
+border-color: var(--secondary-bg-color);
+}
+.ttbanner2 .ttbanner-text .btn{
+    background: #4c444a;
+    color: #fff;
+}
+.ttbanner2 .ttbanner-text .btn:focus, 
+.ttbanner2 .ttbanner-text .btn:active, 
+.ttbanner2 .ttbanner-text .btn:hover {
+    background: #fff;
+    color: #111;
+}
+@media (max-width:1366px){
+#ttcmsbanner {
+	margin: 0 0 60px;
+}
+}
+@media (max-width: 1199px) {
+.ttbanner-text h2 {
+	font-size:25px;
+	line-height:28px; 
+}
+.ttbanner2 .ttbanner-text h4{
+padding: 7px 20px;
+}
+.ttbanner1 .ttbanner-text p{
+padding: 7px 15px;
+}
+#ttcmsbanner {
+	margin: 0 0 50px;
+}
+}
+@media (max-width: 991px) {
+.ttbanner-text h2 {
+	font-size: 18px;
+	line-height: 20px;
+}
+.ttbanner2 .ttbanner-text h4 {
+	padding: 6px 10px;
+	font-size: 12px;
+	margin: 0 0 10px;
+}
+.ttbanner-text .btn-primary{
+font-size: 13px;
+}
+.ttbanner1 .ttbanner-text p {
+    padding: 6px 12px;
+	font-size: 12px;
+}
+.ttbanner1 .ttbanner-text{
+top: 7%;
+}
+#ttcmsbanner {
+	margin: 0 0 40px;
+}
+}
+@media (max-width:650px) {
+.ttbanner-text h2 {
+	font-size: 13px;
+	line-height: 15px;
+	margin: 0 0 6px;
+}
+.ttbanner2 .ttbanner-text{
+height: 90px;
+}
+.ttbanner2 .ttbanner-text h4 {
+	padding: 5px 5px;
+	font-size: 11px;
+	margin: 0 0 5px;
+}
+.ttbanner-text .btn-primary {
+	font-size: 12px;
+}
+.ttbanner1 .ttbanner-text p {
+	padding: 4px 8px;
+	font-size: 11px;
+}
+.ttbanner1 .ttbanner-text {
+	top: 6%;
+}
+}
+@media (max-width:543px){
+#ttcmsbanner .ttbanner1{
+	float: none;
+	width: auto;
+	display: inline-block;
+	vertical-align: top;
+}
+.ttbanner a {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    vertical-align: top;
+}
+#ttcmsbanner {
+	margin: 0 0 30px;
+	text-align: center;
+}
+.ttbanner2{
+margin: 15px 0 0;
+}
+.ttbanner-text h2 {
+	font-size: 18px;
+	line-height: 22px;
+	margin: 0 0 8px;
+}
+.ttbanner1 .ttbanner-text p {
+	padding: 6px 10px;
+	font-size: 12px;
+}
+.ttbanner1 .ttbanner-text {
+	top: 10%;
+}
+.ttbanner2 .ttbanner-text h4 {
+	padding: 5px 5px;
+	font-size: 11px;
+	margin: 0 0 5px;
+	display: block;
+}
+.ttbanner2 .ttbanner-text {
+left: 10px;
+}
+}
+/*--------------- Start TT - CMS ttcmsheader --------------*/

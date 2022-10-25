@@ -1,6 +1,6 @@
 {*
 *  @author    TemplateTrip
-*  @copyright 2015-2018 TemplateTrip. All Rights Reserved.
+*  @copyright 2015-2021 TemplateTrip. All Rights Reserved.
 *  @license   http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
 *}
 
@@ -28,19 +28,18 @@
 								<div class="thumbnail-container">
 									{block name='product_thumbnail'}
 										<a href="{$product.url}" class="thumbnail product-thumbnail">
-											<img src = "{$product.cover.bySize.home_default.url}" alt = "{$product.cover.legend}" data-full-size-image-url = "{$product.cover.large.url}" />
+											<img src = "{$product.cover.bySize.home_default.url}" alt = "{$product.cover.legend}" data-full-size-image-url = "{$product.cover.large.url}" loading="lazy" />
 										</a>
 									{/block}
-								</div>
 								<div class="product-description">
 									{block name='product_name'}
-										<h1 class="h3 product-title" itemprop="name"><a href="{$product.url}">{$product.name}</a></h1>
+										<h1 class="h3 product-title"><a href="{$product.url}">{$product.name}</a></h1>
 									{/block}
 
 									{block name='product_price_and_shipping'}
 										{if $product.show_price}
 											<div class="product-price-and-shipping">
-												<span itemprop="price" class="price">{$product.price}</span>
+												<span class="price">{$product.price}</span>
 
 												{if $product.has_discount}
 												{hook h='displayProductPriceBlock' product=$product type="old_price"}
@@ -63,21 +62,22 @@
 									
 
 									{block name='product_desc'}
-										<p class="product-desc" itemprop="description">
+										<p class="product-desc">
 											{$product.description_short|strip_tags:'UTF-8'|truncate:70:'...'}
 										</p>
 									{/block}
 
+									{if $product.main_variants}
 									<div class="highlighted-informations{if !$product.main_variants} no-variants{/if}">
 										{block name='product_variants'}
-											{if $product.main_variants}
-												{include file='catalog/_partials/variant-links.tpl' variants=$product.main_variants}
-											{/if}
+											{include file='catalog/_partials/variant-links.tpl' variants=$product.main_variants}
 										{/block}
 									</div>
+									{/if}
 									<div class="tt-button-container">
 										{include file='catalog/_partials/customize/button-cart.tpl' product=$product}
 									</div>
+								</div>
 								</div>
 							</td>
 						{/foreach}

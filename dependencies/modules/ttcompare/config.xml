@@ -2,7 +2,7 @@
 <module>
     <name>ttcompare</name>
     <displayName><![CDATA[TT - Compare Products]]></displayName>
-    <version><![CDATA[1.0.0]]></version>
+    <version><![CDATA[1.0.1]]></version>
     <description><![CDATA[Adds Product Compare function to store.]]></description>
     <author><![CDATA[TemplateTrip]]></author>
     <tab><![CDATA[front_office_features]]></tab>
