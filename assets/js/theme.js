@@ -2173,7 +2173,7 @@
                         n = void 0,
                         i = this;
                     this.el.find("li").hover(function(e) {
-                        t.el.parent().hasClass("mobile") || (n !== (0, u.default)(e.currentTarget).attr("id") && (0 === (0, u.default)(e.target).data("depth") && (0, u.default)("#" + n + " .js-sub-menu").hide(), n = (0, u.default)(e.currentTarget).attr("id")), n && 0 === (0, u.default)(e.target).data("depth") && (0, u.default)("#" + n + " .js-sub-menu").css({
+                        t.el.parent().hasClass("mobile") || (n !== (0, u.default)(e.currentTarget).attr("id") && (0 === (0, u.default)(e.target).data("depth"), n = (0, u.default)(e.currentTarget).attr("id")), n && 0 === (0, u.default)(e.target).data("depth") && (0, u.default)("#" + n + " .js-sub-menu").css({
                             top: (0, u.default)("#" + n).height() + (0, u.default)("#" + n).position().top
                         }))
                     }), (0, u.default)("#menu-icon").on("click", function() {
@@ -2565,6 +2565,14 @@
             if (view == 'grid')
                 $('.grid-list').find('#ttgrid').addClass('active');
             bindGrid();
+			$('.wishlist').each(function() {
+        current = $(this);
+        var htmlContent = $(this).children('.popover-content').html();
+        $(this).children('.wishlist_button_list').popover({
+            html: true,
+            content: htmlContent
+        });
+});
         })
     })
 	 function tokenVariable() {
@@ -2631,7 +2639,6 @@
                     min: r
                 })
             }/**tt update**/
-			$('#zoom1').zoom();
             productadditional("#main #tt-jqzoom");
             e(), (0, o.default)((0, o.default)(".tabs .nav-link.active").attr("href")).addClass("active").removeClass("fade"), (0, o.default)(".js-product-images-modal").replaceWith(i.product_images_modal)
         })
@@ -5808,3 +5815,6 @@
 }, function(t, e, n) {
     n(5), t.exports = n(6)
 }]);
+
+
+

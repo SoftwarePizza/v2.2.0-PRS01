@@ -112,254 +112,212 @@ $('#hometab #home-tab-content .tab-pane:first-child').addClass('in active');
 	/* ------------ End Add Product Bootsrap class JS --------------- */
 	
 	
-	 /* ----------- carousel For ttspecial ----------- */
+	/* ----------- carousel For FeatureProduct ----------- */
+	
+	 var ttfeature = $(".ttfeatured-products .products");
+      ttfeature.owlCarousel({
+     	 items : 4, //10 items above 1000px browser width
+     	 itemsDesktop : [1200,4], 
+     	 itemsDesktopSmall : [991,3], 
+     	 itemsTablet: [767,2], 
+     	 itemsMobile : [480,1] 
+      });
+
+      // Custom Navigation Events
+      $(".ttfeature_next").click(function(){
+        ttfeature.trigger('owl.next');
+      })
+
+      $(".ttfeature_prev").click(function(){
+        ttfeature.trigger('owl.prev');
+      })
 	  
-	  var ttspecial = $('.ttspecial-products .products').owlCarousel({
-				items : 3, //1 items above 1000px browser width
-				nav : true,
-				dots : false,
-				autoplay:false,	
-				rtl:false,
-				responsive: {
-					0:{
-						items:1
-					},
-					481:{
-						items:1
-					},
-					768:{
-						items:2
-					},
-					992:{
-						items:3
-					},
-					1200:{
-						items:3
-					}
-				}
-			});
-		// Custom Navigation Events
+	  
+	 /* ----------- carousel For ttnew-products ----------- */
+	 
+	 var ttnew = $(".ttnew-products .products");
+      ttnew.owlCarousel({
+     	 items : 4, //10 items above 1000px browser width
+     	 itemsDesktop : [1200,4], 
+     	 itemsDesktopSmall : [991,3], 
+     	 itemsTablet: [767,2], 
+     	 itemsMobile : [480,1] 
+      });
+
+      // Custom Navigation Events
+      $(".ttnew_next").click(function(){
+        ttnew.trigger('owl.next');
+      })
+
+      $(".ttnew_prev").click(function(){
+        ttnew.trigger('owl.prev');
+      })
+	  
+	  
+	 /* ----------- carousel For bestseller ----------- */
+	 
+	 var ttbestseller = $(".ttbestseller-products .products");
+      ttbestseller.owlCarousel({
+     	 items : 4, //10 items above 1000px browser width
+     	 itemsDesktop : [1200,4], 
+     	 itemsDesktopSmall : [991,3], 
+     	 itemsTablet: [767,2], 
+     	 itemsMobile : [480,1] 
+      });
+
+      // Custom Navigation Events
+      $(".ttbestseller_next").click(function(){
+        ttbestseller.trigger('owl.next');
+      })
+
+      $(".ttbestseller_prev").click(function(){
+        ttbestseller.trigger('owl.prev');
+      })
+	  
+	  
+	 /* ----------- carousel For ttspecial ----------- */
+	 
+	 var ttspecial = $(".ttspecial-products .products");
+      ttspecial.owlCarousel({
+     	 items : 4, //10 items above 1000px browser width
+     	 itemsDesktop : [1200,4], 
+     	 itemsDesktopSmall : [991,3], 
+     	 itemsTablet: [767,3], 
+     	 itemsMobile : [480,1] 
+      });
+
+      // Custom Navigation Events
+      $(".ttspecial_next").click(function(){
+        ttspecial.trigger('owl.next');
+      })
+
       $(".ttspecial_prev").click(function(){
-			ttspecial.trigger('prev.owl.carousel',[700]);
-	  })
-	  $(".ttspecial_next").click(function(){
-		 	ttspecial.trigger('next.owl.carousel',[700]);
-	  })
+        ttspecial.trigger('owl.prev');
+      })
 	  
 	  
 	 /* ----------- carousel For viewproduct ----------- */
-	  var viewproduct = $('.view-product .products').owlCarousel({
-				items : 4, //1 items above 1000px browser width
-				nav : true,
-				dots : false,
-				autoplay:false,	
-				rtl:false,
-				responsive: {
-					0:{
-						items:1
-					},
-					481:{
-						items:2
-					},
-					768:{
-						items:3
-					},
-					992:{
-						items:4
-					},
-					1200:{
-						items:4
-					}
-				}
-			});
-		// Custom Navigation Events
+	 
+	 var viewproduct = $(".view-product .products");
+      viewproduct.owlCarousel({
+     	 items : 3, //10 items above 1000px browser width
+     	 itemsDesktop : [1200,3], 
+     	 itemsDesktopSmall : [991,3], 
+     	 itemsTablet: [767,2], 
+     	 itemsMobile : [480,1] 
+      });
+
+      // Custom Navigation Events
+      $(".viewproduct_next").click(function(){
+        viewproduct.trigger('owl.next');
+      })
+
       $(".viewproduct_prev").click(function(){
-			viewproduct.trigger('prev.owl.carousel',[700]);
-	  })
-	  $(".viewproduct_next").click(function(){
-		 	viewproduct.trigger('next.owl.carousel',[700]);
-	  })
+        viewproduct.trigger('owl.prev');
+      })
 	  
 	  
 	/* ----------- carousel For Crossselling ----------- */
 	
-	  var Crossselling = $('.crossselling-product .products').owlCarousel({
-				items : 4, //1 items above 1000px browser width
-				nav : true,
-				dots : false,
-				autoplay:false,	
-				rtl:false,
-				responsive: {
-					0:{
-						items:1
-					},
-					481:{
-						items:2
-					},
-					768:{
-						items:3
-					},
-					992:{
-						items:4
-					},
-					1200:{
-						items:4
-					}
-				}
-			});
-		// Custom Navigation Events
+	 var Crossselling = $(".crossselling-product .products");
+      Crossselling.owlCarousel({
+     	 items : 3, //10 items above 1000px browser width
+     	 itemsDesktop : [1200,3], 
+     	 itemsDesktopSmall : [991,3], 
+     	 itemsTablet: [767,2], 
+     	 itemsMobile : [480,1] 
+      });
+
+      // Custom Navigation Events
+      $(".Crossselling_next").click(function(){
+        Crossselling.trigger('owl.next');
+      })
+
       $(".Crossselling_prev").click(function(){
-			Crossselling.trigger('prev.owl.carousel',[700]);
-	  })
-	  $(".Crossselling_next").click(function(){
-		 	Crossselling.trigger('next.owl.carousel',[700]);
-	  })
+        Crossselling.trigger('owl.prev');
+      })
 	  
 	  
 	  /* ----------- carousel For Categoryproducts ----------- */
 	  
-	   var Categoryproducts = $('.category-products .products').owlCarousel({
-				items : 4, //1 items above 1000px browser width
-				nav : true,
-				dots : false,
-				loop: false,
-				autoplay:false,	
-				rtl:false,
-				responsive: {
-					0:{
-						items:1
-					},
-					481:{
-						items:2
-					},
-					768:{
-						items:3
-					},
-					992:{
-						items:4
-					},
-					1200:{
-						items:4
-					}
-				}
-			});
-			
-			// Custom Navigation Events
+	  var Categoryproducts = $(".category-products .products");
+      Categoryproducts.owlCarousel({
+     	 items : 3, //10 items above 1000px browser width
+     	 itemsDesktop : [1200,3], 
+     	 itemsDesktopSmall : [991,3], 
+     	 itemsTablet: [767,2], 
+     	 itemsMobile : [480,1] 
+      });
+
+      // Custom Navigation Events
+      $(".Categoryproducts_next").click(function(){
+        Categoryproducts.trigger('owl.next');
+      })
+
       $(".Categoryproducts_prev").click(function(){
-			Categoryproducts.trigger('prev.owl.carousel',[700]);
-	  })
-	  $(".Categoryproducts_next").click(function(){
-		 	Categoryproducts.trigger('next.owl.carousel',[700]);
-	  })
+        Categoryproducts.trigger('owl.prev');
+      })
 	  
 	  
 	  /* ----------- carousel For accessories ----------- */
 	  
-	  var accessories = $('.product-accessories .products').owlCarousel({
-				items : 4, //1 items above 1000px browser width
-				nav : true,
-				dots : false,
-				autoplay:false,	
-				rtl:false,
-				responsive: {
-					0:{
-						items:1
-					},
-					481:{
-						items:2
-					},
-					768:{
-						items:3
-					},
-					992:{
-						items:4
-					},
-					1200:{
-						items:4
-					}
-				}
-			});
-		// Custom Navigation Events
+	  var accessories = $(".product-accessories .products");
+      accessories.owlCarousel({
+     	 items :3, //10 items above 1000px browser width
+     	 itemsDesktop : [1200,3], 
+     	 itemsDesktopSmall : [991,3], 
+     	 itemsTablet: [767,2], 
+     	 itemsMobile : [480,1] 
+      });
+
+      // Custom Navigation Events
+      $(".accessories_next").click(function(){
+        accessories.trigger('owl.next');
+      })
+
       $(".accessories_prev").click(function(){
-			accessories.trigger('prev.owl.carousel',[700]);
-	  })
-	  $(".accessories_next").click(function(){
-		 	accessories.trigger('next.owl.carousel',[700]);
-	  })
+        accessories.trigger('owl.prev');
+      })
 	  
 	 /* ----------- carousel For Featured yproducts ----------- */
-	  var Featuredproducts = $(".featured-products .products").owlCarousel({
-				items : 4, //1 items above 1000px browser width
-				nav : true,
-				dots : false,
-				autoplay:false,	
-				rtl:false,
-				responsive: {
-					0:{
-						items:1
-					},
-					481:{
-						items:2
-					},
-					768:{
-						items:3
-					},
-					992:{
-						items:4
-					},
-					1200:{
-						items:4
-					}
-				}
-			});
-		// Custom Navigation Events
+	  
+	  var Featuredproducts = $(".featured-products .products");
+      Featuredproducts.owlCarousel({
+     	 items : 3, //10 items above 1000px browser width
+     	 itemsDesktop : [1200,3], 
+     	 itemsDesktopSmall : [991,3], 
+     	 itemsTablet: [767,2], 
+     	 itemsMobile : [480,1] 
+      });
+
+      // Custom Navigation Events
       $(".featuredproduct_prev").click(function(){
-			Featuredproducts.trigger('prev.owl.carousel',[700]);
-	  })
-	  $(".featuredproduct_next").click(function(){
-		 	Featuredproducts.trigger('next.owl.carousel',[700]);
-	  })
-	  
-	  
+        Featuredproducts.trigger('owl.next');
+      })
+
+      $(".featuredproduct_next").click(function(){
+        Featuredproducts.trigger('owl.prev');
+      })
+
+ 
+	/* ----------- Start Carousel For Productpage Thumbs ----------- */
+	
+		$("#ttproduct-thumbs").owlCarousel({
+		navigation:true,
+		navigationText: [
+			"<i class='material-icons'>&#xE5CB;</i>",
+			"<i class='material-icons'>&#xE5CC;</i>"],
+		items: 3, //10 items above 1000px browser width
+		itemsDesktop : [1200,3], 
+		itemsDesktopSmall : [991,3], 
+		itemsTablet: [767,2], 
+		itemsMobile : [480,1] 
+	});
+	
 	
  	/* -----------Start carousel For TT- brand logo ----------- */
-	var ttbrandlogo = $('#ttbrandlogo-carousel').owlCarousel({
-				items : 5, //1 items above 1000px browser width
-				nav : true,
-				dots : false,
-				navigationText: [
-					"<i class='material-icons'>&#xE5CB;</i>",
-					"<i class='material-icons'>&#xE5CC;</i>"],
-				autoplay:true,	
-				autoplayHoverPause:true,
-				rtl:false,
-				responsive: {
-					0:{
-						items:2
-					},
-					481:{
-						items:3
-					},
-					768:{
-						items:4
-					},
-					992:{
-						items:5
-					},
-					1200:{
-						items:5
-					}
-				}
-			});
-		// Custom Navigation Events
-      $(".ttbrandlogo_prev").click(function(){
-			ttbrandlogo.trigger('prev.owl.carousel',[700]);
-	  })
-	  $(".ttbrandlogo_next").click(function(){
-		 	ttbrandlogo.trigger('next.owl.carousel',[700]);
-	  })
-	  
-	 /* var ttbrandlogo = $("#ttbrandlogo-carousel");
+ 
+	 var ttbrandlogo = $("#ttbrandlogo-carousel");
 		  ttbrandlogo.owlCarousel({
 			navigation:true,
 			navigationText: [
@@ -373,78 +331,53 @@ $('#hometab #home-tab-content .tab-pane:first-child').addClass('in active');
 			 itemsMobile : [480,2] 
 		  });
 	
-	
-	 -----------End carousel For TT brand logo ----------- */
+	/* -----------End carousel For TT brand logo ----------- */
 	
 		
 	 /* -----------End carousel For Footer Catalog ----------- */
 	 
-		  var smartblog = $('#smartblog-carousel').owlCarousel({
-			items : 3, //1 items above 1000px browser width
-			nav : true,
-			dots : false,
-			autoplay:true,
-			autoplaySpeed: 1000,
-			autoplayHoverPause:true,
-			rtl:false,
-			responsive: {
-				0:{
-					items:1
-				},
-				481:{
-					items:2
-				},
-				992:{
-					items:3
-				},
-				1200:{
-					items:3
-				}
-				
-			}
-		});
-				 // Custom Navigation Events
-		 $(".ttblog_prev").click(function(){
-			smartblog.trigger('prev.owl.carousel',[800]);
-		  })
+	  	var smartblog = $("#smartblog-carousel");
+		  smartblog.owlCarousel({	
+	 autoPlay:true,
+			 items :4, //10 items above 1000px browser width
+			 itemsDesktop : [1200,4], 
+			 itemsDesktopSmall : [991,3], 
+			 itemsTablet: [767,2], 
+			 itemsMobile : [480,1] 
+		  });
+	  
+	   // Custom Navigation Events
 		  $(".ttblog_next").click(function(){
-			smartblog.trigger('next.owl.carousel',[800]);
+			smartblog.trigger('owl.next');
+		  })
+	
+		  $(".ttblog_prev").click(function(){
+			smartblog.trigger('owl.prev');
 		  })
 
+ 
  	 /* ----------- carousel For CMS Gallery ----------- */
- 		
-		var ttcmsgallery = $('.ttcmsgallery').owlCarousel({
-			items : 3, //1 items above 1000px browser width
-			nav : true,
-			dots : false,
-			autoplay:true,
-			autoplaySpeed: 1000,
-			autoplayHoverPause:true,
-			rtl:false,
-			responsive: {
-				0:{
-					items:1
-				},
-				481:{
-					items:2
-				},
-				992:{
-					items:3
-				},
-				1200:{
-					items:3
-				}
-				
-			}
-		});
-				 // Custom Navigation Events
-		 $(".ttcmsgallery_prev").click(function(){
-			ttcmsgallery.trigger('prev.owl.carousel',[800]);
-		  })
-		  $(".ttcmsgallery_next").click(function(){
-			ttcmsgallery.trigger('next.owl.carousel',[800]);
-		  })
 
+  
+	var ttcmsgallery = $("#ttcmsgallery-carousel");
+	  ttcmsgallery.owlCarousel({
+	 autoPlay : true,
+			 items : 3, //10 items above 1000px browser width
+			 itemsDesktop : [1200,3], 
+			 itemsDesktopSmall : [991,2], 
+			 itemsTablet: [767,2], 
+			 itemsMobile : [480,1] 
+		  });
+	
+		  // Custom Navigation Events
+	
+		  $(".ttcmsgallery_next").click(function(){
+			ttcmsgallery.trigger('owl.next');
+		  })
+		  $(".ttcmsgallery_prev").click(function(){
+			ttcmsgallery.trigger('owl.prev');
+		  })
+ 
  	/* ----------- Start Templatetrip Homeslider ----------- */
 	
 	$('.carousel-item:odd').addClass('odd');
@@ -453,37 +386,25 @@ $('#hometab #home-tab-content .tab-pane:first-child').addClass('in active');
 	/* ----------- End Templatetrip Homeslider ----------- */
 	
 	/* -----------Start carousel For TT- cms Testimonial ----------- */
+	 var tttestimonial = $("#tttestimonial-carousel");
+		  tttestimonial.owlCarousel({
+			pagination : true,
+			 paginationNumbers : true,
+		  autoPlay : true,
+			 items : 1, //10 items above 1000px browser width
+			 itemsDesktop : [1200,1], 
+			 itemsDesktopSmall : [991,1], 
+			 itemsTablet: [767,1], 
+			 itemsMobile : [480,1] 
+		  });
 	
-		  var tttestimonial = $('#tttestimonial-carousel').owlCarousel({
-			items : 1, //1 items above 1000px browser width
-			nav : false,
-			dots : true,
-			autoplay:true,
-			autoplaySpeed: 1000,
-			autoplayHoverPause:true,
-			rtl:false,
-			responsive: {
-				0:{
-					items:1
-				},
-				481:{
-					items:1
-				},
-				992:{
-					items:1
-				},
-				1200:{
-					items:1
-				}
-				
-			}
-		});
-			// Custom Navigation Events
-		 $(".tttestimonial_prev").click(function(){
-			tttestimonial.trigger('prev.owl.carousel',[800]);
-		  })
+		  // Custom Navigation Events
 		  $(".tttestimonial_next").click(function(){
-			tttestimonial.trigger('next.owl.carousel',[800]);
+			tttestimonial.trigger('owl.next');
+		  })
+	
+		  $(".tttestimonial_prev").click(function(){
+			tttestimonial.trigger('owl.prev');
 		  })
 	  
 	/* -----------End carousel For TT- cms Testimonial ----------- */
@@ -527,105 +448,25 @@ $( ".tt-button-container .add-to-cart" ).mouseup(function() {
 
 /* ----------- End Templatetrip AddToCart Button ----------- */
 	
-    productadditional("#main #tt-jqzoom");
-	
-	initialize_owl($('#owl1'));
-	
-		$('a[href="#ttfeatured-content"]').on('shown.bs.tab', function () {
-			initialize_owl($('#owl1'));
-		}).on('hide.bs.tab', function () {
-			destroy_owl($('#owl1'));
-		});
-	
-		$('a[href="#ttbestseller-content"]').on('shown.bs.tab', function () {
-			initialize_owl($('#owl2'));
-		}).on('hide.bs.tab', function () {
-			destroy_owl($('#owl2'));
-		});
-	
-		$('a[href="#ttnew-content"]').on('shown.bs.tab', function () {
-			initialize_owl($('#owl3'));
-		}).on('hide.bs.tab', function () {
-			destroy_owl($('#owl3'));
-		});
+	productadditional("#main #tt-jqzoom");				   
 
-});
-
-function initialize_owl(el) {
-    el.owlCarousel({
-        items : 4, //1 items above 1000px browser width
-		nav : true,
-		dots : false,
-		loop: false,
-		autoplay:false,	
-		autoplayHoverPause:true,
-				responsive: {
-					0:{
-						items:1
-					},
-					481:{
-						items:2
-					},
-					768:{
-						items:3
-					},
-					992:{
-						items:4
-					},
-					
-					1200:{
-						items:4
-					}		}
-    });
-			// Custom Navigation Events
-	  $(".ttfeature_prev,.ttbestseller_prev,.ttnew_prev").click(function(){
-			el.trigger('prev.owl.carousel',[700]);
-	  })
-	  $(".ttfeature_next,.ttbestseller_next,.ttnew_next").click(function(){
-		 	el.trigger('next.owl.carousel',[700]);
-	  })
-}
-
-function destroy_owl(el) {
-    if(typeof el.data('owlCarousel') != 'undefined') {
-		el.data('owlCarousel').destroy();
-		el.removeClass('owl-carousel');
-	}
-}
+});	 
 
 function productadditional(productId){
-	var ttadditional = $(productId).owlCarousel({
-		items : 3, //1 items above 1000px browser width
-		nav : true,
-		dots : false,
-		loop: false,
-		autoplay:false,	
-		rtl:false,
+	 var ttadditional = $(productId);
+      ttadditional.owlCarousel({
+		navigation:true,
 		navigationText: [
 		"<i class='material-icons'>&#xE5CB;</i>",
-		"<i class='material-icons'>&#xE5CC;</i>"
-		],
-		responsive: {
-			0:{
-				items:2
-			},
-			544:{
-				items:3
-			},
-			768:{
-				items:2
-			},
-			992:{
-				items:2
-			},
-			1200:{
-				items:3
-			}
-		}
-	});
+		"<i class='material-icons'>&#xE5CC;</i>"],
+     	 items : 3, //10 items above 1000px browser width
+     	 itemsDesktop : [1200,3], 
+     	 itemsDesktopSmall : [991,2], 
+     	 itemsTablet: [767,3], 
+     	 itemsMobile : [543,2] 
+      });
 }
 
-	
 /* Start Homepage header JS */
 
 function header() {
@@ -787,22 +628,3 @@ $(document).ready(function(){
 
 
 /* ------------ End Grid List JS --------------*/
-
-// function showMoreText() {
-// 	var moreText = document.getElementById("more");
-// 	if (moreText.style.display === "none") {
-// 	  moreText.style.display = "block";
-// 	} else {
-// 	  moreText.style.display = "none";
-// 	}
-//   }
-$(document).ready(function(){
-	$("#showMore").click(function(){
-		var moreText = document.getElementById("more");
-		if (moreText.style.display === "block") {
-		moreText.style.display = "none";
-		} else {
-		moreText.style.display = "block";
-		}
-	});
-});
