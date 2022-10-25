@@ -23,6 +23,11 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 <div id="_desktop_user_info">
+{if !$logged}
+  <a href="{$urls.pages.register}" title="{l s='Register in our store'  d='Shop.Theme.Customeraccount'}" rel="nofollow" class="btn btn-unstyle customRegisterLink">
+    <i class="material-icons user">&#xeb3f;</i> {l s='Register' d='Shop.Theme.Actions'}
+  </a>
+{/if}
 <div class="ttuserheading"></div>	
   <ul class="user-info">
     {if $logged}
@@ -51,6 +56,14 @@
       >
         <i class="material-icons user">&#xE7FF;</i>
         <span class="hidden-sm-down">{l s='Sign in' d='Shop.Theme.Actions'}</span>
+      </a></li>
+      <li><a
+        href="{$urls.pages.register}"
+        title="{l s='Register in our store'  d='Shop.Theme.Customeraccount'}"
+        rel="nofollow"
+        >
+        <i class="material-icons user">&#xeb3f;</i>
+        <span class="hidden-sm-down">{l s='Register' d='Shop.Theme.Actions'}</span>
       </a></li>
     {/if}
 		  {hook h='displayTtCompareHeader'}

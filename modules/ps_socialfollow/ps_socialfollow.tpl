@@ -27,7 +27,7 @@
   <div class="block-social links col-sm-3">
     <h4 class="hidden-sm-down">{l s='Follow US' d='Shop.Theme.Catalog'}</h4>
 	<div  class="title clearfix hidden-md-up" data-toggle="collapse" data-target="#social-footer">
-  	<span class="h3">{l s='social' d='Shop.Theme.Catalog'}</span>
+  	<span class="h3">{l s='social media' d='Shop.Theme.Catalog'}</span>
 	<span class="float-xs-right">
           <span class="navbar-toggler collapse-icons">
             <i class="material-icons add">&#xE313;</i>
@@ -37,7 +37,7 @@
   </div>
     <ul id="social-footer" class="collapse">
       {foreach from=$social_links item='social_link'}
-        <li class="{$social_link.class}"><a href="{$social_link.url}" target="_blank"><P>{$social_link.label}</P></a></li>
+        <li class="{$social_link.class}"><a class="csocial-link" href="{$social_link.url}" target="_blank"><P>{$social_link.label}</P></a></li>
       {/foreach}
     </ul>
   </div>

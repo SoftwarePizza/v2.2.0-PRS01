@@ -25,15 +25,25 @@
 <div id="newslatter" class="col-sm-12">
 <div class="block_newsletter">
   <div class="row">
-	<div class="tt-content col-sm-6">
-	<i class="material-icons">&#xE0E1;</i>
-    <h4 class="tt-title">{l s='Sign Up For Newsletter' d='Shop.Theme.Global'}</h4>
+	<div class="tt-content col-sm-12">
+	<div class="news-img col-sm-12">
+			<img alt="news-img" src="{$urls.img_url}/news-amegra.jpg" width="200" height="40" />
 	</div>
-
-    <div class="block_content col-sm-5">
+    <h4 class="tt-title">{l s='Sign Up For Newsletter' d='Shop.Theme.Global'}</h4>
+	<h4><span class="tt-subtitle">{l s='To get Latests Updates and News' d='Shop.Theme.Global'}</span></h4>
+	</div>
+    <div class="block_content col-sm-12">
       <form action="{$urls.pages.index}#footer" method="post">
         <div class="row">
 		       <div class="ttinput_newsletter">
+			    <div class="input-wrapper">
+              <input
+				  name="email"
+				  type="email"
+				  value="{$value}"
+				  placeholder="{l s='Your email address' d='Shop.Forms.Labels'}"
+				>
+			</div>
             <input
               class="btn btn-primary float-xs-right hidden-xs-down"
               name="submitNewsletter"
@@ -46,19 +56,14 @@
               type="submit"
               value="{l s='OK' d='Shop.Theme.Actions'}"
             >
-			  <div class="input-wrapper">
-              <input
-				  name="email"
-				  type="email"
-				  value="{$value}"
-				  placeholder="{l s='Your email address' d='Shop.Forms.Labels'}"
-				  aria-labelledby="block-newsletter-label"
-				>
-			</div>
+			 
             <input type="hidden" name="action" value="0">
             <div class="clearfix"></div>
           </div>
-          <div class="col-xs-12">
+        </div>
+      </form>
+    </div>
+	<div class="col-xs-12">
               {if $conditions}
                 <p class="newsletter-desc">{$conditions}</p>
               {/if}
@@ -71,9 +76,6 @@
 				 {hook h='displayGDPRConsent' id_module=$id_module}
 			   {/if}
           </div>
-        </div>
-      </form>
-    </div>
   </div>
 </div>
 </div>

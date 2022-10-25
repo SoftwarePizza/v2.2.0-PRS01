@@ -37,13 +37,7 @@
               {/if}
             </li>
         {/foreach}
-			{if $depth == 0}
-			{if Module::isInstalled("smartblog") && Module::isInstalled("smartbloghomelatestnews") && (Module::isEnabled("smartblog")) && (Module::isEnabled("smartbloghomelatestnews"))}
-			<li class="ttblog">
-			<a class="dropdown-item" href="{$link->getPageLink('smartblog')|escape:'html':'UTF-8'}" data-depth="{$depth}">{l s='blog' d='Shop.Theme.Global'}</a>
-			</li>
-			{/if}
-			{/if}
+			
       </ul>
     {/if}
 {/function}
@@ -54,3 +48,21 @@
 		<div class="clearfix"></div>
 	</div>
 </div>
+
+<!--<script>
+$(document).ready(function() {
+		var max_link =3;
+		var items = $('.topmenu .menu ul#top-menu > li');
+		var surplus = items.slice(max_link, items.length);
+		var more_info = "{l s='More' d='Shop.Theme.Global'}";
+		
+		surplus.wrapAll('<li class="more_menu otmenu"><div class="top-menu sub-menu clearfix">');
+		$('.more_menu').prepend('<a href="#" class="level-top">'+more_info+'</a>');
+		$('.more_menu').mouseover(function(){
+		$(this).children('div').addClass('shown-link');
+		})
+		$('.more_menu').mouseout(function(){
+		$(this).children('div').removeClass('shown-link');
+		});
+});
+</script>-->

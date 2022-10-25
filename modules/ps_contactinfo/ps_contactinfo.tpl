@@ -44,11 +44,13 @@
 	  <div class="icon"><i class="material-icons">&#xE0CD;</i></div>
 		<div class="data contact">
         {* [1][/1] is for a HTML tag. *}
-        <span  class="title">{l s='Call us:</span> [1]%phone%[/1]'
+        <span  class="title">{l s='Call us:</span> [1]%callTag%[12]%phone%[/1]'
           sprintf=[
-          '[1]' => '<a href="tel:{$contact_infos.phone}">',
+          '[1]' => '<a href="tel:',
+          '[12]' => '">',
           '[/1]' => '</a>',
-          '%phone%' => $contact_infos.phone
+          '%phone%' => $contact_infos.phone,
+          '%callTag%' => $contact_infos.phone|replace:" ":""
           ]
           d='Shop.Theme.Global'
         }
