@@ -32,7 +32,11 @@
 				<input type="hidden" name="token" value="{$static_token}" class="tt-token">
 				<input type="number" name="qty" class="quantity_wanted input-group" value="{$product.minimal_quantity}" min="{$product.minimal_quantity}"/>
 			</div>
-			{if $product.quantity > 0 && $product.quantity >= $product.minimal_quantity || $product.allow_oosp}
+			{if $product.main_variants}
+				<a href="{$product.url}" class="button ajax_add_to_cart_button add-to-cart btn btn-default" title="{l s='Go to product' d='Shop.Theme.Actions'}">
+					<span>{l s='View product' d='Shop.Theme.Actions'}</span>
+				</a>
+			{elseif $product.quantity > 0 && $product.quantity >= $product.minimal_quantity || $product.allow_oosp}
 				<button class="button ajax_add_to_cart_button add-to-cart btn btn-default" data-button-action="add-to-cart" title="{l s='Add to cart'}" {if !$product.add_to_cart_url}
               disabled
             {/if}>
@@ -40,7 +44,7 @@
 				</button>
 			{else}
 				<button class="button ajax_add_to_cart_button add-to-cart-disable btn btn-default" title="{l s='Out of stock'}">
-				<span>{l s='out of stock'}</span>
+				<span>{l s='out of stock' d='Shop.Theme.Actions'}</span>
 			</button>
 			{/if}
 		</form>

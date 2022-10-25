@@ -48,7 +48,7 @@
           {include file='_partials/header.tpl'}
         {/block}
       </header>
-	 <div id="page" class="">
+	 <div>
       {block name='notifications'}
         {include file='_partials/notifications.tpl'}
       {/block}

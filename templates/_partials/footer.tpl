@@ -51,7 +51,7 @@
       <div class="col-md-12">
         <p class="text-sm-center">
           {block name='copyright_link'}
-            <a class="_blank" href="http://www.prestashop.com" target="_blank">
+            <a class="_blank" href="https://www.prestashop.com" rel="nofollow" target="_blank">
               {l s='%copyright% %year% - Ecommerce software by %prestashop%' sprintf=['%prestashop%' => 'PrestaShop™', '%year%' => 'Y'|date, '%copyright%' => '©'] d='Shop.Theme.Global'}
             </a>
           {/block}
@@ -64,3 +64,28 @@
 	<a href="#" class="goToTop show" title="Back to top"> <i class="material-icons arrow-up"></i></a>
 	</div>
 <a class="goToTop ttbox-img show" href="#"> </a>
+
+<span itemscope itemtype="https://schema.org/Store">
+    <meta itemprop="name" content="Amegra Sp. z o.o. Sp. k.">
+    <meta itemprop="image" content="https://amegra.pl/img/amegra-logo-1601359789.jpg">
+    <meta itemprop="logo" content="https://amegra.pl/img/amegra-logo-1601359789.jpg">
+    <link itemprop="url" href="https://amegra.pl/">
+    <span>
+    <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+      <meta itemprop="streetAddress" content="Kaczorowa 26"/>
+      <meta itemprop="addressLocality" content="Warszawa"/>
+      <meta itemprop="postalCode" content="03-046"/>		
+    </span>
+    <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+      <link itemprop="hasMap" href="https://g.page/amegra?share">
+      <span itemprop="geo" itemscope itemtype="https://schema.org/GeoCoordinates">
+        <meta itemprop="latitude" content="52.32241629999998" />
+        <meta itemprop="longitude" content="21.014549500000005" />
+      </span>
+    </span>
+  </span>
+    <meta itemprop="sameAs" content="https://www.facebook.com/galplast"/>
+    <meta itemprop="sameAs" content="https://www.instagram.com/amegra_dodziergania/?hl=pl"/>
+    <meta itemprop="openingHours" content="Pn-Pt 08:00-16:00"/>
+    <meta itemprop="telephone" content="+48885885435"/>
+</span>

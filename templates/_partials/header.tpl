@@ -23,6 +23,7 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {block name='header_banner'}
+
   <div class="header-banner">
     {hook h='displayBanner'}
   </div>
@@ -62,11 +63,11 @@
        <div class="row">
         <div class="col-md-2 hidden-sm-down" id="_desktop_logo">
          {if $page.page_name == 'index'}
-			<h1>
+			<h2>
 			<a href="{$urls.base_url}">
 				<img class="logo img-responsive" src="{$shop.logo}" alt="{$shop.name}">
 			</a>
-			</h1>
+			</h2>
 			{else}
 				<a href="{$urls.base_url}">
 				   <img class="logo img-responsive" src="{$shop.logo}" alt="{$shop.name}">
@@ -84,7 +85,7 @@
         </div>
       </div>
     </div>
-	<div class="col-md-12 col-sm-12 position-static container">
+	<div class="col-md-12 col-sm-12 position-static">
 	  <div class="row">
 		{hook h='displayTop'}
 		<div class="clearfix"></div>

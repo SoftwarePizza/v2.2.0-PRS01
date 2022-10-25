@@ -44,7 +44,7 @@
         <meta itemprop="priceCurrency" content="{$currency.iso_code}">
 
         <div class="current-price">
-          <span itemprop="price" content="{$product.price_amount}">{$product.price}</span>
+          <span>{$product.price}</span>
 
           {if $product.has_discount}
             {if $product.discount_type === 'percentage'}

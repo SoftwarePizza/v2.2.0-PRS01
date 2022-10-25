@@ -30,7 +30,7 @@
     <input id="tokenid" name="tokenid" value="{$static_token}" type="hidden">
 
     {block name='product_list_header'}
-      <h2 id="js-product-list-header" class="h2 tt-innerpagetitle">{$listing.label}</h2>
+      <h1 id="js-product-list-header" class="h2 tt-innerpagetitle">{$listing.label}</h1>
     {/block}
 
     <section id="products">

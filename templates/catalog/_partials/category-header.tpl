@@ -29,7 +29,24 @@
                 <div class="category-cover">
                     <img src="{$category.image.large.url}" alt="{if !empty($category.image.legend)}{$category.image.legend}{else}{$category.name}{/if}">
                 </div>
-            {/if} <h1 class="h1 title-category">{$category.name}</h1>
+            {/if}
+            <h1 class="h1 title-category">
+                {if $smarty.server.REQUEST_URI eq '/46-wloczki'}
+                    Włóczka do szydełkowania i dziergania na drutach
+                {elseif $smarty.server.REQUEST_URI eq '/17-akcesoria-krawieckie'}
+                    Akcesoria krawieckie
+                {elseif $smarty.server.REQUEST_URI eq '/69-druty-do-robotek-recznych'}
+                    Druty do dziergania
+                {elseif $smarty.server.REQUEST_URI eq '/137-kordonki-i-nici-do-robotek-recznych'}
+                    Kordonki do szydełkowania
+                {elseif $smarty.server.REQUEST_URI eq '/139-muliny'}
+                    Mulina Anchor, Ariadna – akcesoria do haftu
+                {elseif $smarty.server.REQUEST_URI eq '/238-kleje-i-akcesoria'}
+                    Klej do tkanin – pasmanteria Amegra
+                {else}
+                    {$category.name}
+                {/if}
+            </h1>
             {if $category.description}
                 <div id="category-description" class="text-muted">{$category.description nofilter}</div>
             {/if}
@@ -52,7 +69,7 @@
                             {/if}
                         </a>
                     </div>
-                    <h5><a class="subcategory-name" href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}">{$subcategory.name|truncate:25:'...'|escape:'html':'UTF-8'}</a></h5>
+                    <h5><a class="subcategory-name" href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'html':'UTF-8'}">{$subcategory.name|escape:'html':'UTF-8'}</a></h5>
                     {if $subcategory.description}
                         <div class="cat_desc">{$subcategory.description}</div>
                     {/if}

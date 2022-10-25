@@ -30,7 +30,7 @@
 				{if $product.cover}
 				  <a href="{$product.canonical_url}" class="thumbnail product-thumbnail">
 					<img
-				  class="ttproduct-img1"
+				  class="ttproduct-img1 ts"
 					  src = "{$product.cover.bySize.home_default.url}"
 					  alt = "{if !empty($product.cover.legend)}{$product.cover.legend}{else}{$product.name|truncate:30:'...'}{/if}"
 					  data-full-size-image-url = "{$product.cover.large.url}"
@@ -41,7 +41,7 @@
 				  <a href="{$product.canonical_url}" class="thumbnail product-thumbnail">
 					<img
 				  class="ttproduct-img1"
-					  src = "{$urls.no_picture_image.bySize.home_default.url}"
+					  src = "{$urls.no_picture_image.bySize.home_default.url}"  alt = "{if !empty($product.cover.legend)}{$product.cover.legend}{else}{$product.name|truncate:30:'...'}{/if}"
 					>
 				  </a>
 				{/if}
@@ -78,19 +78,19 @@
 				<h5 class="cat-name">{$product.category|escape:'html':'UTF-8'}</h5>
 				{block name='product_name'}
 				  {if $page.page_name == 'index'}
-					<span class="h3 product-title" itemprop="name"><a href="{$product.canonical_url}">{$product.name|truncate:18:'...'}</a></span>
+					<span class="h3 product-title text-capitalize" itemprop="name"><a href="{$product.canonical_url}">{$product.name}</a></span>
 				  {else}
-					<span class="h3 product-title" itemprop="name"><a href="{$product.canonical_url}">{$product.name|truncate:18:'...'}</a></span>
+					<span class="h3 product-title text-capitalize" itemprop="name"><a href="{$product.canonical_url}">{$product.name}</a></span>
 				  {/if}
 				{/block}
 				{block name='product_description_short'}
-					<div class="product-desc-short" itemprop="description">{$product.description_short|strip_tags:'UTF-8'|truncate:60:'...' nofilter}</div>
+					<div class="product-desc-short" itemprop="description">{$product.description_short|strip_tags:'UTF-8'|truncate:100:'...' nofilter}</div>
 				{/block}
 		
 				{block name='product_price_and_shipping'}
 					{if $product.show_price}
 						<div class="product-price-and-shipping">
-							<span itemprop="price" class="price">{$product.price}</span>
+							<span class="price">{$product.price}</span>
 							{if $product.has_discount}
 								{hook h='displayProductPriceBlock' product=$product type="old_price"}
 								<span class="sr-only">{l s='Regular price' d='Shop.Theme.Catalog'}</span>

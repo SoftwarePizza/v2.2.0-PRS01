@@ -24,7 +24,7 @@
  *}
 <nav data-depth="{$breadcrumb.count}" class="breadcrumb hidden-sm-down">
 <div class="container">
-{if $page.page_name == 'product'}
+<!--{if $page.page_name == 'product'}
 <div class="breadcrumb-img1">
   	<img alt="category-lamp-02" src="../../themes/PRS01/assets/img/category-lamp-02.png" />
   </div>
@@ -38,7 +38,7 @@
  <div class="breadcrumb-img2">
   	<img alt="category-lamp-01" src="../themes/PRS01/assets/img/category-lamp-01.png" />
   </div>
- {/if}
+ {/if}-->
   <ol itemscope itemtype="http://schema.org/BreadcrumbList">
     {block name='breadcrumb'}
       {foreach from=$breadcrumb.links item=path name=breadcrumb}
