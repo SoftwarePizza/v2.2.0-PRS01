@@ -1,0 +1,148 @@
+/* ------------------------------------ Start TT - CMS Testimonial ------------------------------- */
+#ttcmstestimonial .tt-carousel {
+    float: right;
+    margin: 0;
+    width: 100%;
+}
+#ttcmstestimonial ul li {
+	width: 100%;
+	float: right;
+	padding: 40px 0;
+}
+.ttcmstestimonial {
+    width: 100%;
+    float: right;
+    text-align: center;
+	height: 530px;
+	background:#f7f7f7;
+	display: flex;
+    align-items: center;
+}
+.ttcmstestimonial-flex {
+    width: 100%;
+    float: right;
+    overflow: hidden;
+}
+#ttcmstestimonial .card-image {
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-khtml-border-radius: 50%;
+	border: 6px solid #dedede;
+	width: 100px;
+	float: none;
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 0 20px;
+}
+#ttcmstestimonial .card-title {
+	float: none;
+	width: auto;
+	margin: 0 0 20px;
+	display: inherit;
+}
+#ttcmstestimonial .card-title h5 {
+	color: #222;
+	display: inline-block;
+	float: none;
+	font: 600 18px/20px var(--primary-font);
+	margin:0;
+}
+#ttcmstestimonial .card-text {
+	color: #666;
+	font: italic 400 14px/23px "Roboto", Helvetica, sans-serif;
+	width: 80%;
+	float: none;
+	display: inline-block;
+}
+.owl-carousel .owl-dots {
+	float: right;
+	width: 100%;
+}
+.owl-carousel .owl-dots button {
+	border: none;
+	height: 10px;
+	width: 10px;
+	background: #b7b7b7 !important;
+	border-radius: 50%;
+	cursor: pointer;
+	padding: 0;
+	margin: 0 5px;
+	transition: all 400ms ease-in-out 0s;
+}
+.owl-carousel .owl-dots button.active {
+	height: 13px;
+	width: 13px;
+	background: var(--primary-bg-color) !important;
+}
+.owl-carousel .owl-dots button:hover {
+	background: var(--primary-bg-color) !important;
+}
+@media (max-width: 1199px) {
+	.testimonial-desc{
+		width: 70%;
+	}
+	.ttcmstestimonial{
+		height: 490px;
+	}
+}
+@media (max-width: 991px) {
+	.ttcmstestimonial{
+		height: 440px;
+	}
+	#ttcmstestimonial ul li{
+		padding: 10px 0;
+	}
+    #ttcmstestimonial {
+        width: 100%;
+    }
+	.testimonial-desc{
+        margin: 20px 0 0;
+    }
+	.card-text {
+		width:68%;
+	}
+	#ttcmstestimonial .card-image,#ttcmstestimonial .card-text {
+		margin:0 0 25px;
+	}
+	#ttcmstestimonial .card-title {
+		margin:0 0 15px;
+	}
+	#ttcmstestimonial .card-text {
+		font-size:13px;
+	}
+	
+}
+@media (max-width: 767px) {
+	#ttcmstestimonial  {
+		padding:0;
+	}
+	.card-text {
+		width:auto;
+	}
+	#ttcmstestimonial .card-text {
+		width:72%;
+	}
+	#ttcmstestimonial .card-title h5 {
+		font-size:14px;
+		line-height:16px;
+	}
+	#ttcmstestimonial .card-title {
+		margin: 0 0 10px;
+	}
+	#ttcmstestimonial .card-text {
+		margin: 0;
+	}
+.ttcmstestimonial{
+height: 400px;
+}
+}
+@media (max-width: 543px) {
+	#ttcmstestimonial .card-text {
+		width: 100%;
+	}
+	.ttcmstestimonial-flex{
+		padding:10px;
+	}
+}
+/* ------------------------------------ End TT - CMS Testimonial ------------------------------- */

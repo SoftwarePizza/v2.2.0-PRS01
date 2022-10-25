@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -28,36 +28,42 @@
     {hook h='displayBanner'}
   </div>
 {/block}
-
 {block name='header_nav'}
-  <nav class="header-nav">
-    <div class="container">
-        <div class="row">
-          <div class="hidden-sm-down top-nav">
-            <div class="col-md-4 col-xs-12">
-              {hook h='displayNav1'}
-            </div>
-            <div class="col-md-8 right-nav">
-                {hook h='displayNav2'}
-            </div>
-          </div>
-          <div class="hidden-md-up text-sm-center mobile">
-		    <div class="top-logo" id="_mobile_logo"></div>
-			<div class="mobile-menu">
-            <div class="float-xs-left" id="menu-icon">
-              <i class="material-icons">&#xE5D2;</i>
-            </div>
-            <div class="float-xs-right" id="_mobile_cart"></div>
-            <div class="float-xs-right" id="_mobile_user_info"></div>
+  <nav id="header-sticky" class="header-nav">
+			<div class="nav1">
+			<div class="container">
+				{hook h='displayNav1'}
 			</div>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-    </div>
+			</div>
+			<div class="nav2">
+				<div class="container">
+					{hook h='displayNav2'}
+				<div class="hidden-sm-down" id="_desktop_logo">
+				 {if $shop.logo_details}
+    				{if $page.page_name == 'index'}
+        			<h1>
+            			{renderLogo}
+        			</h1>
+    				{else}
+            			{renderLogo}
+    				{/if}
+				{/if}
+
+ 				</div>
+					<div class="title-menu-mobile"><i class="material-icons">menu</i></div>
+					<div class="top-logo" id="_mobile_logo"></div>
+					<div class="hidden-md-up text-sm-center mobile">
+					<div id="mobile_menu">
+						<div class="float-xs-right" id="_mobile_cart"></div>
+						<div class="float-xs-right" id="_mobile_user_info"></div>
+					</div>
+				 </div>		
+		</div>
+		</div>
   </nav>
 {/block}
-
 {block name='header_top'}
+<<<<<<< HEAD
   <div class="header-top">
     <div class="container">
        <div class="row">
@@ -90,15 +96,14 @@
 		{hook h='displayTop'}
 		<div class="clearfix"></div>
 	  </div>
+=======
+	<div class="header-top">
+		<div class="container">
+			<div class="position-static">
+				{hook h='displayTop'}
+			</div>
+		</div>
+>>>>>>> master
 	</div>
-  </div>
-  {hook h='displayNavFullWidth'}
+	{hook h='displayNavFullWidth'}
 {/block}
-
-{if $page.page_name == 'index'}
-	{block name='top_column'}
-		<div id="top_column" class="">
-			{hook h='displayTopColumn'}
-		 </div>
-	{/block}
-{/if}

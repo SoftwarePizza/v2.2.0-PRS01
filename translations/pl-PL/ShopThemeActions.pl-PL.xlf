@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="/var/www/demo.templatetrip.com/Prestashop/PRS04/PRS098_furniture/PRS01/Myadmin" source-language="pl-PL" target-language="pl-PL" datatype="plaintext">
+    <body>
+      <trans-unit id="2d0f6b8300be19cf35e89e66f0677f95">
+        <source>Add to cart</source>
+        <target>wózek</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b64c83286ace832c0ec837ac4c1c8057">
+        <source>Add To Cart</source>
+        <target>wózek</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c6be2b6191e6660291b6b0c92bd2f0df">
+        <source>Select Option</source>
+        <target>Wybierz</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="53d978054ae84799fe8e35ae6c808ef7">
+        <source>Out Of Stock</source>
+        <target>wyprzeda</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b55197a49e8c4cd8c314bc2aa39d6feb">
+        <source>Out of stock</source>
+        <target>wyprzeda</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -29,10 +29,8 @@
   <section id="main">
     <div class="cart-grid row">
 
-      <!-- Left Block: cart product informations & shpping -->
       <div class="cart-grid-body col-xs-12 col-lg-8">
 
-        <!-- cart products detailed -->
         <div class="card cart-container">
           <div class="card-block">
             <h1 class="h1">{l s='Shopping Cart' d='Shop.Theme.Checkout'}</h1>
@@ -49,13 +47,11 @@
           </a>
         {/block}
 
-        <!-- shipping informations -->
         {block name='hook_shopping_cart_footer'}
           {hook h='displayShoppingCartFooter'}
         {/block}
       </div>
 
-      <!-- Right Block: cart subtotal & cart total -->
       <div class="cart-grid-right col-xs-12 col-lg-4">
 
         {block name='cart_summary'}

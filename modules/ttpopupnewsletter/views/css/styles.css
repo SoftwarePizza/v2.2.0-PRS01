@@ -1,0 +1,181 @@
+#ttPopupnewsletter {
+	text-align: center;
+	float: left;
+	width: 100%;
+}
+#ttPopupnewsletter .close {
+	color: #ffffff;
+	font-weight: normal;
+	line-height: 16px;
+	margin: auto;
+	position: absolute;
+	right: 5px;
+	text-align: center;
+	top: 5px;
+	width: auto;
+	z-index: 99;
+}
+#ttPopupnewsletter .close i {
+	color: #000000;
+	font-size: 20px;
+	font-weight: bold;
+	transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	transition: all 0.5s ease-in-out 0ms;
+	-webkit-transition: all 0.5s ease-in-out 0ms;
+	-moz-transition: all 0.5s ease-in-out 0ms;
+	-o-transition: all 0.5s ease-in-out 0ms;
+	-ms-transition: all 0.5s ease-in-out 0ms;
+}
+#ttPopupnewsletter .close:hover i {
+	transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+}
+.ttpopupnewsletter {
+	background: #fff;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	position: fixed;
+	right: 0;
+	top: 0;
+	display:flex;
+	align-items:center;
+}
+.ttpopupnewsletter .ttnewslatterpopup-img {
+	padding: 0;
+}
+.ttpopupnewsletter .ttnewslatterpopup-content{
+	margin: 0 0 10px;
+}
+.ttpopupnewsletter .tt-title {
+	font-size: 30px;
+	margin: 0 0 15px;
+	text-transform: uppercase;
+	line-height: 32px;
+	padding:0;
+}
+.ttpopupnewsletter .ttContent {
+	color: #666666;
+	font-size: 13px;
+	line-height: 24px;
+	margin-bottom: 20px;
+}
+.ttpopupnewsletter .ttAlert {
+	color: #c22312;
+	float: left;
+	width: 100%;
+}
+.ttpopupnewsletter .ttAlert p.alert {
+    padding: 12px;
+}
+.ttpopupnewsletter .inputNew {
+	background-color: #f5f5f5;
+	border: 1px solid #e5e5e5;
+	height: 45px;
+	padding: 5px 15px;
+	width: 100%;
+	margin-bottom: 15px;
+	text-align: center;
+	color: #666;
+}
+.ttpopupnewsletter .send-reqest {
+	cursor: pointer;
+	display: inline-block;
+	float: none;
+	width: auto;
+	vertical-align: top;
+	margin-bottom: 25px;
+}
+.ttpopupnewsletter .tt_tick_bottom {
+	float: left;
+	width: 100%;
+	cursor:pointer;
+}
+.ttpopupnewsletter .tt_tick_bottom #tt_tick_dont_show {
+    width: auto;
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+	
+}
+.ttpopupnewsletter .tt_tick_bottom .tt_tick_dont_show {
+	color: #666666;
+	font-size: 13px;
+	line-height: 18px;
+	margin: 0;
+	cursor:pointer;
+	float: none;
+    display: inline-block;
+    vertical-align: middle;
+    width: 90%;
+	text-align: left;
+	transition: all 400ms ease-in-out 0s;
+	-webkit-transition: all 400ms ease-in-out 0s;
+	-moz-transition: all 400ms ease-in-out 0s;
+	-o-transition: all 400ms ease-in-out 0s;
+	-ms-transition: all 400ms ease-in-out 0s;
+}
+.ttpopupnewsletter .tt_tick_bottom .tt_tick_dont_show:hover{
+	color:#000;
+}
+@media (min-width: 544px) and (max-width: 991px) {
+	.ttpopupnewsletter {
+		left:10px;
+		right:10px;
+		top: 10px;
+		bottom: 10px;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+}
+@media (min-width: 544px) and (max-width: 767px) {
+	.ttpopupnewsletter .ttnewslatterpopup-content{
+		padding:0 10px;
+	}
+	.ttpopupnewsletter .tt_tick_bottom .tt_tick_dont_show{
+		font-size:12px;
+	}
+	.ttpopupnewsletter .ttnewslatterpopup-content{
+		margin:50px 0 10px;
+	}
+	.ttpopupnewsletter .inputNew {
+		margin-bottom: 15px;
+	}
+	.ttpopupnewsletter .send-reqest {
+		margin-bottom: 10px;
+	}
+}
+@media (max-width: 629px) {
+	.ttpopupnewsletter {
+		display: inline-block;
+		float: none;
+		height: auto !important;
+		margin: 10px 0;
+		max-width: 300px !important;
+		position: relative;
+		vertical-align: top;
+		width: auto;
+	}
+	.ttpopupnewsletter .ttnewslatterpopup-img {
+		width: 100%;
+		text-align: center;
+	}
+	.ttpopupnewsletter .ttnewslatterpopup-content {
+		padding: 30px 15px;
+		width: 100%;
+		margin: 0;
+	}
+	#ttPopupnewsletter .close {
+		background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
+	}
+	#ttPopupnewsletter .close i {
+		color: #fff;
+	}
+}

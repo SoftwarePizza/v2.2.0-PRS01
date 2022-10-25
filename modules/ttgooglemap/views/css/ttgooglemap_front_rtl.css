@@ -1,0 +1,22 @@
+#ttgooglemap {
+	float: right;
+	width: 100%;
+	margin: 0 0 30px;
+	padding:0;
+}
+#ttgooglemap #googlemap {
+	float:right;
+	width: 100%;
+	height: 420px;
+}
+.ttgooglemap-logo {
+	float: right;
+	margin-left: 20px;
+	width: 170px;
+}
+.googlemap-popup .description {
+	float: left;
+}
+body .footer-before {
+	padding: 0;
+}

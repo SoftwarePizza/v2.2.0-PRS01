@@ -1,0 +1,125 @@
+/*------------ Start TT-Brandlogo ---------------*/
+.brands {
+	float: left;
+	margin: 0 0 50px;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+.brands .tt-title {
+    display: none;
+}
+.brands #ttbrandlogo-carousel {
+    float: left;
+    width: 100%;
+    margin: 0;
+    position: relative;
+}
+.brands #ttbrandlogo-carousel li {
+	padding: 5px;
+}
+.brands #ttbrandlogo-carousel li.brand-image img {
+    opacity: 0.6;
+    -moz-opacity: 0.6;
+    -khtml-opacity: 0.6;
+    -webkit-opacity: 0.6;
+    transition: all 500ms ease 0s;
+    -webkit-transition: all 500ms ease 0s;
+    -moz-transition: all 500ms ease 0s;
+    -o-transition: all 500ms ease 0s;
+    -ms-transition: all 500ms ease 0s;
+    width: auto;
+    margin: 0 auto;
+}
+.brands #ttbrandlogo-carousel li.brand-image:hover img {
+    opacity: 1;
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    -webkit-opacity: 1;
+}
+.brands #ttbrandlogo-carousel .owl-nav button {
+	position: absolute;
+	height: 32px;
+	width: 32px;
+	border: 2px solid #e5e5e5;
+	margin: auto 0;
+}
+.brands #ttbrandlogo-carousel .owl-nav button.owl-prev {
+    left: -10px;
+    right: auto;
+}
+.brands:hover #ttbrandlogo-carousel .owl-nav button.owl-prev {
+	left: -15px;
+	opacity: 1;
+}
+.brands:hover #ttbrandlogo-carousel .owl-nav button.owl-next {
+	right: -15px;
+	opacity: 1;
+}
+.brands #ttbrandlogo-carousel .owl-nav button.owl-next {
+    right: -10px;
+    left: auto;
+}
+.brands #ttbrandlogo-carousel .owl-nav button i {
+	line-height: 28px;
+	width: 32px;
+	height: 32px;
+	color: #666;
+	transform: none;
+	-webkit-transform: none;
+	-moz-transform: none;
+	-o-transform: none;
+	-ms-transform: none;
+	font-size: 21px;
+}
+.brands #ttbrandlogo-carousel .owl-nav button:hover i,
+.brands #ttbrandlogo-carousel .owl-nav button:active i,
+.brands #ttbrandlogo-carousel .owl-nav button:focus i {
+	color:var(--secondary-text-color);
+}
+.brands #ttbrandlogo-carousel .owl-nav .disabled:hover i,
+.brands #ttbrandlogo-carousel .owl-nav .disabled:active i,
+.brands #ttbrandlogo-carousel .owl-nav .disabled:focus i{
+color:#666;
+}
+@media (max-width:1366px){
+    .brands{
+        margin:0 0 40px;
+    }
+}
+@media (max-width:991px){
+	.brands:hover #ttbrandlogo-carousel .owl-nav button.owl-prev {
+		left: -5px;
+	}
+	.brands:hover #ttbrandlogo-carousel .owl-nav button.owl-next {
+		right: -5px;
+	}
+	.brands{
+        margin:0 0 30px;
+    }
+}
+@media (max-width: 767px) {
+	.brands {
+		margin: 0 0 30px;
+	}
+.brands #ttbrandlogo-carousel .owl-nav button.owl-prev,.brands:hover #ttbrandlogo-carousel .owl-nav button.owl-prev {
+    opacity: 1;
+	-moz-opacity: 1; 
+-khtml-opacity: 1; 
+-webkit-opacity: 1;
+left: 0;
+}
+.brands #ttbrandlogo-carousel .owl-nav button.owl-next,.brands:hover #ttbrandlogo-carousel .owl-nav button.owl-next {
+    opacity: 1;
+	-moz-opacity: 1; 
+-khtml-opacity: 1; 
+-webkit-opacity: 1;
+right: 0;
+}
+}
+@media (max-width: 543px) {
+	.brands {
+		margin: 0 0 20px;
+	}
+}
+/*------------ End TT-Brandlogo ---------------*/

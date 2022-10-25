@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
@@ -44,8 +44,8 @@
               <a class="category-sub-link" href="{$node.link}">{$node.name}</a>
               {if $node.children}
                 <span class="arrows" data-toggle="collapse" data-target="#exCollapsingNavbar{$node.id}">
-                  <i class="material-icons arrow-right">&#xE315;</i>
-                  <i class="material-icons arrow-down">&#xE313;</i>
+                  <i class="material-icons arrow-right">&#xE145;</i>
+                  <i class="material-icons arrow-down">&#xE15B;</i>
                 </span>
                 <div class="collapse" id="exCollapsingNavbar{$node.id}">
                   {categories nodes=$node.children depth=$depth+1}
@@ -61,7 +61,7 @@
 
 <div class="block-categories">
 <div class="title clearfix hidden-md-up" data-target="#categories" data-toggle="collapse">
-    <span class="h3 text-uppercase">{l s='Categories'}</span>
+    <span class="h3 text-uppercase">{l s='categories'}</span>
     <span class="float-xs-right">
       <span class="navbar-toggler collapse-icons">
         <i class="material-icons add">&#xE145;</i>

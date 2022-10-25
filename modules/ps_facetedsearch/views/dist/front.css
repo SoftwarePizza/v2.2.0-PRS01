@@ -1,5 +1,5 @@
 /**
- * 2007-2019 PrestaShop.
+ * 2007-2022 PrestaShop.
  *
  * NOTICE OF LICENSE
  *
@@ -18,7 +18,7 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
@@ -57,7 +57,7 @@
     transform: rotate(360deg); } }
 
 /**
- * 2007-2019 PrestaShop.
+ * 2007-2022 PrestaShop.
  *
  * NOTICE OF LICENSE
  *
@@ -76,7 +76,7 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */
@@ -85,7 +85,7 @@
   cursor: pointer; }
 
 #search_filters .ui-widget-header {
-    background: #ef2a38;
+    background: var(--secondary-bg-color);
     border-radius: 0;
 }
 #search_filters .ui-slider .ui-slider-handle {
@@ -93,10 +93,11 @@
     width: 15px;
     height: 15px;
     background: #fff;
-    border: 3px solid #ef2a38;
+    border: 3px solid var(--secondary-bg-color);
     border-radius: 25px;
     bottom: 0;
     margin: auto;
+	z-index: 1;
 }
 #search_filters .ui-slider-horizontal {
     height: 6px;
@@ -108,7 +109,7 @@
     border-radius: 10px;
 }
 /**
- * 2007-2019 PrestaShop.
+ * 2007-2022 PrestaShop.
  *
  * NOTICE OF LICENSE
  *
@@ -127,7 +128,7 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2019 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  */

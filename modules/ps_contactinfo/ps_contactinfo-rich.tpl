@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,13 +18,17 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 
 <div class="contact-rich">
+<<<<<<< HEAD
   <h1 style="font-size: 1.125rem;">{l s='Store information' d='Shop.Theme.Global'}</h1>
+=======
+  <h3>{l s='Store information' d='Shop.Theme.Global'}</h3>
+>>>>>>> master
   <div class="block">
     <div class="icon"><i class="material-icons">&#xE55F;</i></div>
     <div class="data">{$contact_infos.address.formatted nofilter}</div>
@@ -49,14 +53,14 @@
       </div>
     </div>
   {/if}
-  {if $contact_infos.email}
+  {if $contact_infos.email && $display_email}
     <hr/>
     <div class="block">
       <div class="icon"><i class="material-icons">&#xE158;</i></div>
       <div class="data email">
         {l s='Email us:' d='Shop.Theme.Global'}<br/>
+		<a href="mailto:{$contact_infos.email}">{$contact_infos.email}</a>
        </div>
-       <a href="mailto:{$contact_infos.email}">{$contact_infos.email}</a>
     </div>
   {/if}
 

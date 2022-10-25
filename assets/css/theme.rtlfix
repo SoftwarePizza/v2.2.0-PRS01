@@ -1,5 +1,5 @@
 @font-face {
-  font-family: Vazir;
+  font-family: Vazir; 
   src: url('https://res.cloudinary.com/ipresta/raw/upload/v1522045380/vazir_v18.0.0/Vazir.eot');
   src: url('https://res.cloudinary.com/ipresta/raw/upload/v1522045380/vazir_v18.0.0/Vazir.eot?#iefix') format('embedded-opentype'),
        url('https://res.cloudinary.com/ipresta/raw/upload/v1522045380/vazir_v18.0.0/Vazir.woff') format('woff'),
@@ -45,6 +45,48 @@ body.lang-fa{
 .owl-wrapper-outer .owl-wrapper .owl-item {
 	float: left;
 }
+.customNavigation a.prev::before {
+	float: left;
+	left: -61px;
+	text-align: left;
+	right: auto;
+}
+.customNavigation a.prev::after {
+	left: -41px;
+	right: auto;
+}
+.customNavigation a.next::after {
+	right: -41px;
+	left: auto;
+}
+.customNavigation a.next::before {
+	right: -61px;
+	left: auto;
+}
+.products .highlighted-informations{
+transform: none;
+-webkit-transform: none;
+-moz-transform: none;
+-o-transform: none;
+-ms-transform: none;
+right:-50px;
+left:auto;
+}
+.products .thumbnail-container:hover .review-variant .highlighted-informations{
+transform: none;
+-webkit-transform: none;
+-moz-transform: none;
+-o-transform: none;
+-ms-transform: none;
+right:0;
+left:auto;
+}
+.brands .customNavigation a {
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+}
 .lightbox .lb-outerContainer .lb-container .lb-nav a.lb-prev::before, 
 .lightbox .lb-outerContainer .lb-container .lb-nav a.lb-next::before {
 	-moz-transform: scaleX(-1);
@@ -53,8 +95,12 @@ body.lang-fa{
 	transform: scaleX(-1);
 }
 .wishlist_default i {
-  transform: none !important;
+	transform: none !important;
+	-o-transform: none !important;
+	-webkit-transform: none !important;
+	transform: none !important;
 }
+
 #products .thumbnail-container .ttproducthover, 
 .products .thumbnail-container .ttproducthover, 
 .featured-products .thumbnail-container .ttproducthover, 
@@ -66,7 +112,7 @@ body.lang-fa{
 .crossselling-product .thumbnail-container .ttproducthover, 
 .category-products .thumbnail-container .ttproducthover, 
 .view-product .thumbnail-container .ttproducthover {
-	direction: rtl;
+  direction: rtl;
 }
 #products .product-title, 
 .products .product-title, 
@@ -81,120 +127,47 @@ body.lang-fa{
 .view-product .product-title {
 	direction: rtl;
 }
-#smartblog_block .sdsblog-box-content #smartblog-carousel .item .blog_post .blog_content .blog_inner .sds_post_title {
+.ttspecial-products .thumbnail-container .ttproducthover {
 	direction: rtl;
 }
-#smartblog_block .sdsblog-box-content #smartblog-carousel .item .blog_post .blog_content .blog_inner .desc {
-	direction: rtl;
-}
-.search-widget form button[type="submit"] i {
-	-moz-transform: none;
-	-o-transform: none;
-	-webkit-transform: none;
-	transform: none;
-}
-/*---------------------- Start product customNavigation css --------------------*/
-.carousel .direction{
-  direction: ltr !important;
-}
-.ttspecial-products .customNavigation a{
-  direction: left;
-}
-.customNavigation a{
-  float:left;
-}
-.customNavigation a.next::before {
-  float: right;
-}
-.customNavigation a.prev::before {
-  float: left;
-}
-.brands .customNavigation a.prev {
-  transform: scaleX(-1);
-}
-.brands .customNavigation a.next {
-  transform: scaleX(-1);
-}
-.brands #ttbrandlogo-carousel .owl-buttons div.owl-prev::before {
-  transform: scaleX(-1);
-}
-.brands #ttbrandlogo-carousel .owl-buttons div.owl-next::before {
-  transform: scaleX(-1);
-}
-.customNavigation {
-  direction: ltr !important;
-}
-
-/*---------------------- End product customNavigation css --------------------*/
-#blockcart-modal strong {
-	float: right;
-}
-#products .product-grid .thumbnail-container .hook-reviews, 
-.products .product-grid .thumbnail-container .hook-reviews, 
-.featured-products .product-grid .thumbnail-container .hook-reviews, 
-.product-accessories .product-grid .thumbnail-container .hook-reviews, 
-.crossselling-product .product-grid .thumbnail-container .hook-reviews, 
-.ttbestseller-products .product-grid .thumbnail-container .hook-reviews, 
-.ttew-products .product-grid .thumbnail-container .hook-reviews, 
-.ttspecial-products .product-grid .thumbnail-container .hook-reviews, 
-.category-products .product-grid .thumbnail-container .hook-reviews, 
-.view-product .product-grid .thumbnail-container .hook-reviews, 
+#products .product-grid .thumbnail-container .hook-reviews,
+.products .product-grid .thumbnail-container .hook-reviews,
+.featured-products .product-grid .thumbnail-container .hook-reviews,
+.product-accessories .product-grid .thumbnail-container .hook-reviews,
+.crossselling-product .product-grid .thumbnail-container .hook-reviews,
+.ttbestseller-products .product-grid .thumbnail-container .hook-reviews,
+.ttnew-products .product-grid .thumbnail-container .hook-reviews,
+.category-products .product-grid .thumbnail-container .hook-reviews,
+.view-product .product-grid .thumbnail-container .hook-reviews,
 .ttfeatured-products .product-grid .thumbnail-container .hook-reviews {
 	direction: rtl;
 }
-#products .product-miniature .product-flags .new.online-only,
-#products .product-miniature .online-only.online-only,
-#products .product-miniature .on-sale.online-only,
-#products .product-miniature .discount-percentage.online-only,
-.products .product-miniature .product-flags .new.online-only,
-.products .product-miniature .online-only.online-only,
-.products .product-miniature .on-sale.online-only,
-.products .product-miniature .discount-percentage.online-only,
-.featured-products .product-miniature .product-flags .new.online-only,
-.featured-products .product-miniature .online-only.online-only,
-.featured-products .product-miniature .on-sale.online-only,
-.featured-products .product-miniature .discount-percentage.online-only,
-.view-product .product-miniature .product-flags .new.online-only,
-.view-product .product-miniature .online-only.online-only,
-.view-product .product-miniature .on-sale.online-only,
-.view-product .product-miniature .discount-percentage.online-only,
-.crossselling-product .product-miniature .product-flags .new.online-only,
-.crossselling-product .product-miniature .online-only.online-only,
-.crossselling-product .product-miniature .on-sale.online-only,
-.crossselling-product .product-miniature .discount-percentage.online-only,
-.category-products .product-miniature .product-flags .new.online-only,
-.category-products .product-miniature .online-only.online-only,
-.category-products .product-miniature .on-sale.online-only,
-.category-products .product-miniature .discount-percentage.online-only,
-.product-accessories .product-miniature .product-flags .new.online-only,
-.product-accessories .product-miniature .online-only.online-only,
-.product-accessories .product-miniature .on-sale.online-only,
-.product-accessories .product-miniature .discount-percentage.online-only,
-.ttbestseller-products .product-miniature .product-flags .new.online-only,
-.ttbestseller-products .product-miniature .online-only.online-only,
-.ttbestseller-products .product-miniature .on-sale.online-only,
-.ttbestseller-products .product-miniature .discount-percentage.online-only,
-.ttnew-products .product-miniature .product-flags .new.online-only,
-.ttnew-products .product-miniature .online-only.online-only,
-.ttnew-products .product-miniature .on-sale.online-only,
-.ttnew-products .product-miniature .discount-percentage.online-only,
-.ttspecial-products .product-miniature .product-flags .new.online-only,
-.ttspecial-products .product-miniature .online-only.online-only,
-.ttspecial-products .product-miniature .on-sale.online-only,
-.ttspecial-products .product-miniature .discount-percentage.online-only,
-.ttfeatured-products .product-miniature .product-flags .new.online-only,
-.ttfeatured-products .product-miniature .online-only.online-only,
-.ttfeatured-products .product-miniature .on-sale.online-only,
-.ttfeatured-products .product-miniature .discount-percentage.online-only {
+.products .thumbnail-container .ttproduct-image .product-flags {
 	direction: rtl;
 }
-/*---------------------------------------Start Date-----------*/
-#smartblog_block .sdsblog-box-content #smartblog-carousel .item .blog_post .blog_content .blog_inner .blog_date {
-  direction: rtl;
+.products .tt-button-container .btn-primary.add-to-cart span:not(.loading)::before {
+	margin-right: 5px;
+	margin-left: 0;
+		float:left;
 }
-#products .hook-reviews, .products .hook-reviews, .featured-products .hook-reviews, .product-accessories .hook-reviews, .crossselling-product .hook-reviews, .ttbestseller-products .hook-reviews, .ttnew-products .hook-reviews, .ttspecial-products .hook-reviews, .category-products .hook-reviews, .ttfeatured-products .hook-reviews {
-  margin: 5px 0;
+.products .tt-button-container .btn-primary.select-btn span::before {
+	float:left;
+	margin-right: 5px;
+	margin-left: 0;
 }
-.product-actions .product-add-to-cart .compare .add_to_compare::before{
-	float:right
+.products .thumbnail-container .btn .loading i {
+	transform: none;
+	-webkit-transform: none;
+	-moz-transform: none;
+	-o-transform: none;
+	-ms-transform: none;
+}
+.tabs .nav-item::before {
+	left: 0 !important;
+	right: auto !important;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	.product-grid .product-price-and-shipping {
+		min-height: 36px;
+	}
 }

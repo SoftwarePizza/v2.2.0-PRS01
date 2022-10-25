@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,12 +18,13 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
+ {include file='_partials/helpers.tpl'}
 <!doctype html>
-<html lang="{$language.iso_code}">
+<html lang="{$language.locale}">
 
   <head>
     {block name='head'}
@@ -38,27 +39,32 @@
     {/block}
 
     <main>
-			<div id="page" class="">
       {block name='product_activation'}
         {include file='catalog/_partials/product-activation.tpl'}
       {/block}
-
+	  <div class="loadingdiv"><div class="spinner"></div></div>
       <header id="header">
         {block name='header'}
-          {include file='_partials/header.tpl'}
+           {include file="_partials/header.tpl"}
         {/block}
       </header>
+<<<<<<< HEAD
 	 <div>
+=======
+
+>>>>>>> master
       {block name='notifications'}
         {include file='_partials/notifications.tpl'}
       {/block}
 
-      <section id="wrapper">
-	            {block name='breadcrumb'}
-            {include file='_partials/breadcrumb.tpl'}
-          {/block}
+      <div id="wrapper">
         {hook h="displayWrapperTop"}
-        <div class="{if $page.page_name =='index'}full-container{else}container{/if}">
+			{block name='breadcrumb'}
+				{include file='_partials/breadcrumb.tpl'}
+			{/block}
+<div class="content_wrap">
+        <div class="{if $page.page_name =='index' || $page.page_name =='product'}full-container{else}container{/if}">
+            <div class="{if $page.page_name =='category'}row{/if}">
           {block name="left_column"}
             <div id="left-column" class="col-xs-12 col-sm-4 col-md-3">
               {if $page.page_name == 'product'}
@@ -70,7 +76,7 @@
           {/block}
 
           {block name="content_wrapper"}
-            <div id="content-wrapper" class="left-column right-column col-sm-4 col-md-6">
+            <div id="content-wrapper" class="js-content-wrapper left-column right-column col-sm-4 col-md-6">
               {hook h="displayContentWrapperTop"}
               {block name="content"}
                 <p>Hello world! This is HTML5 Boilerplate.</p>
@@ -88,17 +94,16 @@
               {/if}
             </div>
           {/block}
-        </div>
+          </div>
+		</div>
+		</div>
         {hook h="displayWrapperBottom"}
-      </section>
-
-      <footer id="footer">
+	</div>
+      <footer id="footer" class="js-footer">
         {block name="footer"}
-          {include file="_partials/footer.tpl"}
+           {include file="_partials/footer.tpl"}
         {/block}
       </footer>
-	</div>
-	</div>
     </main>
 
     {block name='javascript_bottom'}

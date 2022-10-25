@@ -1,0 +1,183 @@
+.ttproductcountdown .ttpc-count.ttpc-curr,
+.ttproductcountdown .ttpc-count.ttpc-bottom{
+    display: none;
+}
+.pb-right-column .product-prices div.ttproductcountdown,
+.quickview .product-prices .ttproductcountdown {
+    padding: 0;
+    margin: 0;
+}
+.product-miniature.product-grid .thumbnail-container .ttproductcountdown {
+	bottom: 10px;
+	left: 0;
+	right: 0;
+	top: auto;
+	position: absolute;
+	opacity: 1;
+	-moz-opacity: 1;
+	-khtml-opacity: 1;
+	-webkit-opacity: 1;
+	transition: all 400ms ease-in-out 0s;
+	background: #fff;
+	box-shadow: 0 0 6px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0 0 6px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+.ttspecial-products .product-miniature.product-grid .thumbnail-container .ttproductcountdown {
+	position: absolute;
+	background: none;
+	box-shadow: none;
+	bottom: 37px;
+	top: auto;
+	left: auto;
+	right: auto;
+}
+.ttspecial-products .product-miniature.product-grid .thumbnail-container:hover .ttproductcountdown{
+	bottom: 37px;
+}
+.product-miniature.product-grid .thumbnail-container:hover .ttproductcountdown {
+	bottom: -25px;
+	opacity: 0;
+	transition: all 400ms ease-in-out 0s;
+}
+.ttpc-offer-ends {
+	margin: 0 0 8px;
+	display: none;
+}
+.ttpc-main {
+	display: inline-block;
+	float: none;
+padding: 12px 0 12px 10px;
+	position: relative;
+	width: auto;
+	vertical-align:top;
+}
+.ttpc-main::before{
+	position:absolute;
+	content:'\e8b5';
+	font-family:'Material Icons';
+	left:-10px;
+	right:auto;
+	color:#222;
+	font-size:19px;
+}
+.ttspecial-products .ttpc-main::before{
+left:6px;
+}
+#tab-listview .ttpc-main::before , #tab-shortview .ttpc-main::before,.quickview .ttpc-main::before,.pb-right-column .ttpc-main::before{
+left:8px;
+}
+#tab-listview .ttpc-main, #tab-shortview .ttpc-main{
+	background: #f5f5f5;
+	margin: 0 0 10px;
+	padding: 12px 0px 12px 30px;
+	text-align: center;
+}
+.ttspecial-products .ttpc-main{
+	background: #f5f5f5;
+	margin: 5px 0 2px;
+	padding: 10px 0px 10px 24px;
+	text-align: center;
+}
+.pb-right-column .product-prices .ttpc-main {
+	background: #f5f5f5;
+	text-align: center;
+}
+.ttpc-main .ttpc-time {
+	width: 38px;
+	float: left;
+	position: relative;
+}
+#tab-gridview3 .ttpc-main .ttpc-time {
+	width: 38px;
+	margin:0;
+	position:relative;
+}
+.quickview .ttpc-main,.pb-right-column .ttpc-main{
+padding: 10px 0 10px 28px;
+}
+.pb-right-column .ttpc-main .ttpc-time{
+margin:0;
+}
+.seconds.ttpc-highlight .ttpc-count{
+	color:#c45546;
+}
+.ttpc-main .ttpc-count {
+	color: #222;
+	display: block;
+	font: 500 14px/18px var(--secondary-font);
+}
+.ttpc-main .ttpc-time::after{
+position: absolute;
+content: ':';
+top: 0;
+bottom: auto;
+right: 0;
+left: auto;
+}
+.ttpc-main .ttpc-time:last-child::after{
+display:none;
+}
+#tab-gridview3 .ttpc-main .ttpc-count {
+	font-size: 13px;
+}
+.ttpc-main .ttpc-label {
+	color: #777777;
+	font: italic 500 12px/14px var(--secondary-font);
+	display:none;
+}
+#tab-gridview3 .ttpc-main .ttpc-label {
+	font-size:11px;
+}
+.ttpc-compact .ttpc-main .ttpc-label {
+	display: none;
+}
+#product_comparison .product-miniature .ttpc-main {
+    background: #f5f5f5;
+    margin: 12px 0 0;
+}
+@media (min-width: 544px) and (max-width: 1199px) {
+	table#product_comparison .ttproductcountdown .ttpc-main .time {
+		width: 28px;
+		margin: 0 !important;
+	}
+}
+@media (max-width: 1499px) {
+	.ttpc-main .ttpc-time {
+		width:36px;
+	}
+}
+@media (max-width: 1199px) {
+	.ttpc-main .ttpc-count {
+		font-size: 14px;
+	}
+}
+@media (max-width: 767px) {
+	.ttspecial-products .product-miniature.product-grid .thumbnail-container .ttproductcountdown{
+		position: static;
+	}
+	.ttspecial-products .ttpc-main{
+		margin: 0px 0 7px;
+	}
+.product-miniature.product-grid .thumbnail-container .ttproductcountdown {
+	bottom: 10px;
+	top: auto;
+}
+.product-miniature.product-grid .thumbnail-container:hover .ttproductcountdown {
+	bottom: 10px;
+	top: auto;
+	opacity:1;
+}
+}
+@media (max-width: 543px) {
+#tab-shortview .ttpc-main{
+padding: 7px 0 7px 23px;
+margin: 3px 0 5px;
+}
+ #tab-shortview .ttpc-main::before{
+	font-size: 16px;
+}
+#tab-shortview .ttpc-main .ttpc-count {
+	font-size: 13px;
+  }
+}

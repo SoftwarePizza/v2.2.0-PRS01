@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,12 +18,11 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div class="col-md-6 linklist links">
-  <div class="row">
+<div class="col-md-5 links link-list">
   {foreach $linkBlocks as $linkBlock}
     <div class="col-md-6 wrapper">
       <h3 class="h3 hidden-sm-down">{$linkBlock.title}</h3>
@@ -32,8 +31,8 @@
         <span class="h3">{$linkBlock.title}</span>
         <span class="float-xs-right">
           <span class="navbar-toggler collapse-icons">
-            <i class="material-icons add">&#xE313;</i>
-            <i class="material-icons remove">&#xE316;</i>
+            <i class="material-icons add">&#xE145;</i>
+            <i class="material-icons remove">&#xE15B;</i>
           </span>
         </span>
       </div>
@@ -44,7 +43,9 @@
                 id="{$link.id}-{$linkBlock.id}"
                 class="{$link.class}"
                 href="{$link.url}"
-                title="{$link.description}">
+                title="{$link.description}"
+				{if !empty($link.target)} target="{$link.target}" {/if}
+				>
               {$link.title}
             </a>
           </li>
@@ -52,5 +53,4 @@
       </ul>
     </div>
   {/foreach}
-  </div>
 </div>

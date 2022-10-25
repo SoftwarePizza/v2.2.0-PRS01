@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,11 +18,12 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 <div id="_desktop_user_info">
+<<<<<<< HEAD
 {if !$logged}
   <a href="{$urls.pages.register}" title="{l s='Register in our store'  d='Shop.Theme.Customeraccount'}" rel="nofollow" class="btn btn-unstyle customRegisterLink">
     <i class="material-icons user">&#xeb3f;</i> {l s='Register' d='Shop.Theme.Actions'}
@@ -30,32 +31,37 @@
 {/if}
 <div class="ttuserheading"></div>	
   <ul class="user-info">
+=======
+<div class="ttuserheading">
+</div>	
+<ul class="user-info">
+>>>>>>> master
     {if $logged}
       <li><a
-        class="logout hidden-sm-down"
-        href="{$logout_url}"
-        rel="nofollow"
-      >
-        <i class="material-icons user">&#xE7FF;</i>
-        <span class="hidden-sm-down">{l s='Sign out' d='Shop.Theme.Actions'}</span>
-      </a></li>
-      <li><a
         class="account"
-        href="{$my_account_url}"
+        href="{$urls.pages.my_account}"
         title="{l s='View my customer account' d='Shop.Theme.Customeraccount'}"
         rel="nofollow"
       >
-        <i class="material-icons hidden-md-up logged user">&#xE7FF;</i>
-        <span class="hidden-sm-down">{$customerName}</span>
+	<i class="material-icons-outlined logged user">login</i>
+        {$customerName}
+      </a></li>
+      <li><a
+        class="logout hidden-sm-down"
+        href="{$urls.actions.logout}"
+        rel="nofollow"
+      >
+	<i class="material-icons-outlined user">login</i>
+        {l s='Sign out' d='Shop.Theme.Actions'}
       </a></li>
     {else}
       <li><a
-        href="{$my_account_url}"
+        href="{$urls.pages.my_account}"
         title="{l s='Log in to your customer account' d='Shop.Theme.Customeraccount'}"
         rel="nofollow"
       >
-        <i class="material-icons user">&#xE7FF;</i>
-        <span class="hidden-sm-down">{l s='Sign in' d='Shop.Theme.Actions'}</span>
+	<i class="material-icons-outlined user">login</i>
+        {l s='Sign in' d='Shop.Theme.Actions'}
       </a></li>
       <li><a
         href="{$urls.pages.register}"
@@ -66,8 +72,8 @@
         <span class="hidden-sm-down">{l s='Register' d='Shop.Theme.Actions'}</span>
       </a></li>
     {/if}
-		  {hook h='displayTtCompareHeader'}
+	{hook h='displayTtCompareHeader'}
       {hook h='displayTtWishlistHeader'}
-
   </ul>
+
 </div>

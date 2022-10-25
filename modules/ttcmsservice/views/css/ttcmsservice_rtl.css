@@ -1,0 +1,98 @@
+/*---------------------------- Start TT - CMS Services block ----------------------------*/
+#ttcmsservice {
+    position: relative;
+	margin:0 0 40px;
+}
+#ttcmsservice .ttservicecontent {
+    float: right;
+    width: 100%;
+}
+#ttcmsservice .ttservice {
+    float: none;
+	display: flex;
+	align-items: center;
+    text-align: center;
+	justify-content: center;
+	border-left: 1px solid var(--border-color);
+	padding: 0 0 0 30px;
+}
+#ttcmsservice .ttservice:hover .service-title,#ttcmsservice .ttservice:hover .service-content .service-desc{
+color:var(--secondary-bg-color);
+    transition: all 400ms ease-in-out 0s;
+    -webkit-transition: all 400ms ease-in-out 0s;
+    -moz-transition: all 400ms ease-in-out 0s;
+    -o-transition: all 400ms ease-in-out 0s;
+    -ms-transition: all 400ms ease-in-out 0s;
+}
+#ttcmsservice .ttservice .service-title, #ttcmsservice .service-content .service-desc {
+	transition: all 400ms ease-in-out 0s;
+	-webkit-transition: all 400ms ease-in-out 0s;
+	-moz-transition: all 400ms ease-in-out 0s;
+	-o-transition: all 400ms ease-in-out 0s;
+	-ms-transition: all 400ms ease-in-out 0s;
+	font: 500 14px/22px var(--secondary-font);
+	color: #222;
+}
+#ttcmsservice .ttservice.ttreturn{
+border:none;
+}
+#ttcmsservice .ttservicecontent .service-icon {
+    float: right;
+    height: 50px;
+    margin: 0;
+    width: 60px;
+    transition: all 400ms ease-in-out 0s;
+    -webkit-transition: all 400ms ease-in-out 0s;
+    -moz-transition: all 400ms ease-in-out 0s;
+    -o-transition: all 400ms ease-in-out 0s;
+    -ms-transition: all 400ms ease-in-out 0s;
+}
+#ttcmsservice .ttservicecontent .service-content  {
+    float: right;
+    margin: 0 10px 0 0;
+    text-align: right;
+}
+#ttcmsservice .ttdelivery .service-icon.ttdelivery_img {
+    background: transparent url("../img/services.png") repeat scroll 10px -6px;
+}
+#ttcmsservice .ttdelivery:hover .service-icon.ttdelivery_img {
+    background-position: 68px -6px;
+}
+#ttcmsservice .ttsaving .service-icon.ttsaving_img {
+	background: transparent url("../img/services.png") repeat scroll 10px -66px;
+}
+#ttcmsservice .ttsaving:hover .service-icon.ttsaving_img {
+    background-position: 68px -66px;
+}
+#ttcmsservice .ttsupport .service-icon.ttsupport_img {
+    background: transparent url("../img/services.png") repeat scroll 10px -126px;
+}
+#ttcmsservice .ttsupport:hover .service-icon.ttsupport_img {
+    background-position: 68px -126px;
+}
+#ttcmsservice .ttreturn .service-icon.ttreturn_img {
+    background: transparent url("../img/services.png") repeat scroll 10px -185px;
+}
+#ttcmsservice .ttreturn:hover .service-icon.ttreturn_img {
+    background-position: 68px -185px;
+}
+@media (max-width: 1199px) {
+	#ttcmsservice .ttservice{
+	border:none;
+	}
+}
+@media (max-width: 991px) {
+#ttcmsservice .service-content .service-title, #ttcmsservice .service-content .service-desc {
+	font-size:13px;
+	line-height:20px;
+}
+#ttcmsservice {
+    margin: 0 0 30px;
+}
+}
+@media (max-width: 543px) {
+#ttcmsservice {
+    margin: 0 0 15px;
+}
+}
+/*---------------------------- End TT - CMS Services block ----------------------------*/

@@ -1,0 +1,422 @@
+/* ------------------ Strat TT - CMS Services block --------------------- */
+
+#ttcmsservice {
+    float: right;
+    padding: 0;
+    width: 100%;
+	background:url("../img/parallex-bg.jpg");
+    position: relative;
+	margin:0 0 80px;
+	background-color:#dfe7d5;
+}
+
+#ttcmsservice .services .ttservices-inner {
+    float: right;
+    width: 100%;
+    padding:90px 0;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-left {
+    text-align: right;
+    float: left;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-right {
+    float: right;
+    text-align: left;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-middle {
+    display: inline-block;
+    float: none;
+    text-align: center;
+    vertical-align: top;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-middle img {
+    max-width: 100%;
+    transition: all 0.9s ease 0s;
+    -webkit-transition: all 0.9s ease 0s;
+    -moz-transition: all 0.9s ease 0s;
+    -o-transition: all 0.9s ease 0s;
+    -ms-transition: all 0.9s ease 0s;
+}
+@media(max-width:1199px)
+{
+#ttcmsservice
+{
+margin:0 0 60px;
+}
+}
+@media(max-width:991px)
+{
+#ttcmsservice
+{
+margin:0 0 40px;
+}
+}
+@media (min-width: 768px) {
+    #ttcmsservice:hover .services .ttservices-inner .ttservice-middle img {
+        transform: scale(1.1, 1.1);
+        -webkit-transform: scale(1.1, 1.1);
+        -moz-transform: scale(1.1, 1.1);
+        -o-transform: scale(1.1, 1.1);
+        -ms-transform: scale(1.1, 1.1);
+    }
+}
+#ttcmsservice .services .ttservices-inner .ttservices {
+    float: right;
+    width: 100%;
+    padding: 0;
+    margin: 0 0 70px 0;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-right .ttservices:last-child {
+    margin: 0 40px 0 0;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices:last-child {
+  margin: 0 -40px 0 0;
+}
+#ttcmsservice .services .ttservices-inner .ttservices .ttcontent_inner {
+    float: right;
+    cursor: pointer;
+}
+#ttcmsservice .services .ttservices-inner .ttservices .ttcontent_inner .service .service-icon {
+    display: inline-block;
+    float: right;
+    font-size: 30px;
+    height: 90px;
+    line-height: 60px;
+    text-align: center;
+	position:relative;
+    width: 90px;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-right .ttservices .ttcontent_inner .service .service-icon {
+    float: left;
+}
+#ttcmsservice .services .ttservices-inner .ttservices .ttcontent_inner .service .service-icon.ttoffers_img {
+    background-position: -38px -34px;
+}
+#ttcmsservice .services .ttservices-inner .ttservices .ttcontent_inner .service .service-icon.ttreturn_img {
+    background-position: -38px -140px;
+}
+#ttcmsservice .services .ttservices-inner .ttservices .ttcontent_inner .service .service-icon.tteasyuse_img {
+    background-position: -38px -246px;
+}
+#ttcmsservice .services .ttservices-inner .ttservices .ttcontent_inner .service .service-icon.ttexchange_img {
+    background-position: -38px -351px;
+}
+#ttcmsservice .services .ttservices-inner .ttservices .ttcontent_inner .service .service-icon.ttshinpping_img {
+    background-position: -38px -455px;
+}
+#ttcmsservice .services .ttservices-inner .ttservices .ttcontent_inner .service .service-icon.ttdelivery_img {
+    background-position: -38px -564px;
+}
+
+#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices:hover .ttcontent_inner .service .service-icon.ttoffers_img::after
+{
+transform:rotateY(340deg);
+}
+#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices:hover .ttcontent_inner .service .service-icon.ttreturn_img::after
+{
+transform:rotateY(340deg);
+}
+#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices:hover .ttcontent_inner .service .service-icon.tteasyuse_img::after
+{
+transform:rotateY(340deg);
+}
+
+#ttcmsservice .services .ttservices-inner .ttservice-right .ttservices:hover .ttcontent_inner .service .service-icon.ttexchange_img::after
+{
+transform:rotateY(340deg);
+
+}
+
+#ttcmsservice .services .ttservices-inner .ttservice-right .ttservices:hover .ttcontent_inner .service .service-icon.ttshinpping_img::after
+{
+transform:rotateY(340deg);
+
+}
+#ttcmsservice .services .ttservices-inner .ttservice-right .ttservices:hover .ttcontent_inner .service .service-icon.ttdelivery_img::after
+{
+transform:rotateY(340deg);
+
+}
+#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices .ttcontent_inner .service .service-icon.ttoffers_img::before
+ {
+  background: rgba(0, 0, 0, 0) url("../img/bg-01.png") repeat scroll 0 0;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices .ttcontent_inner .service .service-icon.ttreturn_img::before
+{
+  background: rgba(0, 0, 0, 0) url("../img/bg-02.png") repeat scroll 0 0;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices .ttcontent_inner .service .service-icon.tteasyuse_img::before
+{
+  background: rgba(0, 0, 0, 0) url("../img/bg-03.png") repeat scroll 0 0;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices .ttcontent_inner .service .service-icon::before
+{
+  bottom: 0;
+  content: "";
+  height: 90px;
+  right: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 90px;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices .ttcontent_inner .service .service-icon::after
+{
+  bottom: 0;
+  content: "";
+  height: 90px;
+  right: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 90px;
+}
+
+
+#ttcmsservice .services .ttservices-inner .ttservice-right .ttservices .ttcontent_inner .service .service-icon.ttexchange_img::before {
+  background: rgba(0, 0, 0, 0) url("../img/bg-01.png") repeat scroll 0 0;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-right .ttservices .ttcontent_inner .service .service-icon.ttshinpping_img::before
+{
+  background: rgba(0, 0, 0, 0) url("../img/bg-02.png") repeat scroll 0 0;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-right .ttservices .ttcontent_inner .service .service-icon.ttdelivery_img::before
+{
+  background: rgba(0, 0, 0, 0) url("../img/bg-03.png") repeat scroll 0 0;
+
+}
+
+#ttcmsservice .services .ttservices-inner .ttservice-right .ttservices .ttcontent_inner .service .service-icon::before
+{
+  bottom: 0;
+  content: "";
+  height: 90px;
+  right: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 90px;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices .ttcontent_inner .service .service-icon::after,
+#ttcmsservice .services .ttservices-inner .ttservice-right .ttservices .ttcontent_inner .service .service-icon::after
+{
+  bottom: 0;
+  content: "";
+  height: 90px;
+  right: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 90px;
+  background: url("../img/store-services.png");
+  transition:all 500ms ease-in-out 0s;
+}
+
+#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices .ttcontent_inner .service .service-icon.ttoffers_img::after {
+  background-position: -101px -247px;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices .ttcontent_inner .service .service-icon.ttreturn_img::after {
+  background-position: -101px -330px;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices .ttcontent_inner .service .service-icon.tteasyuse_img::after {
+  background-position: -101px -415px;
+}
+
+#ttcmsservice .services .ttservices-inner .ttservice-right .ttservices .ttcontent_inner .service .service-icon.ttexchange_img::after {
+  background-position: -101px -4px;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-right .ttservices .ttcontent_inner .service .service-icon.ttshinpping_img::after {
+  background-position: -101px -84px;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-right .ttservices .ttcontent_inner .service .service-icon.ttdelivery_img::after {
+  background-position: -101px -167px;
+}
+
+#ttcmsservice .services .ttservices-inner .ttservices .ttcontent_inner .service-content .service-title {
+  color: #111111;
+  font: 700 18px/26px "philosopher",Helvetica,sans-serif;
+  letter-spacing: 1px;
+  margin: 10px 0 5px;
+  padding: 0 0 5px;
+  position: relative;
+  text-transform: capitalize;
+}
+#ttcmsservice .services .ttservices-inner .ttservices.ttexchange,
+#ttcmsservice .services .ttservices-inner .ttservices.ttdelivery {
+  margin-right: 40px;
+}
+#ttcmsservice .services .ttservices-inner .ttservices.ttoffers,
+#ttcmsservice .services .ttservices-inner .ttservices.tteasyuse
+ {
+  margin-right: -40px;
+}
+
+#ttcmsservice .services .ttservices-inner .ttservice-right .ttservices .ttcontent_inner .service-content .service-title:before {
+    border-bottom: 1px solid #888;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    text-align: center;
+    width: 30px;
+}
+
+#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices .ttcontent_inner .service-content .service-title:before {
+    border-bottom: 1px solid #222222;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: auto;
+    margin: 0 auto;
+    position: absolute;
+    text-align: center;
+    width: 30px;
+}
+#ttcmsservice .services .ttservices-inner .ttservices .ttcontent_inner .service-content .service-desc {
+    font-family: "Poppins", Helvetica, sans-serif;
+}
+#ttcmsservice .services .ttservices-inner .ttservices:hover .ttcontent_inner .service-content .service-title {
+    color: #72ad00;
+}
+#ttcmsservice .services .ttservices-inner .ttservices:hover .ttcontent_inner .service-content .service-title:before {
+    border-color: #72ad00;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices .ttcontent_inner .service-content {
+  padding: 0 100px 0 0;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-right .ttservices .ttcontent_inner .service-content {
+  padding: 0 0 0 100px;
+}
+@media (max-width: 1200px) {
+#ttcmsservice .services .ttservices-inner .ttservices .ttcontent_inner .service-content .service-title {
+	font-size:17px;
+	line-height:20px;
+}
+}
+@media (max-width: 1199px) {
+    #ttcmsservice {
+        padding: 0;
+    }
+    #ttcmsservice .services .ttservices-inner .ttservices {
+        margin: 0 0 50px;
+    }
+	#ttcmsservice .services .ttservices-inner {
+		padding:50px 0 50px;
+	}
+}
+@media (max-width: 991px) {
+    #ttcmsservice .services .ttservices-inner {
+        padding: 30px 0;
+    }
+	#ttcmsservice .services .ttservices-inner .ttservice-right {
+		  padding: 0;
+	}
+	#ttcmsservice .services .ttservices-inner .ttservice-left {
+  			padding: 0;
+	}
+	#ttcmsservice .services .ttservices-inner .ttservices.ttexchange,
+	#ttcmsservice .services .ttservices-inner .ttservices.ttdelivery {
+  		margin-right: 0px;
+	}
+	#ttcmsservice .services .ttservices-inner .ttservices.ttoffers,
+	#ttcmsservice .services .ttservices-inner .ttservices.tteasyuse
+ 	{
+  		margin-right: 0px;
+	}
+    #ttcmsservice .services .ttservices-inner .ttservices {
+        margin: 0 0 20px;
+    }
+    #ttcmsservice .services .ttservices-inner .ttservice-left .ttservices .ttcontent_inner .service-content {
+        padding: 0 100px 0 0;
+    }
+    #ttcmsservice .services .ttservices-inner .ttservice-right .ttservices .ttcontent_inner .service-content {
+        padding: 0 0 0 100px;
+    }
+	#ttcmsservice .services .ttservices-inner .ttservice-right .ttservices:last-child {
+    margin: 0 0px 0 0;
+}
+#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices:last-child {
+  margin: 0 0px 0 0;
+}
+    #ttcmsservice .services .ttservices-inner .ttservice-middle .ttservices-img {
+        display: inline-block;
+        float: none;
+        position: relative;
+        vertical-align: top;
+        width: 250px;
+    }
+}
+@media (max-width:991px) {
+    #ttcmsservice .services .ttservices-inner .ttservice-left {
+        float: right;
+        width: 50%;
+		padding:0;
+    }
+
+	#ttcmsservice .services .ttservices-inner .ttservice-right .ttservices:last-child {
+    	margin: 0 0px 0 0;
+	}
+	#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices:last-child {
+  		margin: 0 0px 0 0;
+	}
+    #ttcmsservice .services .ttservices-inner .ttservice-right {
+        width: 50%;
+		padding:0;
+    }
+	
+    #ttcmsservice .services .ttservices-inner .ttservice-middle {
+        padding: 40px 0;
+        width: 100%;
+    }
+
+    #ttcmsservice .services .ttservices-inner {
+        padding: 0;
+    }
+    #ttcmsservice .services .ttservices-inner .ttservice-left .ttservices .ttcontent_inner {
+        float: none;
+    }
+    #ttcmsservice .services .ttservices-inner .ttservice-right {
+        text-align: right;
+    }
+    #ttcmsservice .services .ttservices-inner .ttservice-right .ttservices .ttcontent_inner .service .service-icon {
+        float: right;
+    }
+    #ttcmsservice .services .ttservices-inner .ttservice-right .ttservices .ttcontent_inner .service-content .service-title:before {
+        right: 0;
+        left: auto;
+    }
+    #ttcmsservice .services .ttservices-inner .ttservice-right .ttservices .ttcontent_inner .service-content
+	 {
+        padding: 0 100px 0 0;
+    }
+	#ttcmsservice .services .ttservices-inner .ttservice-left .ttservices .ttcontent_inner .service-content {
+  padding: 0 100px 0 0;
+}
+#ttcmsservice {
+  padding: 30px 0 0;
+}
+}
+@media (max-width: 543px) {
+    #ttcmsservice .services .ttservices-inner .ttservices {
+        width: 100%;
+        margin: 0 0 15px;
+    }
+    #ttcmsservice .services .ttservices-inner .ttservice-middle {
+        padding-top: 35px;
+    }
+    #ttcmsservice .services .ttservices-inner .ttservice-left {
+        width: 100%;
+    }
+    #ttcmsservice .services .ttservices-inner .ttservice-right {
+        width: 100%;
+        margin: 15px 0 0;
+    }
+#ttcmsservice
+{
+margin:0 0 20px;
+}
+
+}
+/* ------------------ End TT - CMS Services block --------------------- */

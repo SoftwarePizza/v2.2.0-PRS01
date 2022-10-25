@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,32 +18,28 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
- {assign var="tt_cnt" value="1"}
-{assign var="tt_total" value="0"}
-{foreach from=$products item="product"}
-	{$tt_total = $tt_total+1}
-{/foreach}
-
 <section class="featured-products clearfix">
-  <h1 class="h1 tt-title text-uppercase">
+  <h1 class="h1 tt-title">
     {l s='Popular Products' d='Shop.Theme.Catalog'}
   </h1>
-  <div class="products row">
+  <div class="products">
     {foreach from=$products item="product"}
       {include file="catalog/_partials/miniatures/product.tpl" product=$product}
     {/foreach}
   </div>
-    {if $tt_total > 4}
 	<div class="customNavigation">
-		<a class="btn prev featuredproduct_prev">{l s='Prev' d='Shop.Theme.Catalog'}</a>
-		<a class="btn next featuredproduct_next">{l s='Next' d='Shop.Theme.Catalog'}</a>
+		<a class="btn prev featured-products_prev">{l s='Prev'}</a>
+		<a class="btn next featured-products_next">{l s='Next'}</a>
 	</div>
-	{/if}
-  <a class="all-product-link float-xs-left float-md-right h4" href="{$allProductsLink}">
-    {l s='All products' d='Shop.Theme.Catalog'}<i class="material-icons">&#xE315;</i>
-  </a>
+
+	<div class="allproductlink">
+		<a class="all-product-link float-xs-left float-md-right h4" href="{$allProductsLink}">
+			<span>{l s='All products' d='Shop.Theme.Catalog'}</span>
+			<i class="material-icons">&#xE315;</i>
+		</a>
+	</div>
 </section>

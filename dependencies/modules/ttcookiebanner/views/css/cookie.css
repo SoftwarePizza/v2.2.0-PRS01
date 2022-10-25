@@ -1,0 +1,117 @@
+.eupopup-container {
+    background-color: #fff;
+    padding: 10px 20px;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: center;
+    display: none;
+    z-index: 2;
+	float:left;
+	width:100%;
+	position:relative;
+    box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.15);
+}
+.eupopup-container-cookie_style4 {
+    position: fixed;
+    bottom: 0; 
+	left: 0; 
+	right: 0;
+}
+.eupopup-container-cookie_style2 {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 300px;
+}
+.eupopup-container-cookie_style3 {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 300px;
+}
+.eupopup-body {
+	float:left;
+	width: 100%;
+}
+.eupopup-body .eupopup-content {
+    font-size: 14px;
+    line-height: 24px;
+    color: #111;
+	text-align: center;
+    float: left;
+    width: auto;
+	margin:0 0 15px;
+}
+.eupopup-container-cookie_style1 .eupopup-body .eupopup-content,
+.eupopup-container-cookie_style4 .eupopup-body .eupopup-content {
+	margin:0;
+}
+.eupopup-container-cookie_style1 .eupopup-body .eupopup-buttons,
+.eupopup-container-cookie_style4 .eupopup-body .eupopup-buttons {
+	    float: right;
+    width: auto;
+    margin-left: 20px;
+}
+.eupopup-learn-more {
+    color: #111;
+	font-weight:700;
+    text-decoration: underline;
+}
+.eupopup-button {
+	display: inline-block;
+	vertical-align: top;
+	cursor: pointer;
+	text-decoration: none;
+	border: none;
+	float: none;
+	width: auto;
+	font-size: 12px;
+    padding: 4px 18px;
+}
+body .eupopup-color-inverse {
+    color: #111;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+body .eupopup-color-inverse .eupopup-head {
+    color: #111;
+}
+body .eupopup-style-compact {
+    text-align: left;
+    padding: 8px 30px 7px 20px;
+    line-height: 15px;
+}
+body .eupopup-style-compact .eupopup-head,
+body .eupopup-style-compact .eupopup-body,
+body .eupopup-style-compact .eupopup-buttons {
+    display:inline-block;
+	vertical-align:top;
+    padding: 0;
+    margin: 0;
+}
+body .eupopup-style-compact .eupopup-button {
+    margin: 0 5px;
+}
+@media (min-width: 544px) {
+	.eupopup-container-cookie_style4 .eupopup-body,
+	.eupopup-container-cookie_style1 .eupopup-body {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		float:none;
+	}
+}
+@media (max-width: 543px) {
+	.eupopup-container {
+		padding: 15px 20px;
+	}
+	.eupopup-body .eupopup-content {
+		width:100%;
+		font-size:13px;
+	    margin: 0 0 15px;
+	}
+	.eupopup-body .eupopup-buttons {
+		float:left;
+		width:100%;
+		margin:0;
+	}
+}

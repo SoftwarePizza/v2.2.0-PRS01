@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,32 +18,33 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 
 <div class="block-contact contact-rich col-md-3 links">
-<h4 class="hidden-sm-down">{l s='Store information' d='Shop.Theme.Global'}</h4>
+<h3 class="hidden-sm-down">{l s='Store information' d='Shop.Theme.Global'}</h3>
 	<div  class="title clearfix hidden-md-up" data-toggle="collapse" data-target="#contact-footer">
   	<span class="h3 block-contact-title">{l s='Store information' d='Shop.Theme.Global'}</span>
 	 <span class="float-xs-right">
           <span class="navbar-toggler collapse-icons">
-            <i class="material-icons add">&#xE5CF;</i>
-            <i class="material-icons remove">&#xE5CE;</i>
+            <i class="material-icons add">&#xE145;</i>
+            <i class="material-icons remove">&#xE15B;</i>
           </span>
 	</span>
   </div>
     <ul id="contact-footer" class="collapse">
 	  <li class="block">
 		<div class="icon"><i class="material-icons">&#xE55F;</i></div>
-		  <div class="data address">{$contact_infos.address.formatted nofilter}</div>
+		  <div class="data">{$contact_infos.address.formatted nofilter}</div>
 		  </li>
-	 {if $contact_infos.phone}
+	{if $contact_infos.phone}
 	  <li class="block">
-	  <div class="icon"><i class="material-icons">&#xE0CD;</i></div>
-		<div class="data contact">
+		<div class="data">
+	  	       <a href="tel:{$contact_infos.phone}"> <div class="icon"><i class="material-icons">&#xE0CD;</i></div>
         {* [1][/1] is for a HTML tag. *}
+<<<<<<< HEAD
         <span  class="title">{l s='Call us:</span> [1]%callTag%[12]%phone%[/1]'
           sprintf=[
           '[1]' => '<a href="tel:',
@@ -51,16 +52,23 @@
           '[/1]' => '</a>',
           '%phone%' => $contact_infos.phone,
           '%callTag%' => $contact_infos.phone|replace:" ":""
+=======
+        <span class="title">{l s='Call us:</span> [1]%phone%[/1]'
+          sprintf=[
+          '[1]' => '<span>',
+          '[/1]' => '</span>',
+          '%phone%' => $contact_infos.phone
+>>>>>>> master
           ]
           d='Shop.Theme.Global'
-        }
+        }</a>
 	  </div>
 	  </li>
 	  {/if}
 	  {if $contact_infos.fax}
 	  	  <li class="block">
-		  <div class="icon"><i class="material-icons">&#xE0DF;</i></div>
-		<div class="data fax">
+		<div class="icon"><i class="material-icons">&#xE0DF;</i></div>
+				<div class="data">
         {* [1][/1] is for a HTML tag. *}
         <span class="title">{l
           s='Fax:</span> [1]%fax%[/1]'
@@ -73,21 +81,14 @@
         }
 	  </div>
 	  </li>
-	 {/if}
-	 {if $contact_infos.email}
+	  {/if}
+	  {if $contact_infos.email}
 	  <li class="block">
-	  	<div class="icon"><i class="material-icons">&#xE158;</i></div>
-		<div class="data email">
+		<div class="data">
+	  		<div class="icon"><i class="material-icons">&#xE158;</i></div>
         {* [1][/1] is for a HTML tag. *}
-       <span class="title">{l
-          s='Email us:</span> [1]%email%[/1]'
-          sprintf=[
-            '[1]' => '<a href="mailto:'|cat:$contact_infos.email|cat:'" class="dropdown">',
-            '[/1]' => '</a>',
-            '%email%' => $contact_infos.email
-          ]
-          d='Shop.Theme.Global'
-        }
+       <span class="title">{l s='Email us:' d='Shop.Theme.Global'}</span>
+        {mailto address=$contact_infos.email encode="javascript"}
 	  </div>
 	  </li>
 	  {/if}

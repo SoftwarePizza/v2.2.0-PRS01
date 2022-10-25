@@ -1,0 +1,36 @@
+/*--------------- Start TT - CMS ttcmsheader --------------*/
+#ttcmsheader {
+	float: none;
+	width: auto;
+	padding: 14px 0;
+	display: inline-block;
+	vertical-align: top;
+}
+#ttcmsheader p {
+	color: var(--header-top-text-color);
+	display: flex;
+	margin: 0;
+	font: 400 14px/18px var(--secondary-font);
+	align-items: center;
+}
+#ttcmsheader span {
+	font-size: 20px;
+	font-weight: 400;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-khtml-border-radius: 50%;
+	padding: 0 5px;
+	line-height: 14px;
+	cursor: pointer;
+}
+@media (max-width: 1199px) {
+	#ttcmsheader p {
+		font-size:12px;
+	}
+	#ttcmsheader {
+		padding: 10px 0;
+	}
+}
+
+/*--------------- End TT - CMS ttcmsheader --------------*/

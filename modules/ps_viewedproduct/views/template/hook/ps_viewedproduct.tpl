@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,15 +18,10 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
- {assign var="tt_cnt" value="1"}
-{assign var="tt_total" value="0"}
-{foreach from=$products item="product"}
-	{$tt_total = $tt_total+1}
-{/foreach}
 
 <section class="view-product clearfix mt-3">
   <h2 class="tt-title">{l s='Viewed products' d='Shop.Theme.Catalog'}</h2>
@@ -35,10 +30,4 @@
       {include file="catalog/_partials/miniatures/product.tpl" product=$product}
     {/foreach}
   </div>
-    {if $tt_total > 4}
-		<div class="customNavigation">
-			<a class="btn prev viewproduct_prev">{l s='Prev' d='Modules.Viewedproduct.Shop'}</a>
-			<a class="btn next viewproduct_next">{l s='Next' d='Modules.Viewedproduct.Shop'}</a>
-		</div>
-	{/if}
 </section>

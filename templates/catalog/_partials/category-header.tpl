@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop.
+ * 2007-2022 PrestaShop.
  *
  * NOTICE OF LICENSE
  *
@@ -18,16 +18,16 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 <div id="js-product-list-header">
     {if $listing.pagination.items_shown_from == 1}
         <div class="block-category card card-block">
-           {if $category.image.large.url}
+           {if !empty($category.image.large.url)}
                 <div class="category-cover">
-                    <img src="{$category.image.large.url}" alt="{if !empty($category.image.legend)}{$category.image.legend}{else}{$category.name}{/if}">
+                    <img src="{$category.image.large.url}" alt="{if !empty($category.image.legend)}{$category.image.legend}{else}{$category.name}{/if}" loading="lazy">
                 </div>
             {/if}
             <h1 class="h1 title-category">
@@ -52,6 +52,7 @@
             {/if}
         </div>
     {/if}
+<<<<<<< HEAD
 	
 	{if isset($subcategories)}
     <!-- Subcategories -->
@@ -78,4 +79,6 @@
         </ul>
     </div>
 {/if}
+=======
+>>>>>>> master
 </div>

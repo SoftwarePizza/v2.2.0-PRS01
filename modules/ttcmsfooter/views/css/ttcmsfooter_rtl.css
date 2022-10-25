@@ -1,0 +1,52 @@
+/* ---------------------- Start TemplateTrip - TT CMS Footer Block --------------------------*/
+.footer-social{
+    margin: 30px 0;
+}
+#ttcmsfooter {
+	margin: 0 0 15px;
+}
+@media (max-width: 991px) {
+	.ttfooter-logo {
+	text-align: center;
+	margin:0 0 15px;
+}
+.footer-social {
+	width: 100%;
+	text-align: center;
+	margin: 0 0 10px;
+}
+}
+#ttcmsfooter p{
+	color: #ccc;
+	float: none;
+	margin: 0 auto;
+	font: 400 13px/22px "poppins",Helvetica,sans-serif;
+	text-align: right;
+	padding:12px 0 0;
+	width: 100%;
+}
+@media (max-width: 991px) {
+    #ttcmsfooter p{
+        margin: 20px auto 20px;
+        width: 100%;
+		font-size: 13px;
+		line-height: 20px;
+		text-align:center;
+    }
+}
+@media (min-width: 543px) and (max-width: 767px) {
+    #ttcmsfooter p{
+        width: 85%;
+    }
+}
+@media (max-width: 543px) {
+    #ttcmsfooter p {
+        margin: 0 auto;
+        width: auto;
+    }
+}
+#ttcmsfooter p > i > a {
+    color: #454545;
+    font-style: italic;
+}
+/* ---------------------- End TemplateTrip - TT CMS Footer Block --------------------------*/

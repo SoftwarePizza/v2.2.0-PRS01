@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022  PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,16 +18,30 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022  PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 <div id="js-product-list-top" class="products-selection">
   <div class="col-md-6 hidden-sm-down total-products">
-    	<!-- Grid-List Buttons --> 
-	<div class="grid-list col-md-2">
-	<span id="ttgrid" class="active"></span>
-	<span id="ttlist"></span>
+	<div class="grid_list col-md-6">
+	<ul class="nav nav-tabs" role="tablist">
+			<li class="nav-item tab">
+			<a class="nav-link grid_view3" data-toggle="tab" href="#tab-gridview3" role="tab"></a>
+		</li>
+			<li class="nav-item tab">
+			<a class="nav-link grid_view2 active" data-toggle="tab" href="#tab-gridview2" role="tab"></a>
+		</li>
+		<li class="nav-item tab">
+			<a class="nav-link grid_view" data-toggle="tab" href="#tab-gridview" role="tab"></a>
+		</li>
+		<li class="nav-item tab">
+			<a class="nav-link list_view" data-toggle="tab" href="#tab-listview" role="tab"></a>
+		</li>
+		<li class="nav-item tab">
+			<a class="nav-link sort_view" data-toggle="tab" href="#tab-shortview" role="tab"></a>
+		</li>
+		</ul>
 	</div>
 
     {if $listing.pagination.total_items > 1}
@@ -36,7 +50,7 @@
       <p>{l s='There is 1 product.' d='Shop.Theme.Catalog'}</p>
     {/if}
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6 borderright">
     <div class="row sort-by-row">
 
       {block name='sort_by'}
@@ -45,7 +59,7 @@
 
       {if !empty($listing.rendered_facets)}
         <div class="col-sm-3 col-xs-4 hidden-md-up filter-button">
-          <button id="search_filter_toggler" class="btn btn-secondary">
+          <button id="search_filter_toggler" class="btn btn-secondary js-search-toggler">
             {l s='Filter' d='Shop.Theme.Actions'}
           </button>
         </div>

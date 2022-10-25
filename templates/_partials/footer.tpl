@@ -1,5 +1,5 @@
 {**
- * 2007-2018 PrestaShop
+ * 2007-2022 PrestaShop
  *
  * NOTICE OF LICENSE
  *
@@ -18,51 +18,44 @@
  * needs please refer to http://www.prestashop.com for more information.
  *
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2018 PrestaShop SA
+ * @copyright 2007-2022 PrestaShop SA
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
- <div class="footer-top">
-<div class="container">
-  <div class="row">
+<div class="footer-top aos-init aos-animate" data-aos="fade-up"> 
     {block name='hook_footer_before'}
       {hook h='displayFooterBefore'}
     {/block}
-  </div>
-  </div>
 </div>
 <div class="footer-container">
-  <div class="container">
-    <div class="row">
+  <div class="container aos-init aos-animate footer-block" data-aos="fade-up">
       {block name='hook_footer'}
         {hook h='displayFooter'}
       {/block}
-    </div>
-    <div class="row">
-      {block name='hook_footer_after'}
-        {hook h='displayFooterAfter'}
-      {/block}
-    </div>
   </div>
 </div>
 <div class="bottom-footer">
-	<div class="container">    
-	 <div class="row">
-      <div class="col-md-12">
-        <p class="text-sm-center">
+	<div class="container aos-init aos-animate" data-aos="fade-up">
+	<div class="row">
+      <div class="ttcontent col-sm-4">
+        <p>
           {block name='copyright_link'}
+<<<<<<< HEAD
             <a class="_blank" href="https://www.prestashop.com" rel="nofollow" target="_blank">
+=======
+            <a class="_blank" href="{$urls.base_url}" rel="noopener noreferrer nofollow">
+>>>>>>> master
               {l s='%copyright% %year% - Ecommerce software by %prestashop%' sprintf=['%prestashop%' => 'PrestaShop™', '%year%' => 'Y'|date, '%copyright%' => '©'] d='Shop.Theme.Global'}
             </a>
           {/block}
         </p>
       </div>
-	  </div>
-	  </div>
-</div>
-<div class="backtotop-img">
-	<a href="#" class="goToTop show" title="Back to top"> <i class="material-icons arrow-up"></i></a>
+	  {block name='hook_footer_after'}
+        {hook h='displayFooterAfter'}
+      {/block}
+    </div>
 	</div>
+<<<<<<< HEAD
 <a class="goToTop ttbox-img show" href="#"> </a>
 
 <span itemscope itemtype="https://schema.org/Store">
@@ -89,3 +82,12 @@
     <meta itemprop="openingHours" content="Pn-Pt 08:00-16:00"/>
     <meta itemprop="telephone" content="+48885885435"/>
 </span>
+=======
+</div>
+<a href="#" id="goToTop" title="Back to top"><i class="material-icons arrow-up">&#xE316;</i></a>
+<div class="ttcookie">
+	{hook h='displayCookie'}
+</div>
+{hook h='displaypopupnewsletter'}
+{hook h='displayMessenger'}
+>>>>>>> master
