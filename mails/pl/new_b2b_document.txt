@@ -1,0 +1,10 @@
+﻿Witaj {firstname},
+
+
+Przesyłamy wydruk pdf dokumentu {document}.
+
+
+
+Zapraszamy do zakupów,
+
+{shop_name}
